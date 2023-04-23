@@ -1,3 +1,73 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["plugin:jsx-a11y/recommended", "eslint-config-prettier", "next/core-web-vitals"],
+  "plugins": ["jsx-a11y", "import-helpers", "react-hooks", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_$",
+        "ignoreRestSiblings": true,
+        "destructuredArrayIgnorePattern": "^_$"
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports"
+      }
+    ],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      },
+      {
+        "selector": "enum",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^E[A-Z]",
+          "match": true
+        }
+      }
+    ],
+    "arrow-body-style": ["error", "as-needed"],
+    "no-use-before-define": "error",
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "import-helpers/order-imports": [
+      "error",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^react$/",
+          ["module", "/^styled-components/", "/(@)/", "/^react-/"],
+          ["/(contexts)/", "/(hooks)/"],
+          "/(data)/",
+          ["/(views)/", "/(routes)/"],
+          ["/(sections)/", "/(components)/"],
+          ["/(libs)/", "/(utils)/"],
+          ["/(interface)/", "/(enums)/", "/(schemas)/"],
+          "/(styles)/"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ],
+    "react-hooks/exhaustive-deps": "warn",
+    "react/display-name": "error",
+    "testing-library/no-debugging-utils": "off"
+  }
 }
+
+// * Referências:
+
+// https://itnext.io/7-recommended-eslint-rules-for-react-typescript-project-1a22b011b4b5
+// https://blog.logrocket.com/12-essential-eslint-rules-react/
