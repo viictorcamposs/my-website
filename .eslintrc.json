@@ -45,8 +45,8 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          "/^react$/",
-          ["module", "/^styled-components/", "/(@)/", "/^react-/"],
+          ["/^react$/", "/^next/"],
+          ["module", "/(@)/", "/^react-/"],
           ["/(contexts)/", "/(hooks)/"],
           "/(data)/",
           ["/(views)/", "/(routes)/"],
@@ -56,13 +56,14 @@
           "/(styles)/"
         ],
         "alphabetize": {
-          "order": "asc",
+          "order": "desc",
           "ignoreCase": true
         }
       }
     ],
     "react-hooks/exhaustive-deps": "warn",
     "react/display-name": "error",
+    "react/no-unescaped-entities": "off",
     "testing-library/no-debugging-utils": "off"
   }
 }

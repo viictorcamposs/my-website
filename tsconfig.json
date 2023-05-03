@@ -21,7 +21,7 @@
     ],
     "paths": {
       "~/*": ["./src/*"],
-      "@testing-library/custom": ["./src/app/test/@testing-library/custom.tsx"]
+      "@testing-library/custom": ["./src/tests/@testing-library/custom.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

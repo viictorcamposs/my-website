@@ -1,9 +1,9 @@
 import type { FC, ReactElement } from 'react'
 import React from 'react'
 
+import fs from 'fs'
 import type { RenderOptions } from '@testing-library/react'
 import { render } from '@testing-library/react'
-import fs from 'fs'
 
 const wrapper: FC<{ children: React.ReactNode }> = ({ children }) => <>{children}</>
 
