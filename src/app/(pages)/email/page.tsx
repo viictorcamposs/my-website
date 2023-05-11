@@ -4,7 +4,7 @@ import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
 import EmailForm from '~/app/components/EmailForm'
 
-export default function Email() {
+export default function Page() {
   return (
     <Main>
       <PageTitle>

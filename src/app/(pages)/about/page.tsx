@@ -1,7 +1,7 @@
 import PageTitle from '~/app/components/PageTitle'
 import Main from '~/app/components/Main'
 
-export default function About() {
+export default function Page() {
   return (
     <Main>
       <PageTitle>Hi, I'm Victor Campos.</PageTitle>

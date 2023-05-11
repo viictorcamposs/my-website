@@ -47,7 +47,7 @@ export async function GET() {
       }
     ]
 
-    setTimeout(() => resolve(data), 10000)
+    resolve(data)
   })
 
   return NextResponse.json({ projects })
