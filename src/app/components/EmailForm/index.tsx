@@ -5,7 +5,7 @@ import Input from './Input'
 import Button from './Button'
 
 const EmailForm: React.FC = () => (
-  <form className="flex flex-col gap-4 w-full">
+  <form className="flex flex-col gap-4 w-full max-w-[360px]">
     <fieldset>
       <Label htmlFor="name">Name</Label>
 

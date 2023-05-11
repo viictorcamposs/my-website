@@ -2,11 +2,12 @@ import Link from 'next/link'
 
 const Desktop: React.FC = () => {
   const linkClassNames = `
-    rounded  
+    rounded
     py-3 px-5 
     text-sm font-normal font-body text-[#464444]
     hover:bg-[#0c0f17]/10 hover:text-[#0c0f17]
     transition-all duration-200
+    xl:text-base
   `
 
   return (

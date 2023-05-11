@@ -4,31 +4,46 @@ import { GithubLogo, LinkedinLogo, Article, EnvelopeSimple } from './icons'
 
 const GITHUB = 'https://github.com/viictorcamposs'
 const LINKEDIN = 'https://linkedin.com/in/camposviictor'
-const ARTICLE = '/articles'
+const ARTICLE = '/blog'
 const MAIL = '/email'
 
-const Footer: React.FC = () => (
-  <footer className="flex items-center gap-4 justify-center h-full">
-    <a className="sm:flex sm:items-center sm:gap-1" href={GITHUB}>
-      <span className="hidden sm:block">github</span>
-      <GithubLogo className="w-7 h-7 sm:w-5 sm:h-5" />
-    </a>
+const Footer: React.FC = () => {
+  const textClassNames =
+    'hidden sm:block sm:text-[#464444] sm:font-body sm:font-normal sm:text-sm xl:text-base'
 
-    <Link className="sm:flex sm:items-center sm:gap-1" href={MAIL}>
-      <span className="hidden sm:block">email</span>
-      <EnvelopeSimple className="w-7 h-7 sm:w-5 sm:h-5" />
-    </Link>
+  const linkClassNames = 'sm:flex sm:items-center sm:gap-1 group'
 
-    <a className="sm:flex sm:items-center sm:gap-1" href={LINKEDIN}>
-      <span className="hidden sm:block">linkedIn</span>
-      <LinkedinLogo className="w-7 h-7 sm:w-5 sm:h-5" />
-    </a>
+  const iconClassNames = `
+    w-6 h-6
+    sm:hidden 
+    xl:block xl:w-5 xl:h-5 xl:opacity-0 
+    xl:group-hover:opacity-100 
+    xl:transition-opacity xl:duration-200
+  `
 
-    <Link className="sm:flex sm:items-center sm:gap-1 group" href={ARTICLE}>
-      <span className="hidden sm:block">articles</span>
-      <Article className="w-7 h-7 sm:w-5 sm:h-5 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200" />
-    </Link>
-  </footer>
-)
+  return (
+    <footer className="flex items-center gap-4 sm:gap-5 justify-center h-full">
+      <a className={linkClassNames} href={GITHUB}>
+        <span className={textClassNames}>github</span>
+        <GithubLogo className={iconClassNames} />
+      </a>
+
+      <Link className={linkClassNames} href={MAIL}>
+        <span className={textClassNames}>email</span>
+        <EnvelopeSimple className={iconClassNames} />
+      </Link>
+
+      <a className={linkClassNames} href={LINKEDIN}>
+        <span className={textClassNames}>linkedin</span>
+        <LinkedinLogo className={iconClassNames} />
+      </a>
+
+      <Link className={linkClassNames} href={ARTICLE}>
+        <span className={textClassNames}>articles</span>
+        <Article className={iconClassNames} />
+      </Link>
+    </footer>
+  )
+}
 
 export default Footer

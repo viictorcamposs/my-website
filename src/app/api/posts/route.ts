@@ -15,7 +15,7 @@ export async function GET() {
         paramId: 'como-foi-a-experiencia-de-criar-meu-site-e-blog-pessoal',
         title: 'Como foi a experiência de criar meu site e blog pessoal',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis ullamcorper risus mattis iaculis...',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis iaculis...',
         releaseDate: 'Apr 17, 2023',
         imageUrl:
           'https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'

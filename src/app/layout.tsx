@@ -32,8 +32,8 @@ interface IRootLayout {
 
 export default function RootLayout({ children }: IRootLayout) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} overflow-x-hidden`}>
-      <body className="grid grid-rows-[66px_1fr_60px] min-h-screen bg-[#f7f5f9]">
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+      <body className="grid grid-rows-[66px_1fr_60px] min-h-screen max-w-full bg-[#f7f5f9] ">
         <Header />
 
         {children}
