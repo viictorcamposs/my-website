@@ -41,7 +41,7 @@ export default async function Page() {
 
           {mostRecentArticle && (
             <div className="w-full max-w-[350px]">
-              <Link href={`/blog/${mostRecentArticle.paramId}`}>
+              <Link href={`/blog/${encodeURIComponent(mostRecentArticle.paramId)}`}>
                 <div className="relative aspect-video rounded-lg overflow-hidden mb-4 w-full">
                   <Image
                     fill
@@ -81,7 +81,7 @@ export default async function Page() {
                     : 'relative mt-6 pb-6 border-b border-[#cdcedf]'
                 }
               >
-                <Link scroll href={`/blog/${paramId}`}>
+                <Link scroll href={`/blog/${encodeURIComponent(paramId)}`}>
                   <h3 className="font-body font-bold text-base sm:text-lg mb-4 sm:max-w-[70%]">
                     {title}
                   </h3>

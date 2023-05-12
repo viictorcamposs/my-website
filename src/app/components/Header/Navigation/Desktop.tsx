@@ -1,34 +1,15 @@
-import Link from 'next/link'
+import ActiveLink from '../../ActiveLink'
 
-const Desktop: React.FC = () => {
-  const linkClassNames = `
-    rounded
-    py-3 px-5 
-    text-sm font-normal font-body text-[#464444]
-    hover:bg-[#0c0f17]/10 hover:text-[#0c0f17]
-    transition-all duration-200
-    xl:text-base
-  `
+const Desktop: React.FC = () => (
+  <nav className="hidden sm:flex sm:items-center">
+    <ActiveLink href="/about">ABOUT</ActiveLink>
 
-  return (
-    <nav className="hidden sm:flex sm:items-center">
-      <Link href="/about" className={linkClassNames}>
-        ABOUT
-      </Link>
+    <ActiveLink href="/blog">ARTICLES</ActiveLink>
 
-      <Link href="/blog" className={linkClassNames}>
-        ARTICLES
-      </Link>
+    <ActiveLink href="/portfolio">PORTFOLIO</ActiveLink>
 
-      <Link href="/portfolio" className={linkClassNames}>
-        PORTFOLIO
-      </Link>
-
-      <Link href="/email" className={linkClassNames}>
-        EMAIL
-      </Link>
-    </nav>
-  )
-}
+    <ActiveLink href="/email">EMAIL</ActiveLink>
+  </nav>
+)
 
 export default Desktop
