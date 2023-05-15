@@ -8,8 +8,8 @@ module.exports = {
     './src/app/(pages)/**/*.{js,ts,jsx,tsx}',
     '~/app/components/**/*.{js,ts,jsx,tsx}',
     './src/app/components/**/*.{js,ts,jsx,tsx}',
-    '~/tests/**/*.{js,ts,jsx,tsx}',
-    './src/tests/**/*.{js,ts,jsx,tsx}',
+    '~/test/**/*.{js,ts,jsx,tsx}',
+    './src/test/**/*.{js,ts,jsx,tsx}',
     '!./node_modules'
   ],
   theme: {
