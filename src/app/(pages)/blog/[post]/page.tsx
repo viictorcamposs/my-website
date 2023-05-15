@@ -11,7 +11,9 @@ interface IPage {
 }
 
 export async function generateStaticParams() {
-  const posts = await fetch('http://localhost:3000/api/posts').then(response => response.json())
+  const response = await fetch('http://localhost:3000/api/posts')
+
+  const posts = await response.json()
 
   return posts.map((post: IPost) => ({
     post: post.paramId
@@ -41,7 +43,7 @@ export default async function Page({ params: { post: paramId } }: IPage) {
         </h1>
       </div>
 
-      <article className="px-5 sm:px-12 xl:px-5 xl:max-w-[780px] xl:mx-auto pt-8 text-sm md:text-base text-[#464444]">
+      <article className="px-5 sm:px-12 xl:px-5 xl:max-w-[780px] xl:mx-auto pt-8 text-sm md:text-base text-[#464444] dark:text-[#cdcedf]">
         <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
         <p className="mb-5">

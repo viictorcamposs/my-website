@@ -13,7 +13,7 @@ describe('Mobile navigation', () => {
     expect(menu).toBeUndefined()
   })
 
-  it('should have the Menu component in the document if the user clicks the Menu button', async () => {
+  it('should have the Menu component in the document if the user clicks the button', async () => {
     const button = screen.getByRole('button')
 
     await userEvent.click(button)

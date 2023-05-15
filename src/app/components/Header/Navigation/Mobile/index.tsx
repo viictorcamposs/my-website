@@ -16,7 +16,7 @@ const Mobile: React.FC = () => {
   return (
     <>
       <button onClick={handleMenu} className="sm:hidden">
-        <List color="#0C0F17" size={24} />
+        <List size={24} className="text-[#0c0f17] dark:text-[#f7f5f9]" />
       </button>
 
       {isOpen && (

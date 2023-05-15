@@ -8,16 +8,22 @@ const ARTICLE = '/blog'
 const MAIL = '/email'
 
 const Footer: React.FC = () => {
-  const textClassNames =
-    'hidden sm:block sm:text-[#464444] sm:font-body sm:font-normal sm:text-sm xl:text-base'
+  const textClassNames = `
+    hidden sm:block 
+    sm:text-[#464444] sm:dark:text-[#cdcedf] sm:dark:hover:text-[#f7f5f9] 
+    sm:dark:transition-all sm:dark:duration-200 
+    sm:font-body sm:font-normal sm:text-sm xl:text-base
+  `
 
   const linkClassNames = 'sm:flex sm:items-center sm:gap-1 group'
 
   const iconClassNames = `
     w-6 h-6
     sm:hidden 
+    text-[#0c0f17] dark:text-[#cdcedf]
     xl:block xl:w-5 xl:h-5 xl:opacity-0 
     xl:group-hover:opacity-100 
+    xl:dark:group-hover:text-[#f7f5f9]
     xl:transition-opacity xl:duration-200
   `
 

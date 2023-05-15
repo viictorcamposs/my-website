@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import Image from 'next/image'
+import { Suspense } from 'react'
 
 import type { IPost } from '~/app/api/posts/route'
 
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
+import MostRecentArticle from '~/app/components/MostRecentArticle'
 import Main from '~/app/components/Main'
+import Articles from '~/app/components/Articles'
 
 async function getPosts(): Promise<IPost[]> {
   const response = await fetch('http://localhost:3000/api/posts')
@@ -39,65 +40,18 @@ export default async function Page() {
         <div>
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          {mostRecentArticle && (
-            <div className="w-full max-w-[350px]">
-              <Link href={`/blog/${encodeURIComponent(mostRecentArticle.paramId)}`}>
-                <div className="relative aspect-video rounded-lg overflow-hidden mb-4 w-full">
-                  <Image
-                    fill
-                    priority
-                    sizes="50vw"
-                    src={mostRecentArticle.imageUrl}
-                    alt={mostRecentArticle.title}
-                  />
-                </div>
-
-                <h3 className="font-body font-bold text-lg text-[#0c0f17] mt-4 mb-3">
-                  {mostRecentArticle.title}
-                </h3>
-
-                <p className="font-body font-normal text-sm mt-3">
-                  {mostRecentArticle.description}
-                </p>
-              </Link>
-            </div>
-          )}
+          <Suspense fallback={<>Loading...</>}>
+            <MostRecentArticle article={mostRecentArticle} />
+          </Suspense>
         </div>
       </section>
 
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <ul className="mt-5">
-          {allArticlesExceptTheMostRecentOne.map(
-            ({ paramId, title, description, releaseDate }, i) => (
-              <li
-                key={i}
-                className={
-                  i === 0
-                    ? 'relative pb-6 border-b border-[#cdcedf]'
-                    : i === allArticlesExceptTheMostRecentOne.length - 1
-                    ? 'relative mt-6 pb-6'
-                    : 'relative mt-6 pb-6 border-b border-[#cdcedf]'
-                }
-              >
-                <Link scroll href={`/blog/${encodeURIComponent(paramId)}`}>
-                  <h3 className="font-body font-bold text-base sm:text-lg mb-4 sm:max-w-[70%]">
-                    {title}
-                  </h3>
-
-                  <p className="hidden sm:block font-body font-normal text-sm text-[#464444] mt-4 sm:max-w-[70%]">
-                    {description}
-                  </p>
-
-                  <span className="sm:absolute sm:top-1 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#464444]">
-                    {releaseDate}
-                  </span>
-                </Link>
-              </li>
-            )
-          )}
-        </ul>
+        <Suspense fallback={<>Loading...</>}>
+          <Articles posts={allArticlesExceptTheMostRecentOne} />
+        </Suspense>
       </section>
     </Main>
   )

@@ -12,8 +12,8 @@ interface IActiveLink extends LinkProps {
 const linkClassName = `
   rounded relative
   py-3 px-5 
-  text-sm font-normal font-body text-[#464444]
-  hover:bg-[#0c0f17]/10 hover:text-[#0c0f17]
+  text-sm font-normal font-body text-[#464444] dark:text-[#cdcedf]
+  hover:bg-[#0c0f17]/10 dark:hover:bg-[#f7f5f9]/10 hover:text-[#0c0f17] dark:hover:text-[#f7f5f9]
   transition-all duration-200
   xl:text-base
   after:content-['']
@@ -32,7 +32,10 @@ const ActiveLink: React.FC<IActiveLink> = ({ children, ...props }) => {
   useEffect(() => {
     const linkPathname = new URL(props.href as string, location.href).pathname
 
-    const activeLinkClassName = linkClassName.replace('after:bg-transparent', 'after:bg-[#0c0f17]')
+    const activeLinkClassName = linkClassName.replace(
+      'after:bg-transparent',
+      'after:bg-[#0c0f17] dark:after:bg-[#f7f5f9]'
+    )
 
     if (linkPathname === pathname) {
       setComputedClassName(activeLinkClassName)
