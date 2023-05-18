@@ -7,7 +7,7 @@ import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import MostRecentArticle from '~/app/components/MostRecentArticle'
 import Main from '~/app/components/Main'
-import Articles from '~/app/components/Articles'
+import Article from '~/app/components/Article'
 
 async function getPosts(): Promise<IPost[]> {
   const response = await fetch('http://localhost:3000/api/posts')
@@ -49,9 +49,13 @@ export default async function Page() {
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <Suspense fallback={<>Loading...</>}>
-          <Articles posts={allArticlesExceptTheMostRecentOne} />
-        </Suspense>
+        <ul className="flex flex-col gap-6 mt-5">
+          {allArticlesExceptTheMostRecentOne.map(post => (
+            <Suspense key={post.paramId} fallback={<>Loading...</>}>
+              <Article post={post} />
+            </Suspense>
+          ))}
+        </ul>
       </section>
     </Main>
   )
