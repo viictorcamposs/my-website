@@ -10,7 +10,8 @@
     "prepare": "husky install",
     "pretty-quick": "pretty-quick --staged",
     "test": "jest --passWithNoTests",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.0.9",

@@ -12,7 +12,8 @@ const customJestConfig: Config = {
   moduleDirectories: ['node_modules', 'test/@testing-library'],
   moduleNameMapper: {
     '~/(.*)': '<rootDir>/src/$1'
-  }
+  },
+  collectCoverageFrom: ['<rootDir>/src/app/components/**/*.{ts,tsx}']
 }
 
 module.exports = createJestConfig(customJestConfig)
