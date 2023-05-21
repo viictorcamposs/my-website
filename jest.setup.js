@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
+import 'whatwg-fetch'
 
 beforeAll(() => {
   Object.defineProperty(window, 'matchMedia', {
