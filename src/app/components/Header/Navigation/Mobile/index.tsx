@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, lazy, Suspense } from 'react'
+import { useState, lazy } from 'react'
 
 import { List } from '@phosphor-icons/react'
 
@@ -19,11 +19,7 @@ const Mobile: React.FC = () => {
         <List size={24} className="text-[#0c0f17] dark:text-[#f7f5f9]" />
       </button>
 
-      {isOpen && (
-        <Suspense>
-          <Menu isOpen={isOpen} />
-        </Suspense>
-      )}
+      {isOpen && <Menu isOpen={isOpen} />}
     </>
   )
 }

@@ -12,7 +12,6 @@ const Menu: React.FC<IMenu> = ({ isOpen }) => (
     <nav className="flex flex-col gap-5 text-sm font-light font-body text-[#464444] dark:text-[#cdcedf]">
       <Link href="/about">ABOUT</Link>
       <Link href="/blog">ARTICLES</Link>
-      <Link href="/portfolio">PORTFOLIO</Link>
       <Link href="/email">EMAIL</Link>
     </nav>
   </dialog>

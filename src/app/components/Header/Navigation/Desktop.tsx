@@ -6,8 +6,6 @@ const Desktop: React.FC = () => (
 
     <ActiveLink href="/blog">ARTICLES</ActiveLink>
 
-    <ActiveLink href="/portfolio">PORTFOLIO</ActiveLink>
-
     <ActiveLink href="/email">EMAIL</ActiveLink>
   </nav>
 )
