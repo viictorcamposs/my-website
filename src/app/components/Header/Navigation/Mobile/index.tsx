@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, lazy } from 'react'
+import { useState, lazy, startTransition } from 'react'
 
 import { List } from '@phosphor-icons/react'
 
@@ -10,7 +10,9 @@ const Mobile: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   function handleMenu() {
-    setIsOpen(prevState => !prevState)
+    startTransition(() => {
+      setIsOpen(prevState => !prevState)
+    })
   }
 
   return (
