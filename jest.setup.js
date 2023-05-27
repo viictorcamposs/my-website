@@ -1,7 +1,11 @@
 import '@testing-library/jest-dom/extend-expect'
 import 'whatwg-fetch'
 
+import { server } from '~/test/mocks/server'
+
 beforeAll(() => {
+  server.listen()
+
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
     value: jest.fn().mockImplementation(query => ({
@@ -16,3 +20,9 @@ beforeAll(() => {
     }))
   })
 })
+
+afterEach(() => {
+  server.resetHandlers()
+})
+
+afterAll(() => server.close())
