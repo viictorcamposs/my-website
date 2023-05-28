@@ -1,45 +1,43 @@
 import Image from 'next/image'
 
-import type { IPost } from '~/app/api/posts/route'
+import type IArticle from '~/app/types/article'
 
 import Main from '~/app/components/Main'
 
 interface IPage {
   params: {
-    post: string
+    article: string
   }
 }
 
 export async function generateStaticParams() {
-  const response = await fetch('http://localhost:3000/api/posts')
+  const response = await fetch('http://localhost:3000/api/articles')
 
-  const posts = await response.json()
+  const articles = await response.json()
 
-  return posts.map((post: IPost) => ({
-    post: post.paramId
+  return articles.map((article: IArticle) => ({
+    article: article.paramId
   }))
 }
 
-async function getPost(paramId: string): Promise<IPost> {
-  const response = await fetch('http://localhost:3000/api/posts')
+async function getArticle(paramId: string): Promise<IArticle> {
+  const response = await fetch(`http://localhost:3000/api/articles?article=${paramId}`)
 
-  const posts: IPost[] = await response.json()
+  const article: IArticle = await response.json()
 
-  const post = posts.find((post: IPost) => post.paramId === paramId) as IPost
-
-  return post
+  return article
 }
 
-export default async function Page({ params: { post: paramId } }: IPage) {
-  const post = await getPost(paramId)
+export default async function Page({ params: { article: paramId } }: IPage) {
+  const article = await getArticle(paramId)
 
   return (
     <Main className="pb-6 px-0 sm:w-full sm:max-w-[780px] xl:max-w-[960px] sm:mx-auto sm:py-6 md:py-8 sm:px-5">
       <div className="flex items-end sm:items-center sm:justify-center py-4 px-5 sm:px-10 relative aspect-video bg-black/60 sm:rounded-lg overflow-hidden">
-        <Image fill priority src={post.imageUrl} alt={post.title} className="z-[-1]" />
+        <Image fill priority src={article.imageUrl} alt={article.title} className="z-[-1]" />
 
         <h1 className="relative font-bold text-2xl sm:text-4xl xl:text-[42px]/tight sm:text-center text-[#f7f5f9]">
-          {post.title}
+          {article.title}
         </h1>
       </div>
 

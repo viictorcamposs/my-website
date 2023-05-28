@@ -1,29 +1,26 @@
-import { Suspense } from 'react'
-
-import type { IPost } from '~/app/api/posts/route'
+import type { ComponentType } from 'react'
+import { lazy, Suspense } from 'react'
 
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
-import MostRecentArticle from '~/app/components/MostRecentArticle'
+import LoadingMostRecentArticle from '~/app/components/MostRecentArticle/Loading'
 import Main from '~/app/components/Main'
-import Article from '~/app/components/Article'
+import LoadingListOfArticles from '~/app/components/ListOfArticles/Loading'
 
-async function getPosts(): Promise<IPost[]> {
-  const response = await fetch('http://localhost:3000/api/posts')
+const MostRecentArticle = lazy(async () => {
+  const mostRecentArticle = await import('~/app/components/MostRecentArticle')
 
-  const data = await response.json()
+  return mostRecentArticle as unknown as { default: ComponentType }
+})
 
-  return data
-}
+const ListOfArticles = lazy(async () => {
+  const listOfArticles = await import('~/app/components/ListOfArticles')
 
-export default async function Page() {
-  const posts = await getPosts()
+  return listOfArticles as unknown as { default: ComponentType }
+})
 
-  const mostRecentArticle = posts[0]
-
-  const allArticlesExceptTheMostRecentOne = posts.slice(1)
-
+export default function Page() {
   return (
     <Main>
       <section className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
@@ -37,11 +34,11 @@ export default async function Page() {
           </PageParagraph>
         </div>
 
-        <div>
+        <div data-testid="most-recent-article-section">
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          <Suspense fallback={<>Loading...</>}>
-            <MostRecentArticle article={mostRecentArticle} />
+          <Suspense fallback={<LoadingMostRecentArticle />}>
+            <MostRecentArticle />
           </Suspense>
         </div>
       </section>
@@ -49,13 +46,9 @@ export default async function Page() {
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <ul className="flex flex-col gap-6 mt-5">
-          {allArticlesExceptTheMostRecentOne.map(post => (
-            <Suspense key={post.paramId} fallback={<>Loading...</>}>
-              <Article post={post} />
-            </Suspense>
-          ))}
-        </ul>
+        <Suspense fallback={<LoadingListOfArticles />}>
+          <ListOfArticles />
+        </Suspense>
       </section>
     </Main>
   )
