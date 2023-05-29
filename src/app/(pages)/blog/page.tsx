@@ -4,9 +4,9 @@ import { lazy, Suspense } from 'react'
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
-import LoadingMostRecentArticle from '~/app/components/MostRecentArticle/Loading'
 import Main from '~/app/components/Main'
-import LoadingListOfArticles from '~/app/components/ListOfArticles/Loading'
+
+import Loading from './loading'
 
 const MostRecentArticle = lazy(async () => {
   const mostRecentArticle = await import('~/app/components/MostRecentArticle')
@@ -37,7 +37,7 @@ export default function Page() {
         <div data-testid="most-recent-article-section">
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          <Suspense fallback={<LoadingMostRecentArticle />}>
+          <Suspense fallback={<Loading recent />}>
             <MostRecentArticle />
           </Suspense>
         </div>
@@ -46,7 +46,7 @@ export default function Page() {
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <Suspense fallback={<LoadingListOfArticles />}>
+        <Suspense fallback={<Loading list />}>
           <ListOfArticles />
         </Suspense>
       </section>

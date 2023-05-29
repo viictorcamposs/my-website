@@ -15,12 +15,10 @@ const customJestConfig: Config = {
   },
   collectCoverageFrom: [
     '<rootDir>/src/app/components/**/*.{ts,tsx}',
-    '<rootDir>/src/app/contexts/**/*.{ts,tsx}',
-    '<rootDir>/src/app/hooks/**/*.{ts,tsx}',
+    '<rootDir>/src/app/api/**/*.{ts,tsx}',
     '<rootDir>/src/app/**/about/*.{ts,tsx}',
     '<rootDir>/src/app/**/email/*.{ts,tsx}',
     '<rootDir>/src/app/**/blog/**/*.{ts,tsx}'
-    // '<rootDir>/src/app/(pages)/**/*.{ts,tsx}'
   ]
 }
 
