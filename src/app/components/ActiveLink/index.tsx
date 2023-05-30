@@ -30,7 +30,7 @@ const ActiveLink: React.FC<IActiveLink> = ({ children, ...props }) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    const linkPathname = new URL(props.href as string, location.href).pathname
+    const linkPathname = new URL(props.href as string, window.location.href).pathname
 
     const activeLinkClassName = linkClassName.replace(
       'after:bg-transparent',
