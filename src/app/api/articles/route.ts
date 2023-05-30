@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server'
 
-import type IArticle from '~/app/types/article'
-
-import json from './articles.json'
-
-const articles: IArticle[] = json
+import articles from './articles.json'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)

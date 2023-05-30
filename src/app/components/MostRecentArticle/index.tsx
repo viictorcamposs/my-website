@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import type IArticle from '~/app/types/article'
+import type IArticle from '~/types/article'
 
 async function getMostRecentArticle(): Promise<IArticle> {
   const response = await fetch('http://localhost:3000/api/articles/mostRecent')
@@ -19,7 +19,7 @@ export default async function MostRecentArticle() {
   const article = await getMostRecentArticle()
 
   return (
-    <div data-testid="most-recent-article" className={styles}>
+    <div className={styles}>
       <Link href={`/blog/${encodeURIComponent(article.paramId)}`}>
         <div className="relative aspect-video rounded-lg overflow-hidden mb-4 w-full">
           <Image fill priority sizes="50vw" src={article.imageUrl} alt={article.title} />

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-import type IArticle from '~/app/types/article'
+import type IArticle from '~/types/article'
 
 import articles from '../articles.json'
 
