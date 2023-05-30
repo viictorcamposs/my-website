@@ -34,7 +34,7 @@ export default async function ListOfArticles() {
     })
 
   return (
-    <ul className="flex flex-col gap-6 mt-5">
+    <ul aria-label="articles" className="flex flex-col gap-6 mt-5">
       {articles.map(article => (
         <li
           key={article.paramId}
@@ -49,10 +49,7 @@ export default async function ListOfArticles() {
               {article.description}
             </p>
 
-            <span
-              data-testid="release-date"
-              className="sm:absolute sm:top-1 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#464444] dark:text-[#cdcedf]"
-            >
+            <span className="sm:absolute sm:top-1 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#464444] dark:text-[#cdcedf]">
               {article.releaseDate as string}
             </span>
           </Link>

@@ -29,20 +29,20 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="flex items-center gap-4 sm:gap-5 justify-center h-full">
-      <a className={linkClassNames} href={GITHUB}>
+      <Link className={linkClassNames} href={GITHUB} target="_blank">
         <span className={textClassNames}>github</span>
         <GithubLogo className={iconClassNames} />
-      </a>
+      </Link>
 
       <Link className={linkClassNames} href={MAIL}>
         <span className={textClassNames}>email</span>
         <EnvelopeSimple className={iconClassNames} />
       </Link>
 
-      <a className={linkClassNames} href={LINKEDIN}>
+      <Link className={linkClassNames} href={LINKEDIN} target="_blank">
         <span className={textClassNames}>linkedin</span>
         <LinkedinLogo className={iconClassNames} />
-      </a>
+      </Link>
 
       <Link className={linkClassNames} href={ARTICLE}>
         <span className={textClassNames}>articles</span>

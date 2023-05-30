@@ -1,4 +1,4 @@
-import { rest, server } from '~/test/mocks/server'
+import { rest, server } from '~/mocks/server'
 import { screen, render, waitFor } from '@testing-library/custom'
 
 import MostRecentArticle from './index'
@@ -20,7 +20,13 @@ async function renderMostRecentArticle() {
 }
 
 describe('MostRecentArticle', () => {
-  beforeEach(async () => {
+  beforeAll(() => server.listen())
+
+  afterEach(() => server.resetHandlers())
+
+  afterAll(() => server.close())
+
+  it('should render proper content', async () => {
     server.use(
       rest.get('http://localhost:3000/api/articles/mostRecent', (req, res, ctx) =>
         res(ctx.status(200), ctx.json(article))
@@ -28,9 +34,7 @@ describe('MostRecentArticle', () => {
     )
 
     await waitFor(() => renderMostRecentArticle())
-  })
 
-  it('should render proper content', () => {
     expect(screen.getByText(article.title)).toBeInTheDocument()
 
     expect(screen.getByText(article.description)).toBeInTheDocument()

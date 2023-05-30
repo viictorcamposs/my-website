@@ -1,6 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import { screen } from '@testing-library/react'
-import { render } from '@testing-library/custom'
+import { screen, render } from '@testing-library/custom'
 
 import Mobile from './index'
 
@@ -13,7 +12,7 @@ describe('Mobile navigation', () => {
     expect(menu).toBeUndefined()
   })
 
-  it('should have the Menu component in the document if the user clicks the button', async () => {
+  it('should load the Menu component in the document when user clicks the button', async () => {
     const button = screen.getByRole('button')
 
     await userEvent.click(button)
