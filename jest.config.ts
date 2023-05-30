@@ -7,6 +7,7 @@ const createJestConfig = nextJest({
 })
 
 const customJestConfig: Config = {
+  errorOnDeprecated: true,
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jsdom',
   moduleDirectories: ['node_modules', 'test/@testing-library'],
@@ -16,9 +17,7 @@ const customJestConfig: Config = {
   collectCoverageFrom: [
     '<rootDir>/src/app/components/**/*.{ts,tsx}',
     '<rootDir>/src/app/api/**/*.{ts,tsx}',
-    '<rootDir>/src/app/**/about/*.{ts,tsx}',
-    '<rootDir>/src/app/**/email/*.{ts,tsx}',
-    '<rootDir>/src/app/**/blog/**/*.{ts,tsx}'
+    '<rootDir>/src/app/**/page.{js,ts,jsx,tsx}'
   ]
 }
 
