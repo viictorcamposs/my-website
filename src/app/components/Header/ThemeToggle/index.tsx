@@ -52,7 +52,7 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={handleThemeToggleClick}
-      className="relative sm:flex items-center justify-between w-[60px] h-8 py-0.5 px-2 rounded-full bg-[#0c0f17] dark:bg-[#f7f5f9]"
+      className="relative flex items-center justify-between w-[60px] h-8 py-0.5 px-2 rounded-full bg-[#0c0f17] dark:bg-[#f7f5f9]"
     >
       <Sun className="text-base sm:text-lg text-[#f7f5f9] dark:text-[#0c0f17]" />
       <Moon className="text-base sm:text-lg text-[#f7f5f9] dark:text-[#0c0f17]" />
