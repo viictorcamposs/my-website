@@ -37,7 +37,7 @@ const ActiveLink: React.FC<IActiveLink> = ({ children, ...props }) => {
       'after:bg-[#0c0f17] dark:after:bg-[#f7f5f9]'
     )
 
-    if (linkPathname === pathname) {
+    if (pathname.includes(linkPathname)) {
       setComputedClassName(activeLinkClassName)
     } else {
       setComputedClassName(linkClassName)
