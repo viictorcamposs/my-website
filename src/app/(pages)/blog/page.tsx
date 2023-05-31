@@ -1,24 +1,13 @@
-import type { ComponentType } from 'react'
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
-
-import Loading from './loading'
-
-const MostRecentArticle = lazy(async () => {
-  const mostRecentArticle = await import('./components/MostRecentArticle')
-
-  return mostRecentArticle as unknown as { default: ComponentType }
-})
-
-const ListOfArticles = lazy(async () => {
-  const listOfArticles = await import('./components/ListOfArticles')
-
-  return listOfArticles as unknown as { default: ComponentType }
-})
+import LoadingMostRecentArticle from './components/MostRecentArticle/loading'
+import MostRecentArticle from './components/MostRecentArticle'
+import LoadingListOfArticles from './components/ListOfArticles/loading'
+import ListOfArticles from './components/ListOfArticles'
 
 export default function Page() {
   return (
@@ -37,7 +26,8 @@ export default function Page() {
         <div data-testid="most-recent-article-section">
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          <Suspense fallback={<Loading recent />}>
+          <Suspense fallback={<LoadingMostRecentArticle />}>
+            {/* @ts-expect-error Async Server Component */}
             <MostRecentArticle />
           </Suspense>
         </div>
@@ -46,7 +36,8 @@ export default function Page() {
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <Suspense fallback={<Loading list />}>
+        <Suspense fallback={<LoadingListOfArticles />}>
+          {/* @ts-expect-error Async Server Component */}
           <ListOfArticles />
         </Suspense>
       </section>
