@@ -9,7 +9,5 @@ export async function GET() {
     before.releaseDate > current.releaseDate ? before : current
   )
 
-  await new Promise(resolve => setTimeout(resolve, 2000))
-
   return NextResponse.json(mostRecentArticle)
 }

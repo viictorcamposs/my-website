@@ -7,8 +7,6 @@ export async function GET(request: Request) {
 
   const query = searchParams.get('article')
 
-  await new Promise(resolve => setTimeout(resolve, 2000))
-
   if (query) {
     const article = articles.find(article => article.paramId === query)
     return NextResponse.json(article)
