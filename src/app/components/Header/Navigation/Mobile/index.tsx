@@ -6,7 +6,7 @@ import { List } from '@phosphor-icons/react'
 
 const Menu = lazy(() => import('./Menu'))
 
-const Mobile: React.FC = () => {
+export default function Mobile() {
   const [isOpen, setIsOpen] = useState(false)
 
   function handleMenu() {
@@ -25,5 +25,3 @@ const Mobile: React.FC = () => {
     </>
   )
 }
-
-export default Mobile

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import type IArticle from '~/app/types/article'
+import type IArticle from '~/types/article'
 
 import Month from '~/utils/month'
 

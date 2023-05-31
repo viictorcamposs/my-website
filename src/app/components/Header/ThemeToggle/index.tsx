@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 import { Moon, Sun } from '@phosphor-icons/react'
 
-const ThemeToggle: React.FC = () => {
+export default function ThemeToggle() {
   const [userPrefersDarkTheme, setUserPrefersDarkTheme] = useState(false)
 
   function handleThemeOnLoad() {
@@ -67,5 +67,3 @@ const ThemeToggle: React.FC = () => {
     </button>
   )
 }
-
-export default ThemeToggle

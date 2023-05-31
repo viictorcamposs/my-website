@@ -2,7 +2,7 @@ import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
-import EmailForm from '~/app/components/EmailForm'
+import EmailForm from './components/EmailForm'
 
 export default function Page() {
   return (

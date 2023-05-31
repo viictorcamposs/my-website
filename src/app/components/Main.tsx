@@ -4,7 +4,7 @@ interface IMain {
   addClassName?: string
 }
 
-const Main: React.FC<IMain> = ({ children, className, addClassName }) => {
+export default function Main({ children, className, addClassName }: IMain) {
   const tailwindClass = className
     ? className
     : addClassName
@@ -13,5 +13,3 @@ const Main: React.FC<IMain> = ({ children, className, addClassName }) => {
 
   return <main className={tailwindClass}>{children}</main>
 }
-
-export default Main

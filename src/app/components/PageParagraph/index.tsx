@@ -3,7 +3,7 @@ interface IPageParagraph {
   addClassName?: string
 }
 
-const PageParagraph: React.FC<IPageParagraph> = ({ children, addClassName }) => {
+export default function PageParagraph({ children, addClassName }: IPageParagraph) {
   const tailwindClassName = addClassName
     ? `mt-5 mb-[60px] font-body font-normal text-sm sm:text-base text-[#464444] dark:text-[#cdcedf] ${addClassName}`
     : 'mt-5 mb-[60px] font-body font-normal text-sm sm:text-base text-[#464444] dark:text-[#cdcedf]'
@@ -14,5 +14,3 @@ const PageParagraph: React.FC<IPageParagraph> = ({ children, addClassName }) => 
     </p>
   )
 }
-
-export default PageParagraph

@@ -9,13 +9,13 @@ import Main from '~/app/components/Main'
 import Loading from './loading'
 
 const MostRecentArticle = lazy(async () => {
-  const mostRecentArticle = await import('~/app/components/MostRecentArticle')
+  const mostRecentArticle = await import('./components/MostRecentArticle')
 
   return mostRecentArticle as unknown as { default: ComponentType }
 })
 
 const ListOfArticles = lazy(async () => {
-  const listOfArticles = await import('~/app/components/ListOfArticles')
+  const listOfArticles = await import('./components/ListOfArticles')
 
   return listOfArticles as unknown as { default: ComponentType }
 })

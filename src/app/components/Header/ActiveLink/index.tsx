@@ -24,7 +24,7 @@ const linkClassName = `
   after:transition-all after:duration-200
 `
 
-const ActiveLink: React.FC<IActiveLink> = ({ children, ...props }) => {
+export default function ActiveLink({ children, ...props }: IActiveLink) {
   const [computedClassName, setComputedClassName] = useState(linkClassName)
 
   const pathname = usePathname()
@@ -50,5 +50,3 @@ const ActiveLink: React.FC<IActiveLink> = ({ children, ...props }) => {
     </Link>
   )
 }
-
-export default ActiveLink
