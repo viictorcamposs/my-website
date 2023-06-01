@@ -25,7 +25,7 @@ export default function EmailForm() {
         <Input textarea name="message" />
       </fieldset>
 
-      <Button />
+      <Button type="button" />
     </form>
   )
 }
