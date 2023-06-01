@@ -1,17 +1,13 @@
-import { Suspense, lazy } from 'react'
+import { Suspense } from 'react'
 
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
 import LoadingMostRecentArticle from './components/MostRecentArticle/loading'
+import MostRecentArticle from './components/MostRecentArticle/'
 import LoadingListOfArticles from './components/ListOfArticles/loading'
-
-/* @ts-expect-error Async Server Component */
-const ListOfArticles = lazy(() => import('./components/ListOfArticles'))
-
-/* @ts-expect-error Async Server Component */
-const MostRecentArticle = lazy(() => import('./components/MostRecentArticle'))
+import ListOfArticles from './components/ListOfArticles/'
 
 export default function Page() {
   return (
@@ -31,6 +27,7 @@ export default function Page() {
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
           <Suspense fallback={<LoadingMostRecentArticle />}>
+            {/* @ts-expect-error Async Server Component */}
             <MostRecentArticle />
           </Suspense>
         </div>
@@ -40,6 +37,7 @@ export default function Page() {
         <PageSubtitle>All articles</PageSubtitle>
 
         <Suspense fallback={<LoadingListOfArticles />}>
+          {/* @ts-expect-error Async Server Component */}
           <ListOfArticles />
         </Suspense>
       </section>
