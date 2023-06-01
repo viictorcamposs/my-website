@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import type IArticle from '~/app/types/article'
+import type IArticle from '~/types/article'
 
 import Main from '~/app/components/Main'
 
