@@ -4,8 +4,8 @@ import { GithubLogo, LinkedinLogo, Article, EnvelopeSimple } from './icons'
 
 const GITHUB = 'https://github.com/viictorcamposs'
 const LINKEDIN = 'https://linkedin.com/in/camposviictor'
-const ARTICLE = '/blog'
-const MAIL = '/email'
+const ARTICLE = '/articles'
+const MAIL = '/contact'
 
 const Footer: React.FC = () => {
   const textClassNames = `

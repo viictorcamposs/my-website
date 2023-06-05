@@ -15,7 +15,7 @@ export default function Button(props: IButton) {
     >
       <span
         className={`
-          font-body text-sm font-normal
+          font-body text-sm font-semibold
           xl:text-base text-[#f7f5f9] dark:text-[#0c0f17]
           group-hover:text-[#f7f5f9]
         `}

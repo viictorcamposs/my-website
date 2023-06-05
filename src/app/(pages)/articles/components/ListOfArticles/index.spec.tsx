@@ -44,7 +44,7 @@ describe('MostRecentArticle', () => {
         class="relative pb-6 border-b border-[#cdcedf] dark:border-[#464444]"
       >
         <a
-          href="/blog/${articleWithHighestReleaseDate.paramId}"
+          href="/articles/${articleWithHighestReleaseDate.paramId}"
         >
           <h3
             class="font-body font-bold text-base sm:text-lg text-[#0c0f17] dark:text-[#f7f5f9] mb-4 sm:max-w-[80%]"

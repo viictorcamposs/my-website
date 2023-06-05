@@ -1,6 +1,6 @@
 import type { LabelHTMLAttributes } from 'react'
 
-interface ILabel extends LabelHTMLAttributes<unknown> {}
+interface ILabel extends LabelHTMLAttributes<HTMLLabelElement> {}
 
 export default function Label({ children, ...props }: ILabel) {
   return (

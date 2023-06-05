@@ -20,7 +20,7 @@ export default async function MostRecentArticle() {
 
   return (
     <div className={styles}>
-      <Link href={`/blog/${encodeURIComponent(article.paramId)}`}>
+      <Link href={`/articles/${encodeURIComponent(article.paramId)}`}>
         <div className="relative aspect-video rounded-lg overflow-hidden mb-4 w-full">
           <Image fill priority sizes="50vw" src={article.imageUrl} alt={article.title} />
         </div>

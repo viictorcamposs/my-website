@@ -40,7 +40,7 @@ export default async function ListOfArticles() {
           key={article.paramId}
           className="relative pb-6 border-b border-[#cdcedf] dark:border-[#464444]"
         >
-          <Link scroll href={`/blog/${encodeURIComponent(article.paramId)}`}>
+          <Link scroll href={`/articles/${encodeURIComponent(article.paramId)}`}>
             <h3 className="font-body font-bold text-base sm:text-lg text-[#0c0f17] dark:text-[#f7f5f9] mb-4 sm:max-w-[80%]">
               {article.title}
             </h3>

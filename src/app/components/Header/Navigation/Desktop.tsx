@@ -5,9 +5,9 @@ export default function Desktop() {
     <nav className="hidden sm:flex sm:items-center">
       <ActiveLink href="/about">ABOUT</ActiveLink>
 
-      <ActiveLink href="/blog">ARTICLES</ActiveLink>
+      <ActiveLink href="/articles">ARTICLES</ActiveLink>
 
-      <ActiveLink href="/email">EMAIL</ActiveLink>
+      <ActiveLink href="/contact">EMAIL</ActiveLink>
     </nav>
   )
 }
