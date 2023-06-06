@@ -30,7 +30,7 @@ const ArticleEmbedVideoComponent = async ({
       flex flex-col gap-2 md:gap-4 
       w-full max-w-3xl
       px-5 sm:px-12 lg:px-0
-      md:mx-auto
+      md:mx-auto my-12 md:my-16
     `}
   >
     <iframe
