@@ -89,7 +89,10 @@ interface BlogArticleDocumentData {
  * Slice for *blog_article → Slice Zone*
  *
  */
-type BlogArticleDocumentDataSlicesSlice = HeroSlice | ArticleScreenshotComponentSlice
+type BlogArticleDocumentDataSlicesSlice =
+  | HeroSlice
+  | ArticleScreenshotComponentSlice
+  | ArticleEmbedVideoComponentSlice
 /**
  * blog_article document from Prismic
  *

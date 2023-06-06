@@ -27,7 +27,8 @@
         "config": {
           "choices": {
             "hero": { "type": "SharedSlice" },
-            "article_screenshot_component": { "type": "SharedSlice" }
+            "article_screenshot_component": { "type": "SharedSlice" },
+            "article_embed_video_component": { "type": "SharedSlice" }
           }
         }
       }

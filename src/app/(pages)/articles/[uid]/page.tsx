@@ -14,8 +14,6 @@ interface IPageProps {
   }
 }
 
-export const revalidate = 60 // ! TODO: increase value due to performance issues
-
 export async function generateMetadata(
   { params: { uid } }: IPageProps,
   parent?: ResolvingMetadata
@@ -24,8 +22,7 @@ export async function generateMetadata(
 
   const article = await client.getByUID('blog_article', uid, {
     fetchOptions: {
-      cache: 'force-cache',
-      next: { tags: ['prismic'] }
+      next: { tags: ['prismic'], revalidate: 60 }
     }
   })
 
@@ -58,7 +55,7 @@ async function getArticle(uid: string): Promise<BlogArticleDocument> {
 
   return await client.getByUID('blog_article', uid, {
     fetchOptions: {
-      next: { tags: ['prismic'] }
+      next: { tags: ['prismic'], revalidate: 60 }
     }
   })
 }
