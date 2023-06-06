@@ -22,6 +22,7 @@
     ],
     "paths": {
       "~/*": ["./src/*"],
+      "@/*": ["./*"],
       "@testing-library/custom": ["./src/test/@testing-library/custom.tsx"]
     }
   },

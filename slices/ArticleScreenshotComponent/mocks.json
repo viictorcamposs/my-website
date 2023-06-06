@@ -1,0 +1,37 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "screenshot": {
+        "origin": {
+          "id": "KNZHyTpre18",
+          "url": "https://images.unsplash.com/photo-1615525137689-198778541af6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxwaWVjZSUyMG9mJTIwY29kZXxlbnwwfHx8fDE2ODYwMDc5NDN8MA&ixlib=rb-4.0.3&q=85",
+          "width": 4444,
+          "height": 2500
+        },
+        "url": "https://images.unsplash.com/photo-1615525137689-198778541af6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw0fHxwaWVjZSUyMG9mJTIwY29kZXxlbnwwfHx8fDE2ODYwMDc5NDN8MA&ixlib=rb-4.0.3&q=85",
+        "width": 4444,
+        "height": 2500,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": "Mock texto alternativo para imagem",
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "legend": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Maximize a tela e escolha HD para ver melhor o Gif – Testando os componente <Image/>"
+      }
+    },
+    "items": []
+  }
+]
