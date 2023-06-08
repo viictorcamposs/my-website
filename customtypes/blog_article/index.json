@@ -7,26 +7,37 @@
   "json": {
     "Main": {
       "uid": { "config": { "label": "UID" }, "type": "UID" },
-      "release_date": { "type": "Date", "config": { "label": "release_date", "placeholder": "" } },
-      "release_date_timestamp": {
-        "type": "Timestamp",
-        "config": { "label": "release_date", "placeholder": "" }
-      },
       "title": {
         "type": "StructuredText",
         "config": {
-          "label": "title",
+          "label": "Title",
           "placeholder": "",
           "allowTargetBlank": false,
           "single": "heading1"
         }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
+      "releaseDate": {
+        "type": "Timestamp",
+        "config": { "label": "Release Date", "placeholder": "" }
+      },
+      "image": {
+        "type": "Image",
+        "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
       },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "hero": { "type": "SharedSlice" },
             "article_screenshot_component": { "type": "SharedSlice" },
             "article_embed_video_component": { "type": "SharedSlice" }
           }

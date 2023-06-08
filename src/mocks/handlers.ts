@@ -1,25 +1,37 @@
 import { rest } from 'msw'
 
-import articles from '~/app/api/articles/articles.json'
+import Month from '~/utils/month'
+
+import { articles, mostRecentArticle } from './mocks'
 
 export const handlers = [
   rest.get('http://localhost:3000/api/articles', (req, res, ctx) => {
-    const { searchParams } = new URL(req.url)
+    const data = articles
+      .sort(
+        (a, b) => Date.parse(String(b.data.releaseDate)) - Date.parse(String(a.data.releaseDate))
+      )
+      .slice(1)
+      .map(article => {
+        const timestamp = Date.parse(String(article.data.releaseDate))
 
-    const query = searchParams.get('article')
+        let formattedDate: Date | string = new Date(timestamp)
 
-    if (query) {
-      const article = articles.find(article => article.paramId === query)
-      return res(ctx.status(200), ctx.json(article))
-    }
+        const date = formattedDate.getDate()
+        const month = Month[formattedDate.getMonth()]
+        const year = formattedDate.getFullYear()
 
-    return res(ctx.status(200), ctx.json(articles))
+        return {
+          ...article,
+          data: {
+            ...article.data,
+            releaseDate: `${month} ${date}, ${year}`
+          }
+        }
+      })
+
+    return res(ctx.status(200), ctx.json(data))
   }),
-  rest.get('http://localhost:3000/api/articles/mostRecent', (_, res, ctx) => {
-    const mostRecentArticle = articles.reduce((before, current) =>
-      before.releaseDate > current.releaseDate ? before : current
-    )
-
-    return res(ctx.status(200), ctx.json(mostRecentArticle))
-  })
+  rest.get('http://localhost:3000/api/articles/mostRecent', (_, res, ctx) =>
+    res(ctx.status(200), ctx.json(mostRecentArticle))
+  )
 ]
