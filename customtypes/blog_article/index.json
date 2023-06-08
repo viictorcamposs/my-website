@@ -6,12 +6,15 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "uid": {
+        "config": { "label": "UID", "placeholder": "URL uid for the article" },
+        "type": "UID"
+      },
       "title": {
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "",
+          "placeholder": "Title of the article",
           "allowTargetBlank": false,
           "single": "heading1"
         }
@@ -20,14 +23,14 @@
         "type": "StructuredText",
         "config": {
           "label": "Description",
-          "placeholder": "",
+          "placeholder": "Short summary of the article",
           "allowTargetBlank": false,
           "single": "paragraph"
         }
       },
       "releaseDate": {
         "type": "Timestamp",
-        "config": { "label": "Release Date", "placeholder": "" }
+        "config": { "label": "Release Date", "placeholder": "Date of publication" }
       },
       "image": {
         "type": "Image",
