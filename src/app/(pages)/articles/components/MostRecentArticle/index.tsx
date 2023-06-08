@@ -5,7 +5,11 @@ import { PrismicText } from '@prismicio/react'
 import type { BlogArticleDocument } from '@/prismicio-types'
 
 async function getMostRecentArticle(): Promise<BlogArticleDocument> {
-  const response = await fetch('http://localhost:3000/api/articles/mostRecent')
+  const API_URL = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}/api/articles/mostRecent`
+    : 'http://localhost:3000/api/articles/mostRecent'
+
+  const response = await fetch(API_URL)
 
   const article = await response.json()
 

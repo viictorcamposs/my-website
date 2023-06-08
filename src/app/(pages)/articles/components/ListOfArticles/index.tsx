@@ -4,7 +4,11 @@ import { PrismicText } from '@prismicio/react'
 import type { BlogArticleDocument } from '@/prismicio-types'
 
 async function getListOfArticles(): Promise<BlogArticleDocument[]> {
-  const response = await fetch('http://localhost:3000/api/articles')
+  const API_URL = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}/api/articles`
+    : 'http://localhost:3000/api/articles'
+
+  const response = await fetch(API_URL)
 
   const articles = await response.json()
 
