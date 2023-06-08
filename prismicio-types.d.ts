@@ -11,7 +11,7 @@ interface BlogArticleDocumentData {
    * Title field in *blog_article*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Title of the article
    * - **API ID Path**: blog_article.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
@@ -22,7 +22,7 @@ interface BlogArticleDocumentData {
    * Description field in *blog_article*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Short summary of the article
    * - **API ID Path**: blog_article.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
@@ -33,7 +33,7 @@ interface BlogArticleDocumentData {
    * Release Date field in *blog_article*
    *
    * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Date of publication
    * - **API ID Path**: blog_article.releaseDate
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
@@ -230,6 +230,49 @@ export type ArticleScreenshotComponentSlice = prismic.SharedSlice<
   'article_screenshot_component',
   ArticleScreenshotComponentSliceVariation
 >
+/**
+ * Primary content in Text → Primary
+ *
+ */
+interface TextSliceDefaultPrimary {
+  /**
+   * Text field in *Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Rich text with formatting
+   * - **API ID Path**: text.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField
+}
+/**
+ * Default variation for Text Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<TextSliceDefaultPrimary>,
+  never
+>
+/**
+ * Slice variation for *Text*
+ *
+ */
+type TextSliceVariation = TextSliceDefault
+/**
+ * Text Shared Slice
+ *
+ * - **API ID**: `text`
+ * - **Description**: `Text`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextSlice = prismic.SharedSlice<'text', TextSliceVariation>
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -250,7 +293,11 @@ declare module '@prismicio/client' {
       ArticleScreenshotComponentSliceDefaultPrimary,
       ArticleScreenshotComponentSliceDefault,
       ArticleScreenshotComponentSliceVariation,
-      ArticleScreenshotComponentSlice
+      ArticleScreenshotComponentSlice,
+      TextSliceDefaultPrimary,
+      TextSliceDefault,
+      TextSliceVariation,
+      TextSlice
     }
   }
 }
