@@ -4,11 +4,7 @@ import { PrismicText } from '@prismicio/react'
 import type { BlogArticleDocument } from '@/prismicio-types'
 
 async function getListOfArticles(): Promise<BlogArticleDocument[]> {
-  const response = await fetch('http://localhost:3000/api/articles', {
-    next: {
-      revalidate: 0 //! remember to come back after the project is done
-    }
-  })
+  const response = await fetch('http://localhost:3000/api/articles')
 
   const articles = await response.json()
 

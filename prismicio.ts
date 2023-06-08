@@ -32,7 +32,7 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
     fetch,
-    accessToken: process.env.PRISMIC_CONTENT_ACCESS_TOKEN,
+    accessToken: process.env.PRISMIC_CONTENT_ACCESS_TOKEN_MASTER_RELEASE,
     ...config
   })
 

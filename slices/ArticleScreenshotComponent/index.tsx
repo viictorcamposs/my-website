@@ -15,7 +15,7 @@ const ArticleScreenshotComponent = ({ slice }: ArticleScreenshotComponentProps):
   <figure
     className={`
       flex flex-col gap-2 md:gap-4 
-      w-full max-w-3xl
+      w-full
       px-5 sm:px-12 lg:px-0
       md:mx-auto my-12 md:my-16
     `}

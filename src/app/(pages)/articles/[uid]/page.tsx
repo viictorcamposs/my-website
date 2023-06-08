@@ -1,12 +1,12 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 
 import { SliceZone } from '@prismicio/react'
-import { asLink } from '@prismicio/client'
 import { components } from '@/slices'
 import type { BlogArticleDocument } from '@/prismicio-types'
 import { createClient } from '@/prismicio'
 
 import Main from '~/app/components/Main'
+import ArticleHeroComponent from '../components/ArticleHeroComponent'
 
 interface IPageProps {
   params: {
@@ -20,11 +20,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const client = createClient()
 
-  const article = await client.getByUID('blog_article', uid, {
-    fetchOptions: {
-      next: { tags: ['prismic'], revalidate: 60 }
-    }
-  })
+  const article = await client.getByUID('blog_article', uid)
 
   // ?: optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent)?.openGraph?.images || []
@@ -44,20 +40,33 @@ export async function generateMetadata(
 export async function generateStaticParams() {
   const client = createClient()
 
-  const articles = await client.getAllByType('blog_article')
+  const articles = await client.getAllByType('blog_article', {
+    fetchOptions: {
+      next: {
+        tags: ['prismic'],
+        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
+      }
+    }
+  })
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return articles.map((article: any) => asLink(article))
+  return articles.map(article => ({
+    uid: article.uid
+  }))
 }
 
 async function getArticle(uid: string): Promise<BlogArticleDocument> {
   const client = createClient()
 
-  return await client.getByUID('blog_article', uid, {
+  const response = await client.getByUID('blog_article', uid, {
     fetchOptions: {
-      next: { tags: ['prismic'], revalidate: 60 }
+      next: {
+        tags: ['prismic'],
+        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 60
+      }
     }
   })
+
+  return response
 }
 
 export default async function Page({ params: { uid } }: IPageProps) {
@@ -70,18 +79,15 @@ export default async function Page({ params: { uid } }: IPageProps) {
         pb-6 px-0 sm:py-6 sm:px-5 md:px-0 md:py-8 sm:mx-auto
       `}
     >
-      <SliceZone slices={article.data.slices} components={components} />
+      <ArticleHeroComponent
+        title={article.data.title}
+        imageUrl={article.data.image.url!}
+        imageAlt={article.data.image.alt!}
+      />
+
+      <article className="mt-8 md:mt-12 px-6 md:px-10 xl:px-20">
+        <SliceZone slices={article.data.slices} components={components} />
+      </article>
     </Main>
   )
-}
-
-{
-  /* 
-    <article 
-      className="
-        px-5 sm:px-12 xl:px-5 xl:max-w-[780px] 
-        xl:mx-auto pt-8 
-        text-sm md:text-base text-[#464444] dark:text-[#cdcedf]" 
-    /> 
-  */
 }

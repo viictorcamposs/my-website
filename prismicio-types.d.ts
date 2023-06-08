@@ -103,6 +103,7 @@ interface BlogArticleDocumentData {
 type BlogArticleDocumentDataSlicesSlice =
   | ArticleScreenshotComponentSlice
   | ArticleEmbedVideoComponentSlice
+  | TextSlice
 /**
  * blog_article document from Prismic
  *

@@ -5,11 +5,7 @@ import { PrismicText } from '@prismicio/react'
 import type { BlogArticleDocument } from '@/prismicio-types'
 
 async function getMostRecentArticle(): Promise<BlogArticleDocument> {
-  const response = await fetch('http://localhost:3000/api/articles/mostRecent', {
-    next: {
-      revalidate: 0 //! remember to come back after the project is done
-    }
-  })
+  const response = await fetch('http://localhost:3000/api/articles/mostRecent')
 
   const article = await response.json()
 
