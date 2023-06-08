@@ -8,29 +8,7 @@ type Simplify<T> = {
 /** Content for blog_article documents */
 interface BlogArticleDocumentData {
   /**
-   * release_date field in *blog_article*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_article.release_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/date
-   *
-   */
-  release_date: prismic.DateField
-  /**
-   * release_date field in *blog_article*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_article.release_date_timestamp
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
-   *
-   */
-  release_date_timestamp: prismic.TimestampField
-  /**
-   * title field in *blog_article*
+   * Title field in *blog_article*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -40,6 +18,39 @@ interface BlogArticleDocumentData {
    *
    */
   title: prismic.TitleField
+  /**
+   * Description field in *blog_article*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField
+  /**
+   * Release Date field in *blog_article*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.releaseDate
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/timestamp
+   *
+   */
+  releaseDate: prismic.TimestampField
+  /**
+   * Image field in *blog_article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>
   /**
    * Slice Zone field in *blog_article*
    *
@@ -90,7 +101,6 @@ interface BlogArticleDocumentData {
  *
  */
 type BlogArticleDocumentDataSlicesSlice =
-  | HeroSlice
   | ArticleScreenshotComponentSlice
   | ArticleEmbedVideoComponentSlice
 /**
@@ -220,59 +230,6 @@ export type ArticleScreenshotComponentSlice = prismic.SharedSlice<
   'article_screenshot_component',
   ArticleScreenshotComponentSliceVariation
 >
-/**
- * Primary content in ArticleHeroComponent → Primary
- *
- */
-interface HeroSliceDefaultPrimary {
-  /**
-   * image field in *ArticleHeroComponent → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.image
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  image: prismic.ImageField<never>
-  /**
-   * title field in *ArticleHeroComponent → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.title
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  title: prismic.TitleField
-}
-/**
- * Default variation for ArticleHeroComponent Slice
- *
- * - **API ID**: `default`
- * - **Description**: `Default`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type HeroSliceDefault = prismic.SharedSliceVariation<
-  'default',
-  Simplify<HeroSliceDefaultPrimary>,
-  never
->
-/**
- * Slice variation for *ArticleHeroComponent*
- *
- */
-type HeroSliceVariation = HeroSliceDefault
-/**
- * ArticleHeroComponent Shared Slice
- *
- * - **API ID**: `hero`
- * - **Description**: `Hero`
- * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
- *
- */
-export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -293,11 +250,7 @@ declare module '@prismicio/client' {
       ArticleScreenshotComponentSliceDefaultPrimary,
       ArticleScreenshotComponentSliceDefault,
       ArticleScreenshotComponentSliceVariation,
-      ArticleScreenshotComponentSlice,
-      HeroSliceDefaultPrimary,
-      HeroSliceDefault,
-      HeroSliceVariation,
-      HeroSlice
+      ArticleScreenshotComponentSlice
     }
   }
 }
