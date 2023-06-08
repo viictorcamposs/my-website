@@ -13,6 +13,12 @@ const nextConfig = {
         hostname: 'scontent-lga3-1.cdninstagram.com',
         port: '',
         pathname: '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.prismic.io',
+        port: '',
+        pathname: '/**'
       }
     ]
   }
