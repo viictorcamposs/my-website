@@ -24,7 +24,7 @@ export default function ArticleHeroComponent({ title, imageUrl, imageAlt }: IArt
       <h1
         className={`
           relative 
-          font-bold text-2xl min-[790px]:text-4xl 
+          font-bold font-heading font-in text-2xl min-[790px]:text-4xl 
           sm:text-center xl:text-[42px]/tight
           text-[#f7f5f9]
         `}
