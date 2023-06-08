@@ -1,5 +1,5 @@
 import { server } from '~/mocks/server'
-import { articles, mostRecentArticle, articleWithHighestReleaseDate } from '~/mocks/mocks'
+import { articles, mostRecentArticle, articleWithHighestReleaseDate } from '~/mocks/mockData'
 import { screen, render, waitFor, within } from '@testing-library/custom'
 
 import ListOfArticles from './index'

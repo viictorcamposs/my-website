@@ -1,5 +1,5 @@
 import { server } from '~/mocks/server'
-import { mostRecentArticle } from '~/mocks/mocks'
+import { mostRecentArticle } from '~/mocks/mockData'
 import { screen, render, waitFor } from '@testing-library/custom'
 
 import MostRecentArticle from './index'

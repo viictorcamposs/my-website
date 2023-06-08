@@ -2,7 +2,7 @@ import { rest } from 'msw'
 
 import Month from '~/utils/month'
 
-import { articles, mostRecentArticle } from './mocks'
+import { articles, mostRecentArticle } from './mockData'
 
 export const handlers = [
   rest.get('http://localhost:3000/api/articles', (req, res, ctx) => {
