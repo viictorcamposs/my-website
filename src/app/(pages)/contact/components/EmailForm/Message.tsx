@@ -7,8 +7,6 @@ import type { UseFormRegister } from 'react-hook-form'
 
 import type { SendEmailData } from '.'
 
-HTMLTextAreaElement
-
 interface IMessageProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 const Message = forwardRef<
