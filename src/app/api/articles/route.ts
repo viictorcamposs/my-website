@@ -11,7 +11,7 @@ export async function GET() {
     fetchOptions: {
       next: {
         tags: ['prismic'],
-        revalidate: 0 //! correct value for revalidation: 604800
+        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
       }
     }
   })
