@@ -1,30 +1,16 @@
-import { articles, mostRecentArticle } from '~/mocks/mockData'
-import { screen, render, waitFor } from '@testing-library/custom'
+import { mostRecentArticle } from '~/mocks/mockData'
+import { screen, render } from '@testing-library/custom'
+import type { BlogArticleDocument } from '@/prismicio-types'
 
 import MostRecentArticle from './index'
 
-jest.mock('@/prismicio', () => ({
-  createClient: () => ({
-    getAllByType: jest
-      .fn()
-      .mockImplementation(() =>
-        articles.sort(
-          ({ data: a }, { data: b }) =>
-            Date.parse(String(b.releaseDate)) - Date.parse(String(a.releaseDate))
-        )
-      )
-  })
-}))
-
 async function renderMostRecentArticle() {
-  const mostRecentArticle = await MostRecentArticle()
-
-  render(mostRecentArticle)
+  render(<MostRecentArticle article={mostRecentArticle as unknown as BlogArticleDocument} />)
 }
 
 describe('MostRecentArticle', () => {
   it('should render proper content', async () => {
-    await waitFor(() => renderMostRecentArticle())
+    renderMostRecentArticle()
 
     expect(screen.getByText(mostRecentArticle.data.title[0].text)).toBeInTheDocument()
 

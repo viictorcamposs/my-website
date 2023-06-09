@@ -1,15 +1,35 @@
-import { Suspense } from 'react'
+import type { BlogArticleDocument } from '@/prismicio-types'
+import { createClient } from '@/prismicio'
 
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
-import LoadingMostRecentArticle from './components/MostRecentArticle/loading'
 import MostRecentArticle from './components/MostRecentArticle/'
-import LoadingListOfArticles from './components/ListOfArticles/loading'
 import ListOfArticles from './components/ListOfArticles/'
 
-export default function Page() {
+async function getArticles(): Promise<BlogArticleDocument[]> {
+  const client = createClient()
+
+  const articles = await client.getAllByType('blog_article', {
+    fetchOptions: {
+      next: {
+        tags: ['prismic'],
+        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
+      }
+    },
+    orderings: {
+      field: 'my.blog_article.releaseDate',
+      direction: 'desc'
+    }
+  })
+
+  return articles
+}
+
+export default async function Page() {
+  const articles = await getArticles()
+
   return (
     <Main>
       <section className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
@@ -26,20 +46,14 @@ export default function Page() {
         <div data-testid="most-recent-article-section">
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          <Suspense fallback={<LoadingMostRecentArticle />}>
-            {/* @ts-expect-error Async Server Component */}
-            <MostRecentArticle />
-          </Suspense>
+          <MostRecentArticle article={articles[0]} />
         </div>
       </section>
 
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <Suspense fallback={<LoadingListOfArticles />}>
-          {/* @ts-expect-error Async Server Component */}
-          <ListOfArticles />
-        </Suspense>
+        <ListOfArticles articles={articles} />
       </section>
     </Main>
   )

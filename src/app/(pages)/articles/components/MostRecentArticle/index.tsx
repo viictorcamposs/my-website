@@ -3,30 +3,12 @@ import Image from 'next/image'
 
 import { PrismicText } from '@prismicio/react'
 import type { BlogArticleDocument } from '@/prismicio-types'
-import { createClient } from '@/prismicio'
 
-async function getMostRecentArticle(): Promise<BlogArticleDocument> {
-  const client = createClient()
-
-  const articles = await client.getAllByType('blog_article', {
-    fetchOptions: {
-      next: {
-        tags: ['prismic'],
-        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
-      }
-    },
-    orderings: {
-      field: 'my.blog_article.releaseDate',
-      direction: 'desc'
-    }
-  })
-
-  return articles[0]
+interface IMostRecentArticle {
+  article: BlogArticleDocument
 }
 
-export default async function MostRecentArticle() {
-  const article = await getMostRecentArticle()
-
+export default function MostRecentArticle({ article }: IMostRecentArticle) {
   return (
     <div
       className={`
