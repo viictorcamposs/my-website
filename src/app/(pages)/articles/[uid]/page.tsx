@@ -14,25 +14,16 @@ interface IPageProps {
   }
 }
 
-export async function generateMetadata({
-  params: { uid }
-}: IPageProps): // parent: ResolvingMetadata
-Promise<Metadata> {
+export async function generateMetadata({ params: { uid } }: IPageProps): Promise<Metadata> {
   const client = createClient()
 
   const article = await client.getByUID('blog_article', uid)
-
-  // ?: optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent.openGraph?.images) || []
 
   return {
     title: article.data.meta_title,
     description: String(article.data.meta_description),
     openGraph: {
-      images: [
-        '/custom-metadata-image.png' // *: Prismic Metadata Image
-        // ...previousImages
-      ]
+      images: ['/custom-metadata-image.png']
     }
   }
 }
