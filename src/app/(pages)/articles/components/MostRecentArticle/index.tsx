@@ -3,17 +3,25 @@ import Image from 'next/image'
 
 import { PrismicText } from '@prismicio/react'
 import type { BlogArticleDocument } from '@/prismicio-types'
+import { createClient } from '@/prismicio'
 
 async function getMostRecentArticle(): Promise<BlogArticleDocument> {
-  const API_URL = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}/api/articles/mostRecent`
-    : 'http://localhost:3000/api/articles/mostRecent'
+  const client = createClient()
 
-  const response = await fetch(API_URL)
+  const articles = await client.getAllByType('blog_article', {
+    fetchOptions: {
+      next: {
+        tags: ['prismic'],
+        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
+      }
+    },
+    orderings: {
+      field: 'my.blog_article.releaseDate',
+      direction: 'desc'
+    }
+  })
 
-  const article = await response.json()
-
-  return article
+  return articles[0]
 }
 
 export default async function MostRecentArticle() {

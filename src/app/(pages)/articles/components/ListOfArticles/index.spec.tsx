@@ -1,4 +1,3 @@
-import { server } from '~/mocks/server'
 import { articles, mostRecentArticle, articleWithHighestReleaseDate } from '~/mocks/mockData'
 import { screen, render, waitFor, within } from '@testing-library/custom'
 
@@ -10,16 +9,23 @@ async function renderListOfArticles() {
   render(listOfArticles)
 }
 
-describe('ListOfArticles', () => {
-  beforeAll(() => server.listen())
+jest.mock('@/prismicio', () => ({
+  createClient: () => ({
+    getAllByType: jest
+      .fn()
+      .mockImplementation(() =>
+        articles.sort(
+          ({ data: a }, { data: b }) =>
+            Date.parse(String(b.releaseDate)) - Date.parse(String(a.releaseDate))
+        )
+      )
+  })
+}))
 
+describe('ListOfArticles', () => {
   beforeEach(async () => {
     await waitFor(() => renderListOfArticles())
   })
-
-  afterEach(() => server.resetHandlers())
-
-  afterAll(() => server.close())
 
   it('should render list of articles without the most recent written', () => {
     const list = screen.getByRole('list', {

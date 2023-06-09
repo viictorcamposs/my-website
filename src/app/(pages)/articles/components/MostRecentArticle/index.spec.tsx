@@ -1,8 +1,20 @@
-import { server } from '~/mocks/server'
-import { mostRecentArticle } from '~/mocks/mockData'
+import { articles, mostRecentArticle } from '~/mocks/mockData'
 import { screen, render, waitFor } from '@testing-library/custom'
 
 import MostRecentArticle from './index'
+
+jest.mock('@/prismicio', () => ({
+  createClient: () => ({
+    getAllByType: jest
+      .fn()
+      .mockImplementation(() =>
+        articles.sort(
+          ({ data: a }, { data: b }) =>
+            Date.parse(String(b.releaseDate)) - Date.parse(String(a.releaseDate))
+        )
+      )
+  })
+}))
 
 async function renderMostRecentArticle() {
   const mostRecentArticle = await MostRecentArticle()
@@ -11,12 +23,6 @@ async function renderMostRecentArticle() {
 }
 
 describe('MostRecentArticle', () => {
-  beforeAll(() => server.listen())
-
-  afterEach(() => server.resetHandlers())
-
-  afterAll(() => server.close())
-
   it('should render proper content', async () => {
     await waitFor(() => renderMostRecentArticle())
 

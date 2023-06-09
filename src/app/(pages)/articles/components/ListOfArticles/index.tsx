@@ -2,17 +2,45 @@ import Link from 'next/link'
 
 import { PrismicText } from '@prismicio/react'
 import type { BlogArticleDocument } from '@/prismicio-types'
+import { createClient } from '@/prismicio'
+
+import Month from '~/utils/month'
 
 async function getListOfArticles(): Promise<BlogArticleDocument[]> {
-  const API_URL = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}/api/articles`
-    : 'http://localhost:3000/api/articles'
+  const client = createClient()
 
-  const response = await fetch(API_URL)
+  const response = await client.getAllByType('blog_article', {
+    fetchOptions: {
+      next: {
+        tags: ['prismic'],
+        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
+      }
+    },
+    orderings: {
+      field: 'my.blog_article.releaseDate',
+      direction: 'desc'
+    }
+  })
 
-  const articles = await response.json()
+  const articles = response.slice(1).map(article => {
+    const timestamp = Date.parse(String(article.data.releaseDate))
 
-  return articles
+    let formattedDate: Date | string = new Date(timestamp)
+
+    const date = formattedDate.getDate()
+    const month = Month[formattedDate.getMonth()]
+    const year = formattedDate.getFullYear()
+
+    return {
+      ...article,
+      data: {
+        ...article.data,
+        releaseDate: `${month} ${date}, ${year}`
+      }
+    }
+  })
+
+  return articles as BlogArticleDocument[]
 }
 
 export default async function ListOfArticles() {
