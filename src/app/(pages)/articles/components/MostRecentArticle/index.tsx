@@ -11,6 +11,7 @@ interface IMostRecentArticle {
 export default function MostRecentArticle({ article }: IMostRecentArticle) {
   return (
     <div
+      data-testid="most-recent-article"
       className={`
         w-full max-w-[350px]
       `}

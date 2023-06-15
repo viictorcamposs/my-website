@@ -29,7 +29,7 @@ export default function ListOfArticles({ articles: data }: IListOfArticles) {
   })
 
   return (
-    <ul aria-label="articles" className="flex flex-col gap-6 mt-5">
+    <ul className="flex flex-col gap-6 mt-5">
       {articles.map(article => (
         <li
           key={article.uid}

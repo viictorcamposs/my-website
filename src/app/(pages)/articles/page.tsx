@@ -11,18 +11,21 @@ import ListOfArticles from './components/ListOfArticles/'
 async function getArticles(): Promise<BlogArticleDocument[]> {
   const client = createClient()
 
-  const articles = await client.getAllByType('blog_article', {
+  let articles = await client.getAllByType('blog_article', {
     fetchOptions: {
       next: {
         tags: ['prismic'],
         revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
       }
-    },
-    orderings: {
-      field: 'my.blog_article.releaseDate',
-      direction: 'desc'
     }
   })
+
+  const getDate = (date: unknown) => Date.parse(String(date))
+
+  articles = articles.sort(
+    ({ data: articleA }, { data: articleB }) =>
+      getDate(articleB.releaseDate) - getDate(articleA.releaseDate)
+  )
 
   return articles
 }
@@ -43,7 +46,7 @@ export default async function Page() {
           </PageParagraph>
         </div>
 
-        <div data-testid="most-recent-article-section">
+        <div>
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
           <MostRecentArticle article={articles[0]} />

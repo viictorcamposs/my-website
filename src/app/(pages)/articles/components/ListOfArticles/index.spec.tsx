@@ -14,22 +14,12 @@ describe('ListOfArticles', () => {
   })
 
   it('should render list of articles without the most recent written', () => {
-    const list = screen.getByRole('list', {
-      name: /articles/i
-    })
+    const list = screen.getByRole('list')
 
     const items = within(list).getAllByRole('listitem')
 
     expect(items).toHaveLength(articles.length - 1)
   })
-
-  // fit('should render list of articles sorted by highest release date', () => {
-  //   const [first] = screen.getAllByRole('listitem')
-
-  //   const title = within(first).getByRole('heading')
-
-  //   expect(title).toHaveTextContent(articles[1].data.title[0].text)
-  // })
 
   it('should render list of articles with formatted release date', () => {
     const datePattern = /^[A-Z][a-z]{2}\s\d{1,2}\,\s\d{4}$/g
