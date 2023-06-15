@@ -25,7 +25,7 @@ export default function Loading() {
         <div>
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          <div title="Loading most recent article" className="w-full max-w-[350px] animate-pulse">
+          <div className="w-full max-w-[350px] animate-pulse">
             <img src="" alt="" className={`mb-4 aspect-video ${skeletonStyles}`} />
 
             <h3 className={`h-6 mt-4 mb-3 ${skeletonStyles}`} />
@@ -40,7 +40,7 @@ export default function Loading() {
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <div title="Loading list of articles" className="flex flex-col gap-6 mt-5 animate-pulse">
+        <div className="flex flex-col gap-6 mt-5 animate-pulse">
           <div className="relative pb-6 border-b border-[#464444]">
             <h3 className={`mb-4 sm:max-w-[70%] h-4 ${skeletonStyles}`} />
 
