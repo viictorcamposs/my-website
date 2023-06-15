@@ -14,7 +14,6 @@ const linkClassName = `
   text-sm font-normal font-body text-[#cdcedf]
   hover:bg-[#f7f5f9]/10 hover:text-[#f7f5f9]
   transition-all duration-200
-  xl:text-base
   after:content-['']
   after:block after:absolute
   after:bottom-2 after:left-[calc(50%-10px)]

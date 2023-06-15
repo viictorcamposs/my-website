@@ -18,7 +18,7 @@ export default function Mobile() {
   return (
     <>
       <button onClick={handleMenu} className="sm:hidden">
-        <List size={24} className="text-[#f7f5f9]" />
+        <List size={30} className="text-[#f7f5f9]" />
       </button>
 
       {isOpen && <Menu isOpen={isOpen} />}
