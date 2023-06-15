@@ -1,5 +1,5 @@
 'use client'
 
-import { GithubLogo, LinkedinLogo, Article, EnvelopeSimple } from '@phosphor-icons/react'
+import { GithubLogo, LinkedinLogo, Article } from '@phosphor-icons/react'
 
-export { GithubLogo, LinkedinLogo, Article, EnvelopeSimple }
+export { GithubLogo, LinkedinLogo, Article }
