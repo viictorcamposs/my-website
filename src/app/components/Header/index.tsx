@@ -1,4 +1,3 @@
-import ThemeToggle from './ThemeToggle'
 import MobileNav from './Navigation/Mobile'
 import DesktopNav from './Navigation/Desktop'
 import BackToHomePage from './BackToHomePage'
@@ -11,8 +10,6 @@ export default function Header() {
       <MobileNav />
 
       <DesktopNav />
-
-      <ThemeToggle />
     </header>
   )
 }

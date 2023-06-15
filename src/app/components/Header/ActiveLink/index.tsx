@@ -11,8 +11,8 @@ interface IActiveLink extends LinkProps {
 const linkClassName = `
   rounded relative
   py-3 px-5 
-  text-sm font-normal font-body text-[#464444] dark:text-[#cdcedf]
-  hover:bg-[#0c0f17]/10 dark:hover:bg-[#f7f5f9]/10 hover:text-[#0c0f17] dark:hover:text-[#f7f5f9]
+  text-sm font-normal font-body text-[#cdcedf]
+  hover:bg-[#f7f5f9]/10 hover:text-[#f7f5f9]
   transition-all duration-200
   xl:text-base
   after:content-['']
@@ -30,7 +30,7 @@ export default function ActiveLink({ children, ...props }: IActiveLink) {
       {...props}
       className={
         pathname.startsWith(props.href as string)
-          ? `${linkClassName} after:bg-[#0c0f17] dark:after:bg-[#f7f5f9]`
+          ? `${linkClassName} after:bg-[#f7f5f9]`
           : `${linkClassName} after:bg-transparent`
       }
     >

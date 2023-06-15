@@ -21,7 +21,7 @@ describe('ActiveLink', () => {
   })
 
   it('should apply active link styles based on the current pathname and link href attribute', () => {
-    const activeLinkStyles = 'after:bg-[#0c0f17] dark:after:bg-[#f7f5f9]'
+    const activeLinkStyles = 'after:bg-[#f7f5f9]'
     const normalLinkStyles = 'after:bg-transparent'
 
     renderActiveLink('/about', 'About')

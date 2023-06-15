@@ -10,8 +10,8 @@ const MAIL = '/contact'
 const Footer: React.FC = () => {
   const textClassNames = `
     hidden sm:block 
-    sm:text-[#464444] sm:dark:text-[#cdcedf] sm:dark:hover:text-[#f7f5f9] 
-    sm:dark:transition-all sm:dark:duration-200 
+    sm:text-[#cdcedf] sm:hover:text-[#f7f5f9] 
+    sm:transition-all sm:duration-200 
     sm:font-body sm:font-normal sm:text-sm xl:text-base
   `
 
@@ -20,10 +20,10 @@ const Footer: React.FC = () => {
   const iconClassNames = `
     w-6 h-6
     sm:hidden 
-    text-[#0c0f17] dark:text-[#cdcedf]
+    text-[#cdcedf]
     xl:block xl:w-5 xl:h-5 xl:opacity-0 
     xl:group-hover:opacity-100 
-    xl:dark:group-hover:text-[#f7f5f9]
+    xl:group-hover:text-[#f7f5f9]
     xl:transition-opacity xl:duration-200
   `
 

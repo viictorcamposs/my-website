@@ -31,20 +31,17 @@ export default function ListOfArticles({ articles: data }: IListOfArticles) {
   return (
     <ul className="flex flex-col gap-6 mt-5">
       {articles.map(article => (
-        <li
-          key={article.uid}
-          className="relative pt-6 border-t border-[#cdcedf] dark:border-[#464444]"
-        >
+        <li key={article.uid} className="relative pt-6 border-t border-[#464444]">
           <Link scroll href={article.url!}>
-            <h3 className="font-body font-bold text-base sm:text-lg text-[#0c0f17] dark:text-[#f7f5f9] mb-4 sm:max-w-[80%]">
+            <h3 className="font-body font-bold text-base sm:text-lg text-[#f7f5f9] mb-4 sm:max-w-[80%]">
               <PrismicText field={article.data.title} />
             </h3>
 
-            <p className="hidden sm:block font-body font-normal text-sm text-[#464444] dark:text-[#cdcedf] mt-4 sm:max-w-[70%]">
+            <p className="hidden sm:block font-body font-normal text-sm text-[#cdcedf] mt-4 sm:max-w-[70%]">
               <PrismicText field={article.data.description} />
             </p>
 
-            <span className="sm:absolute sm:top-6 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#464444] dark:text-[#cdcedf]">
+            <span className="sm:absolute sm:top-6 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#cdcedf]">
               {article.data.releaseDate}
             </span>
           </Link>

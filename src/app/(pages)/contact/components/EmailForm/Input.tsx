@@ -13,10 +13,10 @@ const Input = forwardRef<HTMLInputElement, IInput & ReturnType<UseFormRegister<S
   ({ name, ...props }, ref) => {
     const tailwindClass = `
     w-full px-4 py-3 
-    font-body font-normal text-xs xl:text-sm text-[#464444] dark:text-[#cdcedf] 
+    font-body font-normal text-xs xl:text-sm text-[#cdcedf] 
     bg-transparent rounded-lg 
-    border border-[#464444] dark:border-[#cdcedf] 
-    focus:outline-0 focus:border-[#01B0EA] focus:dark:border-[#01B0EA]
+    border border-[#cdcedf] 
+    focus:outline-0 focus:border-[#01B0EA]
   `
 
     return <input {...props} name={name} ref={ref} className={tailwindClass} />
