@@ -10,7 +10,6 @@ module.exports = {
     './src/app/components/**/*.{js,ts,jsx,tsx}',
     '~/test/**/*.{js,ts,jsx,tsx}',
     './src/test/**/*.{js,ts,jsx,tsx}',
-    './slices/**/*.{js,ts,jsx,tsx}',
     '!./node_modules'
   ],
   theme: {

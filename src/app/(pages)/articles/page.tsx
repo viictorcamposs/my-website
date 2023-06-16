@@ -1,37 +1,14 @@
-import type { BlogArticleDocument } from '@/prismicio-types'
-import { createClient } from '@/prismicio'
-
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
-import MostRecentArticle from './components/MostRecentArticle/'
-import ListOfArticles from './components/ListOfArticles/'
+// import MostRecentArticle from './components/MostRecentArticle/'
+// import ListOfArticles from './components/ListOfArticles/'
 
-async function getArticles(): Promise<BlogArticleDocument[]> {
-  const client = createClient()
-
-  let articles = await client.getAllByType('blog_article', {
-    fetchOptions: {
-      next: {
-        tags: ['prismic'],
-        revalidate: process.env.NODE_ENV === 'production' ? 604800 : 0
-      }
-    }
-  })
-
-  const getDate = (date: unknown) => Date.parse(String(date))
-
-  articles = articles.sort(
-    ({ data: articleA }, { data: articleB }) =>
-      getDate(articleB.releaseDate) - getDate(articleA.releaseDate)
-  )
-
-  return articles
-}
+// async function getArticles(): Promise<unknown> {}
 
 export default async function Page() {
-  const articles = await getArticles()
+  // const articles = await getArticles()
 
   return (
     <Main>
@@ -49,14 +26,14 @@ export default async function Page() {
         <div>
           <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          <MostRecentArticle article={articles[0]} />
+          {/* <MostRecentArticle article={articles[0]} /> */}
         </div>
       </section>
 
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <ListOfArticles articles={articles} />
+        {/* <ListOfArticles articles={articles} /> */}
       </section>
     </Main>
   )

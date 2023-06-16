@@ -1,10 +1,7 @@
 import Image from 'next/image'
 
-import { PrismicText } from '@prismicio/react'
-import type { RichTextField } from '@prismicio/client'
-
 interface IArticleHeroComponent {
-  title: RichTextField
+  title: string
   imageUrl: string
   imageAlt: string
 }
@@ -29,7 +26,7 @@ export default function ArticleHeroComponent({ title, imageUrl, imageAlt }: IArt
           text-[#f7f5f9]
         `}
       >
-        <PrismicText field={title} />
+        {title}
       </h1>
     </section>
   )
