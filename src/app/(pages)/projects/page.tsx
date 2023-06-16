@@ -15,7 +15,8 @@ export interface IProject {
 const projects: IProject[] = [
   {
     title: 'Nullam lobortis ullamcorper',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
     image:
       'https://images.unsplash.com/photo-1682310916704-8f91c1a1b66b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1766&q=80',
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
@@ -23,7 +24,8 @@ const projects: IProject[] = [
   },
   {
     title: 'Nullam lobortis ullamcorper',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
     image:
       'https://images.unsplash.com/photo-1686695323307-b0dccdbe136d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80',
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
@@ -31,7 +33,8 @@ const projects: IProject[] = [
   },
   {
     title: 'Nullam lobortis ullamcorper',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis.',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
     image:
       'https://images.unsplash.com/photo-1686742745949-bf6603f74866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2865&q=80',
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
@@ -39,7 +42,16 @@ const projects: IProject[] = [
   },
   {
     title: 'Nullam lobortis ullamcorper',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis.',
+    description: `
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet. Risus mattis iaculis. 
+      Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <br /><br /> 
+      Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet. Risus mattis iaculis. Lorem ipsum dolor sit amet. 
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. 
+      Lorem ipsum dolor sit amet. Risus mattis iaculis. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      <br /> <br /> 
+      Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet. Risus mattis iaculis. Lorem ipsum dolor sit amet.
+    `,
     image:
       'https://images.unsplash.com/photo-1686598997804-71e849721105?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80',
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
@@ -59,7 +71,13 @@ export default function Page() {
 
       <PageSubtitle>Projects</PageSubtitle>
 
-      <div className="flex flex-col gap-8">
+      <div
+        className={`
+          flex md:grid flex-col md:flex-none
+          md:grid-cols-2 
+          gap-8 md:gap-0
+        `}
+      >
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}

@@ -42,13 +42,14 @@ export default function ProjectCardClient({ children, project }: IProjectCardCli
             onClick={handleCloseModal}
             className={`
               absolute right-5 top-5
+              md:right-14 md:top-14
             `}
           >
             <X
               color="#f7f5f9"
               className={`
-                h-6 w-6
-                md:h-7 md:w-7
+                h-5 w-5
+                md:h-6 md:w-6
               `}
             />
           </button>

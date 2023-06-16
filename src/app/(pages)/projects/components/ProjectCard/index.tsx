@@ -13,14 +13,19 @@ export default function ProjectCard({ project }: IProjectCard) {
       <div
         className={`
           grid grid-cols-[minmax(50px,100px)_1fr] gap-3
-          min-[400px]:gap-5
+          min-[400px]:gap-5 md:gap-7
+          md:flex md:flex-col
+          md:px-[26px] md:py-7
+          md:rounded-lg md:hover:bg-[#f7f5f9]/10
+          md:transition-all md:duration-200
           cursor-pointer
         `}
       >
         <div
           className={`
             relative aspect-square w-full max-w-[100px] 
-            rounded overflow-hidden
+            rounded md:rounded-lg overflow-hidden
+            md:max-w-full md:aspect-video
           `}
         >
           <Image
@@ -32,12 +37,13 @@ export default function ProjectCard({ project }: IProjectCard) {
           />
         </div>
 
-        <div className="py-2">
+        <div className="py-2 md:py-0">
           <h3
             className={`
-              mb-3.5
+              mb-3.5 md:mb-4
               font-semibold font-body
               text-sm text-[#f7f5f9]
+              md:text-lg md:font-bold
             `}
           >
             {project.title}
@@ -47,9 +53,12 @@ export default function ProjectCard({ project }: IProjectCard) {
             className={`
               font-body font-normal
               text-xs text-[#cdcedf]
+              md:text-base
             `}
           >
-            {project.description}
+            {project.description.length > 100
+              ? project.description.substring(0, 100) + '...'
+              : project.description}
           </p>
         </div>
       </div>
