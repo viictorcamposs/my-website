@@ -12,13 +12,11 @@ const customJestConfig: Config = {
   testEnvironment: 'jsdom',
   moduleDirectories: ['node_modules', 'test/@testing-library'],
   moduleNameMapper: {
-    '~/(.*)': '<rootDir>/src/$1',
     '@/(.*)': '<rootDir>/$1'
   },
   collectCoverageFrom: [
-    '<rootDir>/src/app/components/**/*.{ts,tsx}',
-    '<rootDir>/src/app/api/**/*.{ts,tsx}',
-    '<rootDir>/src/app/**/page.{js,ts,jsx,tsx}'
+    '<rootDir>/app/components/**/*.{ts,tsx}',
+    '<rootDir>/app/**/page.{js,ts,jsx,tsx}'
   ]
 }
 
