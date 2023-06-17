@@ -6,7 +6,7 @@ import { GithubLogo, LinkedinLogo, Article } from './icons'
 
 const textClassNames = `
     hidden sm:block 
-    sm:text-[#cdcedf] sm:hover:text-[#f7f5f9] 
+    sm:text-[#c7c8e0] sm:hover:text-[#f7f5f9] 
     sm:transition-all sm:duration-200 
     sm:font-body sm:font-normal sm:text-sm xl:text-base
   `
@@ -19,7 +19,7 @@ const linkClassNames = `
 const iconClassNames = `
     w-6 h-6
     sm:hidden 
-    text-[#cdcedf]
+    text-[#c7c8e0]
     xl:absolute xl:-right-6
     xl:block xl:w-5 xl:h-5 xl:opacity-0 
     xl:group-hover:opacity-100 

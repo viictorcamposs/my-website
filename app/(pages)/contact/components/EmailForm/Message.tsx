@@ -15,9 +15,9 @@ const Message = forwardRef<
 >((props, ref) => {
   const tailwindClass = `
     w-full px-4 py-3 
-    font-body font-normal text-xs xl:text-sm text-[#cdcedf] 
+    font-body font-normal text-xs xl:text-sm text-[#c7c8e0] 
     bg-transparent rounded-lg 
-    border border-[#cdcedf] 
+    border border-[#c7c8e0] 
     focus:outline-0 focus:border-[#01B0EA]
   `
 

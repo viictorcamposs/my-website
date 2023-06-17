@@ -6,7 +6,7 @@ import PageSubtitle from '@/app/components/PageSubtitle'
 import PageParagraph from '@/app/components/PageParagraph'
 import Main from '@/app/components/Main'
 
-const skeletonStyles = 'bg-[#cdcedf]/20 rounded-lg'
+const skeletonStyles = 'bg-[#c7c8e0]/20 rounded-lg'
 
 export default function Loading() {
   return (

@@ -1,7 +1,7 @@
 import { Poppins, Inter } from 'next/font/google'
 
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from '@/app/components/Header'
+import Footer from '@/app/components/Footer'
 
 import './globals.css'
 
@@ -33,7 +33,7 @@ interface IRootLayout {
 export default function RootLayout({ children }: IRootLayout) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="grid grid-rows-[66px_1fr_60px] min-h-screen max-w-full bg-[#0c0f17]">
+      <body className="grid grid-rows-[66px_1fr_60px] min-h-screen max-w-full bg-[#06080d]">
         <Header />
 
         {children}

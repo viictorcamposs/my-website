@@ -54,7 +54,7 @@ export default function ModalContent({ project }: IModalContent) {
           mt-4 mb-6
           md:mt-5 md:mb-7
           font-body text-sm md:text-base 
-          text-[#cdcedf]
+          text-[#c7c8e0]
         `}
       />
 
@@ -83,7 +83,7 @@ export default function ModalContent({ project }: IModalContent) {
             className={`
               font-body 
               text-sm md:text-base 
-              text-[#cdcedf]
+              text-[#c7c8e0]
             `}
           >
             {tech}

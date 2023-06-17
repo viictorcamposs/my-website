@@ -11,7 +11,7 @@ interface IActiveLink extends LinkProps {
 const linkClassName = `
   rounded relative
   py-3 px-5 
-  text-sm font-normal font-body text-[#cdcedf]
+  text-sm font-normal font-body text-[#c7c8e0]
   hover:bg-[#f7f5f9]/10 hover:text-[#f7f5f9]
   transition-all duration-200
   after:content-['']

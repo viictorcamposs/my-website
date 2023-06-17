@@ -24,7 +24,7 @@ export default function Modal({ children }: IModal) {
           fixed z-50 left-0 top-0 bottom-0 right-0
           flex flex-col items-center justify-center
           min-h-screen w-screen px-5
-          backdrop-blur-sm bg-[#0c0f17]/90
+          backdrop-blur-sm bg-[#06080d]/90
         `}
       >
         {children}

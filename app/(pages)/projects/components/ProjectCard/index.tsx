@@ -52,7 +52,7 @@ export default function ProjectCard({ project }: IProjectCard) {
           <p
             className={`
               font-body font-normal
-              text-xs text-[#cdcedf]
+              text-xs text-[#c7c8e0]
               md:text-base
             `}
           >

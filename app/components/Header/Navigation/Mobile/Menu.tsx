@@ -7,7 +7,7 @@ interface IMenu {
 }
 
 const linkClassName = `
-  text-sm font-light font-body text-[#cdcedf]
+  text-sm font-light font-body text-[#c7c8e0]
 `
 
 export default function Menu({ isOpen }: IMenu) {
@@ -24,7 +24,7 @@ export default function Menu({ isOpen }: IMenu) {
         className={`
           flex flex-col gap-5
           pt-7 pb-20 pl-5 pr-20
-          rounded-lg bg-[#0c0f17]
+          rounded-lg bg-[#06080d]
           drop-shadow-[4px_4px_4px_#f7f5f905]
         `}
       >

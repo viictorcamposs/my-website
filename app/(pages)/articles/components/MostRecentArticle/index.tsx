@@ -20,7 +20,7 @@
 
 //         <h3 className="font-body font-bold text-base text-[#f7f5f9] mt-4 mb-3">{article.title}</h3>
 
-//         <p className="mt-3 font-body font-normal text-sm text-[#cdcedf]">{article.description}</p>
+//         <p className="mt-3 font-body font-normal text-sm text-[#c7c8e0]">{article.description}</p>
 //       </Link>
 //     </div>
 //   )

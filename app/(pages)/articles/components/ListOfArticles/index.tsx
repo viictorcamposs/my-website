@@ -34,11 +34,11 @@
 //               {article.title}
 //             </h3>
 
-//             <p className="hidden sm:block font-body font-normal text-sm text-[#cdcedf] mt-4 sm:max-w-[70%]">
+//             <p className="hidden sm:block font-body font-normal text-sm text-[#c7c8e0] mt-4 sm:max-w-[70%]">
 //               {article.description}
 //             </p>
 
-//             <span className="sm:absolute sm:top-6 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#cdcedf]">
+//             <span className="sm:absolute sm:top-6 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#c7c8e0]">
 //               {article.releaseDate}
 //             </span>
 //           </Link>

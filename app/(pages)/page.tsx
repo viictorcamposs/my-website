@@ -5,7 +5,7 @@ export default function Home() {
         Victor Campos
       </h1>
 
-      <h2 className="text-base xl:text-xl font-body mt-1.5 text-[#cdcedf]">
+      <h2 className="text-base xl:text-xl font-body mt-1.5 text-[#c7c8e0]">
         SOFTWARE ENGINEER
         <span className="sm:text-lg xl:text-3xl ml-2 xl:relative xl:top-1">🇧🇷</span>
       </h2>
