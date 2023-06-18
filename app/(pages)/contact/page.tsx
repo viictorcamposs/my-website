@@ -1,7 +1,7 @@
-import PageTitle from '@/app/components/PageTitle'
-import PageSubtitle from '@/app/components/PageSubtitle'
-import PageParagraph from '@/app/components/PageParagraph'
-import Main from '@/app/components/Main'
+import PageTitle from '~/app/components/PageTitle'
+import PageSubtitle from '~/app/components/PageSubtitle'
+import PageParagraph from '~/app/components/PageParagraph'
+import Main from '~/app/components/Main'
 
 import EmailForm from './components/EmailForm'
 

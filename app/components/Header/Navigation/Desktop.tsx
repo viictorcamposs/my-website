@@ -1,4 +1,4 @@
-import Elink from '@/enum/link'
+import Elink from '~/enum/link'
 
 import ActiveLink from '../ActiveLink'
 

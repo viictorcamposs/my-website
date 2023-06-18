@@ -21,7 +21,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
+      "~/*": ["./*"],
       "@testing-library/custom": ["./test/@testing-library/custom.tsx"]
     }
   },

@@ -53,6 +53,7 @@
           ["/(sections)/", "/(components)/"],
           ["/(libs)/", "/(utils)/"],
           ["/(interface)/", "/(enums)/", "/(schemas)/"],
+          "/(static)/",
           "/(styles)/"
         ],
         "alphabetize": {

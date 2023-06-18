@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/heading-has-content */
 
-import PageTitle from '@/app/components/PageTitle'
-import PageSubtitle from '@/app/components/PageSubtitle'
-import PageParagraph from '@/app/components/PageParagraph'
-import Main from '@/app/components/Main'
+import PageTitle from '~/app/components/PageTitle'
+import PageSubtitle from '~/app/components/PageSubtitle'
+import PageParagraph from '~/app/components/PageParagraph'
+import Main from '~/app/components/Main'
 
 const skeletonStyles = 'bg-[#c7c8e0]/20 rounded-lg'
 

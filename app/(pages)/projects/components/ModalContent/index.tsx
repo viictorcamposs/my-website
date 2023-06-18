@@ -20,21 +20,15 @@ export default function ModalContent({ project }: IModalContent) {
         overflow-y-auto no-scrollbar
       `}
     >
-      <div
+      <Image
+        src={project.image}
+        alt={project.title}
+        placeholder="blur"
         className={`
-          relative aspect-video
-          overflow-hidden rounded-lg
+          aspect-video
+          rounded-lg object-cover
         `}
-      >
-        <Image
-          fill
-          priority
-          sizes="50vw"
-          src={project.image}
-          alt={project.title}
-          className="object-cover"
-        />
-      </div>
+      />
 
       <h3
         className={`

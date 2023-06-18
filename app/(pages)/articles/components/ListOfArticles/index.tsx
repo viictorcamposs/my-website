@@ -1,6 +1,6 @@
 // import Link from 'next/link'
 
-// import Month from '@/utils/month'
+// import Month from '~/utils/month'
 
 // interface IListOfArticles {
 //   articles: unknown

@@ -1,6 +1,7 @@
 // import type { Metadata } from 'next'
-import Main from '@/app/components/Main'
-import HelloWorld from '@/app/articles/hello-world.mdx'
+import HelloWorld from '~/app/articles/hello-world.mdx'
+
+import Main from '~/app/components/Main'
 
 // interface IPageProps {
 //   params: {

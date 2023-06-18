@@ -21,21 +21,17 @@ export default function ProjectCard({ project }: IProjectCard) {
           cursor-pointer
         `}
       >
-        <div
+        <Image
+          src={project.image}
+          alt={project.title}
+          placeholder="blur"
           className={`
-            relative aspect-square w-full max-w-[100px] 
-            rounded md:rounded-lg overflow-hidden
-            md:max-w-full md:aspect-video
+            w-full max-w-[100px] md:max-w-full
+            aspect-square md:aspect-video
+            rounded md:rounded-lg
+            object-cover
           `}
-        >
-          <Image
-            fill
-            sizes="50vw"
-            className="object-cover"
-            src={project.image}
-            alt={project.title}
-          />
-        </div>
+        />
 
         <div className="py-2 md:py-0">
           <h3

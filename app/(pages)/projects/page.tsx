@@ -1,14 +1,20 @@
-import PageTitle from '@/app/components/PageTitle'
-import PageSubtitle from '@/app/components/PageSubtitle'
-import PageParagraph from '@/app/components/PageParagraph'
-import Main from '@/app/components/Main'
+import type { StaticImageData } from 'next/image'
 
+import PageTitle from '~/app/components/PageTitle'
+import PageSubtitle from '~/app/components/PageSubtitle'
+import PageParagraph from '~/app/components/PageParagraph'
+import Main from '~/app/components/Main'
 import ProjectCard from './components/ProjectCard'
+
+import projectPic1 from '~/app/static/img/projects/img-project.jpg'
+import projectPic4 from '~/app/static/img/projects/img-project-4.jpg'
+import projectPic3 from '~/app/static/img/projects/img-project-3.jpg'
+import projectPic2 from '~/app/static/img/projects/img-project-2.jpg'
 
 export interface IProject {
   title: string
   description: string
-  image: string
+  image: StaticImageData | string
   techs: string[]
   github: string
 }
@@ -18,8 +24,7 @@ const projects: IProject[] = [
     title: 'Nullam lobortis ullamcorper',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
-    image:
-      'https://images.unsplash.com/photo-1682310916704-8f91c1a1b66b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1766&q=80',
+    image: projectPic1,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   },
@@ -27,8 +32,7 @@ const projects: IProject[] = [
     title: 'Nullam lobortis ullamcorper',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
-    image:
-      'https://images.unsplash.com/photo-1686695323307-b0dccdbe136d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80',
+    image: projectPic2,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   },
@@ -36,8 +40,7 @@ const projects: IProject[] = [
     title: 'Nullam lobortis ullamcorper',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
-    image:
-      'https://images.unsplash.com/photo-1686742745949-bf6603f74866?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2865&q=80',
+    image: projectPic3,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   },
@@ -53,8 +56,7 @@ const projects: IProject[] = [
       <br /> <br /> 
       Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet. Risus mattis iaculis. Lorem ipsum dolor sit amet.
     `,
-    image:
-      'https://images.unsplash.com/photo-1686598997804-71e849721105?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80',
+    image: projectPic4,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   }

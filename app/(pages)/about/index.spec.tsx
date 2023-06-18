@@ -9,7 +9,7 @@ describe('About page', () => {
     const image = screen.getByRole('img')
 
     expect(image).toBeInTheDocument()
-    expect(image).toHaveProperty('alt', 'Victor Campos')
+    expect(image).toHaveProperty('alt', 'Victor')
   })
 
   it('should render a heading element', () => {
