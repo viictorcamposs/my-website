@@ -1,26 +1,21 @@
-import Hero from './components/Hero'
-import Article from './components/Article'
-
-export const title = 'Hello World'
-
-export const meta = {
-  url: 'https://victorcampos.io',
-  image: '',
-  title: `${title} | Victor Campos`,
-  description:
-    "I'm writing this post to officialy start my blog. I hope the content I'm writing can be useful for others developers to grow their career."
-}
-
-<Hero
-  title={title}
-  imageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80"
-  imageAlt="Planet Earth"
-/>
-
-<Article>
+---
+  type: Article
+  title: Hello World
+  description: trying to create an article file with contentlayer and mdx
+  releaseDate: 2023-6-19
+  github: https://github.com/viictorcamposs
+  image: 
+    url: /static/img/articles/hello-world-bg.jpg
+    alt: Planet Earth
+  seo:
+    title: Hello World | Victor Campos
+    description: I'm writing this post to officialy start my blog. I hope the content I'm writing can be useful for others developers to grow their career.
+    image: https://nothing.yet
+    url: https://victorcampos.io
+---
 
 It is my pleasure to present the first article of my blog and the very first I ever wrote. To be
-fair, this one is just for practice and to learn some tools (e.g Markdown) I need while I'm
+fair, this one is just for practice and to learn some tools I need (e.g Markdown) while I'm
 creating this place on the internet for myself. Think about it as a prop to other articles I'll
 create. I hope the next ones will be more helpful and creative.
 
@@ -54,5 +49,3 @@ with something and create value in your life the same way you're creating value 
 I'm grateful you made it this far, see you soon and be great!
 
 </div>
-
-</Article>

@@ -1,18 +1,26 @@
+import { compareDesc } from 'date-fns'
+import type { Article } from 'contentlayer/generated'
+import { allArticles } from 'contentlayer/generated'
+
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
-// import MostRecentArticle from './components/MostRecentArticle/'
-// import ListOfArticles from './components/ListOfArticles/'
-
-// async function getArticles(): Promise<unknown> {}
+import MostRecentArticle from './components/MostRecentArticle/'
+import ListOfArticles from './components/ListOfArticles/'
 
 export default async function Page() {
-  // const articles = await getArticles()
+  const [recent, ...articles]: Article[] = allArticles.sort((a, b) =>
+    compareDesc(new Date(a.releaseDate), new Date(b.releaseDate))
+  )
+
+  const theresMoreThanOneArticle = allArticles.length > 1
 
   return (
     <Main>
-      <section className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-16">
+      <section
+        className={theresMoreThanOneArticle ? 'lg:grid lg:grid-cols-[1fr_280px] lg:gap-16' : ''}
+      >
         <div>
           <PageTitle>Let me share something with you...</PageTitle>
 
@@ -23,17 +31,19 @@ export default async function Page() {
           </PageParagraph>
         </div>
 
-        <div>
-          <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
+        {theresMoreThanOneArticle && (
+          <div>
+            <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-          {/* <MostRecentArticle article={articles[0]} /> */}
-        </div>
+            <MostRecentArticle article={recent} />
+          </div>
+        )}
       </section>
 
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        {/* <ListOfArticles articles={articles} /> */}
+        <ListOfArticles articles={theresMoreThanOneArticle ? articles : [recent]} />
       </section>
     </Main>
   )

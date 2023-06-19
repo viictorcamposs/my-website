@@ -2,11 +2,7 @@
 
 const { withContentlayer } = require('next-contentlayer')
 
-const withMDX = require('@next/mdx')()
-
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -19,4 +15,4 @@ const nextConfig = {
   }
 }
 
-module.exports = withContentlayer(withMDX(nextConfig))
+module.exports = withContentlayer(nextConfig)

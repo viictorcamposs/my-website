@@ -49,4 +49,3 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components
   }
 }
-// c7c8e0

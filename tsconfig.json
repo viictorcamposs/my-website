@@ -24,6 +24,7 @@
     "paths": {
       "~/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"],
+      "mdx-components": ["./mdx-components.tsx"],
       "@testing-library/custom": ["./test/@testing-library/custom.tsx"]
     }
   },
