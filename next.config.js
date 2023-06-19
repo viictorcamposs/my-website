@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
 
+const { withContentlayer } = require('next-contentlayer')
+
 const withMDX = require('@next/mdx')()
 
 const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -10,15 +14,9 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
         port: '',
         pathname: '/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'scontent-lga3-1.cdninstagram.com',
-        port: '',
-        pathname: '/**'
       }
     ]
   }
 }
 
-module.exports = withMDX(nextConfig)
+module.exports = withContentlayer(withMDX(nextConfig))
