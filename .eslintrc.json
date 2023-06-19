@@ -45,8 +45,8 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          ["/^react$/", "/^next/"],
-          ["module", "/(@)/", "/^react-/"],
+          ["/^react$/", "/^next$/", "/^next//"],
+          ["module", "/(@)/", "/^react-/", "/^next-/", "/mdx-components/"],
           ["/(contexts)/", "/(hooks)/"],
           "/(data)/",
           ["/(views)/", "/(routes)/", "/api/"],
