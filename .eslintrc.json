@@ -52,7 +52,7 @@
           ["/(views)/", "/(routes)/", "/api/"],
           ["/(sections)/", "/(components)/"],
           ["/(libs)/", "/(utils)/"],
-          ["/(interface)/", "/(enums)/", "/(schemas)/"],
+          ["/(interface)/", "/(enum)/", "/(schemas)/"],
           "/(static)/",
           "/(styles)/"
         ],

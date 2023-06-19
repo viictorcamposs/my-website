@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import Elink from '~/enum/link'
+import Elink from '~/enums/link'
 
 interface IMenu {
   isOpen: boolean
