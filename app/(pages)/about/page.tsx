@@ -3,7 +3,7 @@ import Image from 'next/image'
 import PageTitle from '~/app/components/PageTitle'
 import Main from '~/app/components/Main'
 
-import profilePic from '~/app/static/img/about-bg.jpg'
+import profilePic from '~/public/static/img/about-bg.jpg'
 
 export default function Page() {
   return (
@@ -17,7 +17,7 @@ export default function Page() {
           placeholder="blur"
           alt="Victor"
           className={`
-            w-full max-w-[320px]
+            w-full max-w-[340px]
             rounded-lg aspect-square
             object-cover
           `}
