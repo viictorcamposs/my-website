@@ -6,10 +6,10 @@ import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
 import ProjectCard from './components/ProjectCard'
 
-import projectPic1 from '~/app/static/img/projects/img-project.jpg'
-import projectPic4 from '~/app/static/img/projects/img-project-4.jpg'
-import projectPic3 from '~/app/static/img/projects/img-project-3.jpg'
-import projectPic2 from '~/app/static/img/projects/img-project-2.jpg'
+import projectImg from '~/public/static/img/projects/img-project.jpg'
+import projectImg4 from '~/public/static/img/projects/img-project-4.jpg'
+import projectImg3 from '~/public/static/img/projects/img-project-3.jpg'
+import projectImg2 from '~/public/static/img/projects/img-project-2.jpg'
 
 export interface IProject {
   title: string
@@ -24,7 +24,7 @@ const projects: IProject[] = [
     title: 'Nullam lobortis ullamcorper',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
-    image: projectPic1,
+    image: projectImg,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   },
@@ -32,7 +32,7 @@ const projects: IProject[] = [
     title: 'Nullam lobortis ullamcorper',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
-    image: projectPic2,
+    image: projectImg2,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   },
@@ -40,7 +40,7 @@ const projects: IProject[] = [
     title: 'Nullam lobortis ullamcorper',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet.',
-    image: projectPic3,
+    image: projectImg3,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   },
@@ -56,7 +56,7 @@ const projects: IProject[] = [
       <br /> <br /> 
       Risus mattis iaculis. Risus mattis iaculis. Lorem ipsum dolor sit amet. Risus mattis iaculis. Lorem ipsum dolor sit amet.
     `,
-    image: projectPic4,
+    image: projectImg4,
     techs: ['React 18', 'Next.js 13', 'Jest + Testing Library (Unit)', 'Cypress (E2E)'],
     github: 'https://github.com/viictorcamposs'
   }
