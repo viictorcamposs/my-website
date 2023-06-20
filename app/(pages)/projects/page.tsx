@@ -1,10 +1,10 @@
 import type { StaticImageData } from 'next/image'
 
+import Project from '~/app/components/Project'
 import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
-import ProjectCard from './components/ProjectCard'
 
 import projectImg from '~/public/static/img/projects/img-project.jpg'
 import projectImg4 from '~/public/static/img/projects/img-project-4.jpg'
@@ -82,7 +82,7 @@ export default function Page() {
         `}
       >
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <Project key={index} project={project} />
         ))}
       </div>
     </Main>

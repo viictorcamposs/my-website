@@ -6,8 +6,8 @@ import PageTitle from '~/app/components/PageTitle'
 import PageSubtitle from '~/app/components/PageSubtitle'
 import PageParagraph from '~/app/components/PageParagraph'
 import Main from '~/app/components/Main'
-import MostRecentArticle from './components/MostRecentArticle/'
-import ListOfArticles from './components/ListOfArticles/'
+import ListArticles from '~/app/components/ListArticles/'
+import FeaturedArticle from '~/app/components/FeaturedArticle/'
 
 export default async function Page() {
   const [recent, ...articles]: Article[] = allArticles.sort((a, b) =>
@@ -35,7 +35,7 @@ export default async function Page() {
           <div>
             <PageSubtitle addClassName="lg:mt-0">Most recent</PageSubtitle>
 
-            <MostRecentArticle article={recent} />
+            <FeaturedArticle article={recent} />
           </div>
         )}
       </section>
@@ -43,7 +43,7 @@ export default async function Page() {
       <section>
         <PageSubtitle>All articles</PageSubtitle>
 
-        <ListOfArticles articles={theresMoreThanOneArticle ? articles : [recent]} />
+        <ListArticles articles={theresMoreThanOneArticle ? articles : [recent]} />
       </section>
     </Main>
   )

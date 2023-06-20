@@ -1,23 +1,24 @@
 import Image from 'next/image'
 
-import ProjectCardClient from '../ProjectCardClient'
-import type { IProject } from '../../page'
+import type { IProject } from '~/app/(pages)/projects/page'
+
+import ProjectClient from '../ProjectClient'
 
 interface IProjectCard {
   project: IProject
 }
 
-export default function ProjectCard({ project }: IProjectCard) {
+export default function Project({ project }: IProjectCard) {
   return (
-    <ProjectCardClient project={project}>
+    <ProjectClient project={project}>
       <div
         className={`
           grid grid-cols-[minmax(50px,100px)_1fr] gap-3
           min-[400px]:gap-5 md:gap-7
           md:flex md:flex-col
           md:px-[26px] md:py-7
-          md:rounded-lg md:hover:bg-[#f7f5f9]/10
-          md:transition-all md:duration-200
+          md:rounded-lg md:hover:bg-[#17171E]
+          md:transition-all md:duration-300
           cursor-pointer
         `}
       >
@@ -58,6 +59,6 @@ export default function ProjectCard({ project }: IProjectCard) {
           </p>
         </div>
       </div>
-    </ProjectCardClient>
+    </ProjectClient>
   )
 }

@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { ArrowUpRight } from '@phosphor-icons/react'
+import type { IProject } from '~/app/(pages)/projects/page'
 
-import type { IProject } from '../../page'
+import { ArrowUpRight } from '../icons'
 
 interface IModalContent {
   project: IProject

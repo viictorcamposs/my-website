@@ -2,7 +2,7 @@
 
 import { useState, lazy, startTransition } from 'react'
 
-import { List } from '@phosphor-icons/react'
+import { List } from '~/app/components/icons'
 
 const Menu = lazy(() => import('./Menu'))
 

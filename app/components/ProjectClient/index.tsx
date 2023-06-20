@@ -3,18 +3,18 @@
 import { startTransition, useState } from 'react'
 import dynamic from 'next/dynamic'
 
-import { X } from '@phosphor-icons/react'
+import type { IProject } from '~/app/(pages)/projects/page'
 
-import ModalContent from '../ModalContent'
-import type { IProject } from '../../page'
 const Modal = dynamic(() => import('../Modal'))
+import ModalContent from '../ModalContent'
+import { X } from '../icons'
 
 interface IProjectCardClient {
   children: React.ReactNode
   project: IProject
 }
 
-export default function ProjectCardClient({ children, project }: IProjectCardClient) {
+export default function ProjectClient({ children, project }: IProjectCardClient) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleOpenModal = () => {

@@ -7,7 +7,7 @@ interface IListOfArticles {
   articles: Article[]
 }
 
-export default function ListOfArticles({ articles: data }: IListOfArticles) {
+export default function ListArticles({ articles: data }: IListOfArticles) {
   const articles = data.map(article => ({
     ...article,
     releaseDate: format(parseISO(article.releaseDate), 'LLLL d, yyyy')

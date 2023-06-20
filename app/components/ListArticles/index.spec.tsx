@@ -1,14 +1,14 @@
 // import { screen, render, within } from '@testing-library/custom'
 
-// import ListOfArticles from './index'
+// import ListArticles from './index'
 
-// function renderListOfArticles() {
-//   render(<ListOfArticles articles={{}} />)
+// function renderListArticles() {
+//   render(<ListArticles articles={{}} />)
 // }
 
-describe('ListOfArticles', () => {
+describe('ListArticles', () => {
   // beforeEach(() => {
-  //   renderListOfArticles()
+  //   renderListArticles()
   // })
 
   it('should render list of articles without the most recent written', () => {

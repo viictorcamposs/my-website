@@ -7,7 +7,7 @@ interface IMostRecentArticle {
   article: Article
 }
 
-export default function MostRecentArticle({ article }: IMostRecentArticle) {
+export default function FeaturedArticle({ article }: IMostRecentArticle) {
   return (
     <div
       data-testid="most-recent-article"
