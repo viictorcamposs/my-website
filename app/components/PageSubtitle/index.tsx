@@ -5,8 +5,8 @@ interface IPageSubtitle {
 
 export default function PageSubtitle({ children, addClassName }: IPageSubtitle) {
   const tailwindClassNames = addClassName
-    ? `mt-[60px] md:mt-[100px] mb-7 xl:mb-9 font-heading font-bold text-2xl xl:text-[28px] text-[#f7f5f9] ${addClassName}`
-    : 'mt-[60px] md:mt-[100px] mb-7 xl:mb-9 font-heading font-bold text-2xl xl:text-[28px] text-[#f7f5f9]'
+    ? `mt-[60px] md:mt-[80px] mb-6 xl:mb-6 font-heading font-bold text-2xl xl:text-[28px] text-[#f7f5f9] ${addClassName}`
+    : 'mt-[60px] md:mt-[80px] mb-6 xl:mb-6 font-heading font-bold text-2xl xl:text-[28px] text-[#f7f5f9]'
 
   return <h2 className={tailwindClassNames}>{children}</h2>
 }
