@@ -1,6 +1,6 @@
-import MobileNav from './Navigation/Mobile'
-import DesktopNav from './Navigation/Desktop'
-import BackToHomePage from './BackToHomePage'
+import NavBar from './NavBar'
+import Menu from './Menu'
+import Home from './Home'
 
 export default function Header() {
   return (
@@ -11,11 +11,11 @@ export default function Header() {
         flex items-center justify-between
       `}
     >
-      <BackToHomePage />
+      <Home />
 
-      <MobileNav />
+      <Menu />
 
-      <DesktopNav />
+      <NavBar />
     </header>
   )
 }

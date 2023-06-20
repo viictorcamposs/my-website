@@ -4,31 +4,29 @@ import { usePathname } from 'next/navigation'
 import type { LinkProps } from 'next/link'
 import Link from 'next/link'
 
-interface IActiveLink extends LinkProps {
+interface IComponentProps extends LinkProps {
   children: React.ReactNode
 }
 
 const linkClassName = `
-  rounded relative
-  py-3 px-5 
-  text-sm font-normal font-body text-[#c7c8e0]
-  hover:bg-[#f7f5f9]/10 hover:text-[#f7f5f9]
-  transition-all duration-200
+  relative
   after:content-['']
   after:block after:absolute
-  after:bottom-2 after:left-[calc(50%-10px)]
+  after:-bottom-2 after:left-[calc(50%-10px)]
   after:h-[2px] after:w-[20px]
-  after:transition-all after:duration-200
+  after:transition-all after:duration-300
 `
 
-export default function ActiveLink({ children, ...props }: IActiveLink) {
+export default function NavLink({ children, ...props }: IComponentProps) {
   const pathname = usePathname()
+
+  const currentPathname = pathname.startsWith(props.href as string)
 
   return (
     <Link
       {...props}
       className={
-        pathname.startsWith(props.href as string)
+        currentPathname
           ? `${linkClassName} after:bg-[#f7f5f9]`
           : `${linkClassName} after:bg-transparent`
       }

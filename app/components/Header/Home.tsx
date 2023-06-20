@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function BackToHomePage() {
+export default function Home() {
   return (
     <Link href="/">
       <span
