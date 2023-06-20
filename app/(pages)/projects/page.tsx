@@ -82,7 +82,7 @@ export default function Page() {
         `}
       >
         {projects.map((project, index) => (
-          <Project key={index} project={project} />
+          <Project key={index} index={index} project={project} />
         ))}
       </div>
     </Main>
