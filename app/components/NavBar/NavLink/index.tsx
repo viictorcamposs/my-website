@@ -12,7 +12,7 @@ const linkClassName = `
   relative
   after:content-['']
   after:block after:absolute
-  after:-bottom-2 after:left-[calc(50%-10px)]
+  after:-bottom-1.5 after:left-[calc(50%-10px)]
   after:h-[2px] after:w-[20px]
   after:transition-all after:duration-300
 `

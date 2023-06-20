@@ -28,7 +28,7 @@ const NavHovered = (props: HTMLMotionProps<'span'>) => (
       absolute -z-10
       left-0 right-0 
       -top-2.5 -bottom-2.5
-      rounded
+      rounded-lg
       bg-[#1E1D20]
     `}
   />
@@ -53,7 +53,7 @@ export default function NavBar() {
                   layoutId="navItem"
                   initial={{ opacity: 0.7 }}
                   animate={{ opacity: 1 }}
-                  transition={{ ease: 'easeInOut', duration: 0.3 }}
+                  transition={{ ease: 'easeOut', duration: 0.3 }}
                 />
               )}
 
