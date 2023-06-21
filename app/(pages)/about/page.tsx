@@ -20,6 +20,7 @@ export default function Page() {
             w-full max-w-[340px]
             rounded-lg aspect-square
             object-cover
+            grayscale
           `}
         />
 

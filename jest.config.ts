@@ -10,7 +10,7 @@ const customJestConfig: Config = {
   errorOnDeprecated: true,
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jsdom',
-  moduleDirectories: ['node_modules', 'test/@testing-library'],
+  moduleDirectories: ['node_modules', 'app/test/@testing-library'],
   moduleNameMapper: {
     '~/(.*)': '<rootDir>/$1'
   },

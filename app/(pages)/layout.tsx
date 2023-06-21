@@ -4,7 +4,7 @@ import { LinkedinLogo, GithubLogo, Article } from '../components/icons'
 import Home from '../components/Home'
 import FooterLink from '../components/FooterLink'
 
-import ELink from '~/enums/link'
+import ELink from '~/app/enums/link'
 
 import { inter, poppins } from '../fonts'
 

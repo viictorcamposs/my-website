@@ -25,7 +25,7 @@
       "~/*": ["./*"],
       "contentlayer/generated": ["./.contentlayer/generated"],
       "mdx-components": ["./mdx-components.tsx"],
-      "@testing-library/custom": ["./test/@testing-library/custom.tsx"]
+      "@testing-library/custom": ["./app/test/@testing-library/custom.tsx"]
     }
   },
   "include": [
