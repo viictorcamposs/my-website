@@ -19,6 +19,19 @@ module.exports = {
       fontFamily: {
         heading: ['var(--font-poppins)'],
         body: ['var(--font-inter)']
+      },
+      keyframes: {
+        titlegradient: {
+          to: {
+            'background-position': '200% 50%'
+          }
+        }
+      },
+      backgroundSize: {
+        '200%': '200% auto'
+      },
+      animation: {
+        'title-gradient': 'titlegradient 3s linear infinite reverse'
       }
     }
   },
