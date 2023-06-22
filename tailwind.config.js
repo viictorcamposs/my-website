@@ -31,7 +31,7 @@ module.exports = {
         '200%': '200% auto'
       },
       animation: {
-        'title-gradient': 'titlegradient 3s linear infinite reverse'
+        'title-gradient': 'titlegradient 2s linear infinite reverse'
       }
     }
   },
