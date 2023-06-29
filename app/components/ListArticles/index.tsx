@@ -12,15 +12,15 @@ interface IListArticles {
 function Article(props: ClArticle) {
   return (
     <>
-      <h3 className="font-body font-bold text-base sm:text-lg text-[#f7f5f9] mb-4 sm:max-w-[80%]">
+      <h3 className="font-main font-bold text-lg min-[375px]:text-xl xl:text-2xl/none text-[#f7f5f9] mb-4 sm:max-w-[80%]">
         {props.title}
       </h3>
 
-      <p className="hidden sm:block font-body font-normal text-sm text-[#c7c8e0] mt-4 sm:max-w-[70%]">
+      <p className="font-main font-normal text-sm text-[#c7c8e0] mt-4 mb-4 xl:mt-6 xl:mb-0 sm:max-w-[70%]">
         {props.description}
       </p>
 
-      <span className="sm:absolute sm:top-6 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#c7c8e0]">
+      <span className="sm:absolute sm:top-7 sm:right-0 font-normal font-main text-xs xl:text-sm text-[#c7c8e0]">
         {props.releaseDate}
       </span>
     </>

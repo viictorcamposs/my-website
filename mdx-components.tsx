@@ -6,7 +6,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <p
         className={`
           my-4
-          font-body font-normal
+          font-main font-normal
           text-sm md:text-base
           text-[#c7c8e0]
         `}
@@ -18,7 +18,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h2
         className={`
           mt-10 mb-5
-          font-heading font-semibold
+          font-main font-semibold
           text-lg md:text-2xl
           text-[#f7f5f9]
         `}

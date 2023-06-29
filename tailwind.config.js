@@ -17,8 +17,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['var(--font-poppins)'],
-        body: ['var(--font-inter)']
+        main: ['var(--font-poppins)']
       },
       keyframes: {
         titlegradient: {

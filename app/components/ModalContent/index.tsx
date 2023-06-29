@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import type { IProject } from '~/app/(pages)/projects/page'
+import type { IProject } from '~/app/(pages)/portfolio/page'
 
 import { ArrowUpRight } from '../icons'
 
@@ -34,7 +34,7 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-6 mb-4
           md:mt-7 md:mb-5
-          font-semibold font-body
+          font-semibold font-main
           text-lg md:text-2xl 
           text-[#f7f5f9]
         `}
@@ -47,7 +47,7 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-4 mb-6
           md:mt-5 md:mb-7
-          font-body text-sm md:text-base 
+          font-main text-sm md:text-base 
           text-[#c7c8e0]
         `}
       />
@@ -56,7 +56,7 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-6 mb-4
           md:mt-7 md:mb-5
-          font-semibold font-body
+          font-semibold font-main
           text-base md:text-xl
           text-[#f7f5f9]
         `}
@@ -75,7 +75,7 @@ export default function ModalContent({ project }: IModalContent) {
           <li
             key={tech}
             className={`
-              font-body 
+              font-main 
               text-sm md:text-base 
               text-[#c7c8e0]
             `}
@@ -93,7 +93,7 @@ export default function ModalContent({ project }: IModalContent) {
           text-[#f7f5f9]
         `}
       >
-        <span className="font-body text-sm md:text-base underline">See on GitHub</span>
+        <span className="font-main text-sm md:text-base underline">See on GitHub</span>
         <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" />
       </Link>
     </div>

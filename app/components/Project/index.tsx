@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import type { IProject } from '~/app/(pages)/projects/page'
+import type { IProject } from '~/app/(pages)/portfolio/page'
 
 import ProjectHovered from './ProjectHovered'
 import ProjectClient from '../ProjectClient'
@@ -39,7 +39,7 @@ export default function Project({ index, project }: IProjectProps) {
             <h3
               className={`
                 mb-3.5 md:mb-4
-                font-semibold font-body
+                font-semibold font-main
                 text-sm text-[#f7f5f9]
                 md:text-lg md:font-bold
               `}
@@ -49,13 +49,13 @@ export default function Project({ index, project }: IProjectProps) {
 
             <p
               className={`
-                font-body font-normal
+                font-main font-normal
                 text-xs text-[#c7c8e0]
                 md:text-base
               `}
             >
-              {project.description.length > 100
-                ? project.description.substring(0, 100) + '...'
+              {project.description.length > 90
+                ? project.description.substring(0, 90) + '...'
                 : project.description}
             </p>
           </div>
