@@ -31,7 +31,7 @@ export const Article = defineDocumentType(() => ({
     seo: { type: 'nested', of: SEO, required: true }
   },
   computedFields: {
-    url: { type: 'string', resolve: article => `/articles/${article._raw.flattenedPath}` }
+    url: { type: 'string', resolve: article => `/${article._raw.flattenedPath}` }
   }
 }))
 

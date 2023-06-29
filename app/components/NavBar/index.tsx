@@ -4,7 +4,9 @@ import { useState } from 'react'
 import type { HTMLMotionProps } from 'framer-motion'
 import { motion } from 'framer-motion'
 
-import NavLink from './NavLink'
+import links from '~/app/utils/links'
+
+import NavLink from '../NavLink'
 
 const NavContainer = (props: HTMLMotionProps<'span'>) => (
   <motion.span
@@ -12,7 +14,7 @@ const NavContainer = (props: HTMLMotionProps<'span'>) => (
     className={`
       relative
       cursor-pointer px-6 py-0.5
-      text-sm font-normal font-body text-[#c7c8e0]
+      text-sm font-normal font-main text-[#c7c8e0]
       hover:text-[#f7f5f9]
       duration-300 transition-all
     `}
@@ -37,17 +39,17 @@ const NavHovered = (props: HTMLMotionProps<'span'>) => (
 export default function NavBar() {
   const [hovered, setHovered] = useState('')
 
-  const pages = ['About', 'Articles', 'Projects']
-
   return (
-    <nav className="hidden sm:flex sm:items-center">
-      {pages.map(page => {
-        const path = `/${page.toLowerCase()}`
-        const isHovered = hovered === page
+    <nav className="grid grid-cols-3 gap-y-4 sm:flex sm:items-center">
+      {links.map(link => {
+        const isHovered = hovered === link.identification
 
         return (
-          <NavLink key={page} href={path}>
-            <NavContainer onHoverStart={() => setHovered(page)} onHoverEnd={() => setHovered('')}>
+          <NavLink key={link.identification} href={link.href} target={link.target}>
+            <NavContainer
+              onHoverStart={() => setHovered(link.identification)}
+              onHoverEnd={() => setHovered('')}
+            >
               {isHovered && (
                 <NavHovered
                   layoutId="navItem"
@@ -57,7 +59,7 @@ export default function NavBar() {
                 />
               )}
 
-              {page.toUpperCase()}
+              {link.identification}
             </NavContainer>
           </NavLink>
         )
