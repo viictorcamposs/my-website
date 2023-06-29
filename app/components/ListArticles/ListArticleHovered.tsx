@@ -10,6 +10,7 @@ function ListArticleAnim(props: HTMLMotionProps<'span'>) {
     <motion.span
       {...props}
       className={`
+        hidden xl:block
         absolute -z-10
         -left-5 -right-5 
         top-0 bottom-0

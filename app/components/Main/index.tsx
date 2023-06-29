@@ -8,8 +8,8 @@ export default function Main({ children, className, addClassName }: IMain) {
   const tailwindClass = className
     ? className
     : addClassName
-    ? `w-full max-w-[780px] mx-auto py-6 md:py-8 px-4 min-[375px]:px-5 ${addClassName}`
-    : 'w-full max-w-[780px] mx-auto py-6 md:py-8 px-4 min-[375px]:px-5'
+    ? `w-full max-w-[680px] pt-[100px] px-5 min-[375px]:px-7 md:px-0 mx-auto ${addClassName}`
+    : 'w-full max-w-[680px] pt-[100px] px-5 min-[375px]:px-7 md:px-0 mx-auto'
 
   return <main className={tailwindClass}>{children}</main>
 }
