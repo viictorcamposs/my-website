@@ -51,7 +51,7 @@ export default function Project({ index, project }: IProjectProps) {
               className={`
                 font-main font-normal
                 text-xs text-[#c7c8e0]
-                md:text-base
+                md:text-sm
               `}
             >
               {project.description.length > 90
