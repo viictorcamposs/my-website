@@ -3,9 +3,9 @@
 import { startTransition, useState } from 'react'
 import dynamic from 'next/dynamic'
 
-import type { IProject } from '~/app/(pages)/projects/page'
-
 const Modal = dynamic(() => import('../Modal'))
+import type { IProject } from '~/app/(pages)/portfolio/page'
+
 import ModalContent from '../ModalContent'
 import { X } from '../icons'
 
