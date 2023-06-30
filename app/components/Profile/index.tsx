@@ -33,7 +33,7 @@ const Subtitle = () => (
   <h2
     className={`
       flex items-center gap-2 mt-1
-      font-normal font-main 
+      font-medium font-main 
       text-sm md:text-lg
       text-[#cdcedf]
     `}
