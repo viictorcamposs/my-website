@@ -49,8 +49,8 @@ export default function Project({ index, project }: IProjectProps) {
 
             <p
               className={`
-                font-main font-normal
-                text-xs text-[#c7c8e0]
+                font-main font-light
+                text-xs text-[#dfdff0]
                 md:text-sm
               `}
             >

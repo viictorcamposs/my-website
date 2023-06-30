@@ -16,11 +16,11 @@ function Article(props: ClArticle) {
         {props.title}
       </h3>
 
-      <p className="font-main font-light text-sm text-[#c7c8e0] mt-4 mb-4 xl:mt-6 xl:mb-0 sm:max-w-[70%]">
+      <p className="font-main font-light text-sm text-[#dfdff0] mt-4 mb-4 xl:mt-6 xl:mb-0 sm:max-w-[70%]">
         {props.description}
       </p>
 
-      <span className="sm:absolute sm:top-7 xl:top-9 sm:right-0 font-normal font-main text-xs xl:text-sm text-[#c7c8e0]">
+      <span className="sm:absolute sm:top-7 xl:top-9 sm:right-0 font-normal font-main text-xs xl:text-sm text-[#dfdff0]">
         {props.releaseDate}
       </span>
     </>
@@ -46,7 +46,7 @@ export default function ListArticles({ articles: data }: IListArticles) {
                   ? `relative py-8`
                   : idx === articles.length - 1
                   ? `relative py-8`
-                  : `relative py-8 border-b border-[#c7c8e025]`
+                  : `relative py-8 border-b border-[#dfdff025]`
               }
             >
               <Article {...article} />

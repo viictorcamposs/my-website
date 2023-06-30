@@ -47,8 +47,9 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-4 mb-6
           md:mt-5 md:mb-7
-          font-main text-sm md:text-base 
-          text-[#c7c8e0]
+          font-main font-light
+          text-sm md:text-base 
+          text-[#dfdff0]
         `}
       />
 
@@ -56,7 +57,7 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-6 mb-4
           md:mt-7 md:mb-5
-          font-semibold font-main
+          font-medium font-main
           text-base md:text-xl
           text-[#f7f5f9]
         `}
@@ -77,7 +78,7 @@ export default function ModalContent({ project }: IModalContent) {
             className={`
               font-main 
               text-sm md:text-base 
-              text-[#c7c8e0]
+              text-[#dfdff0]
             `}
           >
             {tech}

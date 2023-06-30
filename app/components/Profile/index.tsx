@@ -35,7 +35,7 @@ const Subtitle = () => (
       flex items-center gap-2 mt-1
       font-medium font-main 
       text-sm md:text-lg
-      text-[#cdcedf]
+      text-[#dfdff0]
     `}
   >
     Web Developer from Brazil <span>🇧🇷</span>

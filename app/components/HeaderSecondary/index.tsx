@@ -38,7 +38,7 @@ export default function HeaderSecondary() {
       <nav
         className={`
           flex items-center gap-8
-          text-sm text-[#cdcedf]
+          text-sm text-[#dfdff0]
         `}
       >
         {links.map(link => (
