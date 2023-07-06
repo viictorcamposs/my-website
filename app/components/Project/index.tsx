@@ -39,7 +39,7 @@ export default function Project({ index, project }: IProjectProps) {
             <h3
               className={`
                 mb-3.5 md:mb-4
-                font-semibold font-main
+                font-semibold font-heading
                 text-sm text-[#f7f5f9]
                 md:text-lg md:font-bold
               `}
@@ -49,8 +49,8 @@ export default function Project({ index, project }: IProjectProps) {
 
             <p
               className={`
-                font-main font-normal
-                text-xs text-[#dfdff0]
+                font-body font-normal
+                text-xs text-[#c1c2e0]
                 md:text-sm
               `}
             >

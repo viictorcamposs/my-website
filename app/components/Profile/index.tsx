@@ -20,7 +20,7 @@ const ProfileImage = () => (
 const Title = () => (
   <h1
     className={`
-      font-main font-extrabold 
+      font-heading font-extrabold 
       text-xl min-[375px]:text-2xl md:text-3xl
       text-[#f7f5f9]
     `}
@@ -33,9 +33,9 @@ const Subtitle = () => (
   <h2
     className={`
       flex items-center gap-2 mt-1
-      font-medium font-main 
+      font-medium font-heading 
       text-sm md:text-lg
-      text-[#dfdff0]
+      text-[#c1c2e0]
     `}
   >
     Web Developer from Brazil <span>🇧🇷</span>

@@ -14,7 +14,7 @@ const NavContainer = (props: HTMLMotionProps<'span'>) => (
     className={`
       relative
       cursor-pointer px-6 py-0.5
-      text-sm font-normal font-main text-[#dfdff0]
+      text-sm font-normal font-body text-[#c1c2e0]
       hover:text-[#f7f5f9]
       duration-300 transition-all
     `}

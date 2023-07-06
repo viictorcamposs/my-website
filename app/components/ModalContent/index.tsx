@@ -34,7 +34,7 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-6 mb-4
           md:mt-7 md:mb-5
-          font-semibold font-main
+          font-semibold font-heading
           text-lg md:text-2xl 
           text-[#f7f5f9]
         `}
@@ -47,9 +47,9 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-4 mb-6
           md:mt-5 md:mb-7
-          font-main font-normal
+          font-body font-normal
           text-sm md:text-base 
-          text-[#dfdff0]
+          text-[#c1c2e0]
         `}
       />
 
@@ -57,7 +57,7 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-6 mb-4
           md:mt-7 md:mb-5
-          font-medium font-main
+          font-medium font-heading
           text-base md:text-xl
           text-[#f7f5f9]
         `}
@@ -76,9 +76,9 @@ export default function ModalContent({ project }: IModalContent) {
           <li
             key={tech}
             className={`
-              font-main 
+              font-body 
               text-sm md:text-base 
-              text-[#dfdff0]
+              text-[#c1c2e0]
             `}
           >
             {tech}
@@ -90,11 +90,13 @@ export default function ModalContent({ project }: IModalContent) {
         href={project.github}
         target="_blank"
         className={`
-          flex items-center gap-1 md:gap-1.5
+          flex items-center max-w-fit gap-1 md:gap-1.5
           text-[#f7f5f9]
         `}
       >
-        <span className="font-main text-sm md:text-base underline">See on GitHub</span>
+        <span className="text-sm border-b border-[#f7f5f9] font-body md:text-base">
+          See on GitHub
+        </span>
         <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6" />
       </Link>
     </div>

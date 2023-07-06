@@ -15,7 +15,7 @@ const container = `
 
 const heading = `
   relative 
-  font-bold font-main 
+  font-bold font-heading 
   text-2xl min-[790px]:text-4xl xl:text-[42px]/tight
   sm:text-center text-[#f7f5f9]
 `

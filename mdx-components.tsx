@@ -1,17 +1,16 @@
 import type { MDXComponents } from 'mdx/types'
 
-const textStyles = `
-  font-main font-normal
-  text-sm/6 md:text-base/7
-  text-[#dfdff0]
-`
+// text-[#CDCEDF]
+// text-[#c1c2e0]
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     p: ({ children }) => (
       <p
         className={`
-          my-6 ${textStyles}
+          font-body font-normal
+          text-sm/6 md:text-base/7
+        text-[#c1c2e0] my-6 
         `}
       >
         {children}
@@ -21,7 +20,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h2
         className={`
           mt-10 mb-5
-          font-main font-semibold
+          font-heading font-semibold
           text-lg md:text-2xl
           text-[#f7f5f9]
         `}
@@ -33,8 +32,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h3
         className={`
           my-11 pt-8
-          border-t border-[#dfdff030]
-          font-main font-semibold 
+          border-t border-[#c1c2e030]
+          font-heading font-semibold 
           text-xl md:text-2xl
           text-[#f7f5f9]
         `}
@@ -46,7 +45,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h4
         className={`
           my-8
-          font-main font-medium 
+          font-heading font-medium 
           text-lg md:text-xl
           text-[#f7f5f9]
         `}
@@ -78,13 +77,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     li: ({ children }) => (
       <li
         className={`
-          ${textStyles}
+          font-body font-normal
+          text-sm/6 md:text-base/7
+        text-[#c1c2e0]
           before:absolute 
           before:left-0 before:top-3.5
           before:content-['']
           before:h-1.5 before:w-1.5 
           before:rounded-full
-          before:bg-[#dfdff030]
+          before:bg-[#c1c2e030]
         `}
       >
         {children}
@@ -95,8 +96,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         href={href}
         target="_blank"
         className={`
-          underline
-          text-[#01B0EA]
+          border-b border-[#01b0ea] 
+          transition-all duration-150
+          hover:border-transparent hover:text-[#01b0ea]
         `}
       >
         {children}

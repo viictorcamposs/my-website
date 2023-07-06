@@ -1,4 +1,4 @@
-import { poppins } from '../fonts'
+import { poppins, inter } from '../fonts'
 
 import './globals.css'
 import 'server-only'
@@ -14,7 +14,7 @@ interface IRootLayout {
 
 export default function RootLayout({ children }: IRootLayout) {
   return (
-    <html lang="en" className={`${poppins.variable}`}>
+    <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
       <body
         className={`
           py-[100px]

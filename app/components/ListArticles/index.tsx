@@ -12,15 +12,15 @@ interface IListArticles {
 function Article(props: ClArticle) {
   return (
     <>
-      <h3 className="font-main font-bold text-lg min-[375px]:text-xl xl:text-2xl text-[#f7f5f9] mb-4 sm:max-w-[80%]">
+      <h3 className="font-heading font-bold text-lg min-[375px]:text-xl xl:text-2xl text-[#f7f5f9] mb-4 sm:max-w-[80%]">
         {props.title}
       </h3>
 
-      <p className="font-main font-normal text-sm text-[#dfdff0] mt-4 mb-4 xl:mt-6 xl:mb-0 sm:max-w-[70%]">
+      <p className="font-body font-normal text-sm text-[#c1c2e0] mt-4 mb-4 xl:mt-6 xl:mb-0 sm:max-w-[70%]">
         {props.description}
       </p>
 
-      <span className="sm:absolute sm:top-7 xl:top-9 sm:right-0 font-normal font-main text-xs xl:text-sm text-[#dfdff0]">
+      <span className="sm:absolute sm:top-7 xl:top-9 sm:right-0 font-normal font-body text-xs xl:text-sm text-[#c1c2e0]">
         {props.releaseDate}
       </span>
     </>
@@ -46,7 +46,7 @@ export default function ListArticles({ articles: data }: IListArticles) {
                   ? `relative py-8`
                   : idx === articles.length - 1
                   ? `relative py-8`
-                  : `relative py-8 border-b border-[#dfdff025]`
+                  : `relative py-8 border-b border-[#c1c2e025]`
               }
             >
               <Article {...article} />
