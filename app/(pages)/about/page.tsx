@@ -26,21 +26,21 @@ export default function Page() {
           />
 
           <div className="flex flex-col gap-4 mt-8 sm:mt-2">
-            <p className="font-main font-light text-sm sm:text-base text-[#dfdff0]">
+            <p className="font-main font-normal text-sm sm:text-base text-[#dfdff0]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis ullamcorper
             </p>
 
-            <p className="font-main font-light text-sm sm:text-base text-[#dfdff0]">
+            <p className="font-main font-normal text-sm sm:text-base text-[#dfdff0]">
               risus mattis iaculis. Sed ut congue urna. Donec ut ipsum eros. Curabitur in erat
               feugiat, egestas orci in, feugiat velit.
             </p>
 
-            <p className="font-main font-light text-sm sm:text-base text-[#dfdff0]">
+            <p className="font-main font-normal text-sm sm:text-base text-[#dfdff0]">
               Pellentesque diam libero, scelerisque ultrices odio quis, mollis pharetra urna. Proin
               lobortis bibendum urna, nec rutrum urna malesuada et.
             </p>
 
-            <p className="font-main font-light text-sm sm:text-base text-[#dfdff0]">
+            <p className="font-main font-normal text-sm sm:text-base text-[#dfdff0]">
               Pellentesque diam libero, scelerisque ultrices odio quis, mollis pharetra urna. Proin
               lobortis bibendum urna, nec rutrum urna malesuada et.
             </p>

@@ -52,8 +52,9 @@ export default async function Page({ params: { post } }: IPage) {
 
         <article
           className={`
-            mt-8 md:mt-12 
-            px-6 md:px-10 xl:px-20
+            mx-auto mt-8 md:mt-12 
+            px-6 min-[700px]:px-0
+            w-full max-w-[680px]
           `}
         >
           <MDXContent components={components} />

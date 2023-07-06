@@ -3,7 +3,7 @@ export default function Bio() {
     <p
       className={`
         my-8
-        font-main font-light
+        font-main font-normal
         text-sm/6 md:text-base/7
         text-[#dfdff0]
       `}

@@ -47,7 +47,7 @@ export default function ModalContent({ project }: IModalContent) {
         className={`
           mt-4 mb-6
           md:mt-5 md:mb-7
-          font-main font-light
+          font-main font-normal
           text-sm md:text-base 
           text-[#dfdff0]
         `}

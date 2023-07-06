@@ -16,7 +16,7 @@ function Article(props: ClArticle) {
         {props.title}
       </h3>
 
-      <p className="font-main font-light text-sm text-[#dfdff0] mt-4 mb-4 xl:mt-6 xl:mb-0 sm:max-w-[70%]">
+      <p className="font-main font-normal text-sm text-[#dfdff0] mt-4 mb-4 xl:mt-6 xl:mb-0 sm:max-w-[70%]">
         {props.description}
       </p>
 
