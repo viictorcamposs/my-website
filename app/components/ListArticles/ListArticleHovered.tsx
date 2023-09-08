@@ -11,11 +11,11 @@ function ListArticleAnim(props: HTMLMotionProps<'span'>) {
       {...props}
       className={`
         hidden xl:block
-        absolute -z-10
+        absolute
         -left-5 -right-5 
         top-0 bottom-0
         rounded-lg
-        bg-[#1E1D20]
+        bg-[#121212]
       `}
     />
   )
@@ -28,6 +28,7 @@ interface IListArticleHovered extends HTMLMotionProps<'span'> {
 
 export default function ListArticleHovered({ index, ...props }: IListArticleHovered) {
   const [hovered, setHovered] = useState<number | string>('')
+
   const isHovered = index === hovered
 
   return (
@@ -35,16 +36,14 @@ export default function ListArticleHovered({ index, ...props }: IListArticleHove
       {...props}
       onHoverStart={() => setHovered(index)}
       onHoverEnd={() => setHovered('')}
-      className={`
-        relative
-      `}
+      className="relative"
     >
       {isHovered && (
         <ListArticleAnim
           layoutId="listArticle"
           initial={{ opacity: 0.7 }}
           animate={{ opacity: 1 }}
-          transition={{ ease: 'easeOut', duration: 0.3 }}
+          transition={{ ease: 'easeOut', duration: 0.35 }}
         />
       )}
 

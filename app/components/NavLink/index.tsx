@@ -11,7 +11,7 @@ interface IComponentProps extends LinkProps {
 
 const linkClassName = `
   relative duration-300
-  hover:text-[#f7f5f9]
+  hover:text-[#F4F5F9]
   after:content-['']
   after:block after:absolute
   after:-bottom-1.5 after:left-[calc(50%-10px)]
@@ -30,7 +30,7 @@ export default function NavLink({ children, ...props }: IComponentProps) {
       target={props.target}
       className={
         currentPathname
-          ? `${linkClassName} after:bg-[#f7f5f9]`
+          ? `${linkClassName} after:bg-[#F4F5F9]`
           : `${linkClassName} after:bg-transparent`
       }
     >

@@ -1,3 +1,5 @@
+import Footer from '../components/Footer'
+
 import { poppins, inter } from '../fonts'
 
 import './globals.css'
@@ -15,13 +17,10 @@ interface IRootLayout {
 export default function RootLayout({ children }: IRootLayout) {
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body
-        className={`
-          py-[100px]
-          bg-[#06080d]
-        `}
-      >
+      <body className="flex flex-col py-[100px]">
         {children}
+
+        <Footer />
       </body>
     </html>
   )

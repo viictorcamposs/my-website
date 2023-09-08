@@ -1,0 +1,206 @@
+---
+  type: Post
+  title: How I Built My Website with Next.js 13
+  description: An overview of how I built my site, the stack that I chose and why, inspirations, decisions and errors I made.
+  releaseDate: 2023-7-5
+  translations:
+    pt-br: true
+    en: true
+---
+
+Since I started my journey to become a software developer, I've always admired those who can
+share their knowledge in some form and turn the path to professional and personal
+growth easier for other developers.
+
+After almost 3 years of being a web developer, it was about time for me to do something that
+I wanted to do since before I start my first in-company role: create this website to make it easier
+for potential employers to find my work, to share what I've learned so far with others and to
+practice and work on abilities that I find important.
+
+I have no doubt that this site is going to be beneficial for me, as already has been, and I'd like
+to share with you an overview of how I built it - the technologies I chose and why, inspirations
+for the design and decisions and errors made.
+
+### Tech Stack
+
+#### Next.js
+
+[Next.js][next] is a framework for building web applications using React components.
+
+I've already used it to build other projects so I knew exactly the developer experience I was
+going to have and knew that it provides me with great features to work the performance and
+user experience of my website.
+
+This first version is the perfect opportunity to get my hands dirty with the new concepts and
+features the Vercel team introduced:
+
+- Integration with React server components
+- Entire new project structure and file-system based router
+- Font optimization, etc.
+
+Although they don't recommend to use the new version in production, I'm doing it to
+know first hand how it's working and to learn and apply advanced front-end concepts.
+
+#### TypeScript
+
+[TypeScript][typescript] is a highly typed language built on top of JavaScript and basically
+ensures me in the editor that what I'm writing is working without the need to run and get the
+error on the browser.
+
+My code gets a bit more extense and it takes more time to write, but using TypeScript brings
+me several benefits that justify this "time loss":
+
+- Speed up the process of finding errors like typos and other common mistakes
+- Great integration and intelligent code completion feature with VS Code
+- Improved my level of perception of what I'm writing as I started to better analyze and
+  organize the code.
+
+#### Tailwind
+
+[Tailwind][tailwind] is an utility-first CSS framework that helps me build user interfaces using
+predefined classes. I have used it a few times and knew that it could speed up my development
+process if I got more practice.
+
+Also, it's great [integration with VS Code][tailwind/intellisense], well organized and easy
+to read documentation and straightforward way to start using with Next.js made easy to choose
+Tailwind as my styling tool.
+
+#### MDX
+
+MDX is a JavaScript library that allows me to create markdown content with JSX components.
+
+So far, its been a great development experience. Easy to start using it with Next.js, great
+support from the community with enough guides and examples and the possibilities of use seems
+to be limited by my imagination.
+
+Also, it's worth mention that its integration with [Contentlayer][contentlayer] made pretty easy
+to use MDX with Next.js 13 and React server components.
+
+#### Framer Motion
+
+[Framer Motion][framermotion] is a simple yet powerful animation library for React.
+
+Honestly, animation was never the focus when studying front-end concepts. I don't have much
+knowledge or experience but with Framer Motion was easy to start implement some animation
+on my website.
+
+The idea to use Framer Motion came from [Zeno Rocha's website][zenorocha], but there are other
+reasons of why I continued to use:
+
+- _**Documentation**_ - well organized and full of great examples
+- _**Developer Experience**_ - easy to start using and great features available
+
+#### Vercel
+
+[Vercel][vercel] is a deployment and collaboration platform for front-end developers.
+
+It has the best support for Next.js available out there and other reasons of why I chose Vercel are:
+
+- Full infrastructure available to deploy with just a few steps
+- Automatic CI/CD with [GitHub's integration][github/vercel]
+- Free plan to work with personal projects
+
+By using Vercel I'm free to focus on the development of my website and let them handle in the best
+way the complexities that comes with deploying a front-end project.
+
+### Design
+
+My main focus when thinking about the website design was _**simplicity**_. I wanted it to be
+minimalist, feature focused and to have space to add new ideas in the future.
+
+Working with design isn't one of my best skills. So, I started to search for good references
+on the internet and, once I found, used them to create a prototype in [Figma][figma].
+
+In the end, 2 websites were used for inspirations:
+
+- Color scheme and animations were inspired by [Zeno Rocha's website][zenorocha]
+- Elements and content structure were inspired by [Delva Oliveira's website][delbaoliveira]
+
+### Content
+
+Initially, my content is focused on tech recruiters and other developers. This is the place
+where I have the freedom to show my skills, share my knowledge and experience and also have the
+opportunity to improve my learning skill.
+
+### Lessons
+
+I think it's important to discuss the main lesson I learned from this project. Leave it registered
+here for future reference. Maybe also help others to avoid making the same mistake.
+
+#### Planning
+
+I have no doubt that a big part of the mistakes I made could have been avoided by investing more
+time in planning and giving more attention to details. Sometimes I let other reasons
+a part from my goals with the project be the X factor when deciding something.
+
+**#1 Start a course about testing and use the project as a playground for practice**
+
+Testing was something that I had wanted to learn for a long time. Although using the project
+to learn about it had its benefits and the result was that I did learn a new concept and gained
+experience in writing unit and integration tests with Jest and Testing-library, starting a new
+course while working on it was bad decision.
+
+Along the way, the difficulties we all face when learning something started to come. Using
+my project goals as a guide for decision-making, the time I invested in overcoming those
+difficulties could've been better used improving the user experience, adding other features,
+or completing the project sooner.
+
+**#2 Use Prismic to manage content instead of MDX + Contentlayer**
+
+Using Prismic as my content management system was also about learning a new concept - _Headless
+CMS_. It's an interesting tool to learn and I could see the benefits of using something alike to
+improve the work between the development and the marketing teams.
+
+But, again, what needs do I have to consider when using my project goals as a guide? I need to
+ensure a good writing experience for the articles and improve performance for the user
+experience, with articles being instantly available when loading the page.
+
+For a project with a single person handling development and writing the articles? [MDX + Contentlayer][mdx/contentlayer]
+is a better solution. It's more developer-friendly and offers better performance by loading
+the content statically stored within the project.
+
+### Roadmap
+
+I don't know about you, but as I developed the project, new ideas would always come and scream
+inside my head, boosting my drive to continue to add features and other improvements.
+
+The truth is that if I continued to work on the project, I'd always find things to change and
+never would be satisfied with the result. By this logic, I would be on the verge of never releasing
+this website.
+
+But that's the beauty. This website is something I never want to be fully satisfied with.
+Everytime I look at it, I want to spot something to improve, I want to have a new idea to try,
+a new way to work on the user experience. Hopefully, I will be able to do that.
+
+#### User experience
+
+**#1 Add comment section within the articles**
+
+More than a way to share my knowledge, each article presents an opportunity for me to get to know
+and learn from others.
+
+With a comment section, people can ask specific questions, provide feedback, and engage with me
+and others, creating a more enriching experience for everyone involved.
+
+**#2 Improve the article's reading experience**
+
+In the modern world, when we want to learn something online, know how to filter the content we find
+is one of the most important things to do. Improve the quality and the user experience of what I'm
+creating is a responsability not only to my self development, but also to the people who invested
+their time to consume my content.
+
+That's why one of the next steps is to create components and features to improve the navigation within
+the article and make the reading experience more pleasureable and fluid.
+
+[next]: https://nextjs.org/docs 'Next.js 13 Docs'
+[typescript]: https://typescriptland.org 'TypeScript'
+[tailwind]: https://tailwindcss.com/ 'Tailwind CSS'
+[vercel]: https://vercel.com/home 'Vercel'
+[tailwind/intellisense]: https://tailwindcss.com/docs/editor-setup#intelli-sense-for-vs-code
+[contentlayer]: https://www.contentlayer.dev/ 'Contentlayer'
+[zenorocha]: https://zenorocha.com 'Zeno Rocha'
+[delbaoliveira]: https://delba.dev 'Delva Oliveira'
+[framermotion]: https://www.framer.com/motion/introduction/ 'Framer Motion Docs'
+[github/vercel]: https://vercel.com/docs/concepts/deployments/git/vercel-for-github
+[figma]: https://figma.com 'Figma'
+[mdx/contentlayer]: https://www.contentlayer.dev/docs/sources/files/mdx-d747e46d

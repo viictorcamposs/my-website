@@ -51,7 +51,7 @@
           "/(data)/",
           ["/(views)/", "/(routes)/", "/api/"],
           ["/(sections)/", "/(components)/"],
-          ["/(libs)/", "/(utils)/"],
+          ["/(lib)/", "/(util)/"],
           ["/(interface)/", "/(enum)/", "/(schemas)/"],
           "/(static)/",
           "/(styles)/"

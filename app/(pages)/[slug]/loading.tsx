@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-const skeletonStyle = 'bg-[#c1c2e0]/20 animate-pulse'
+const skeletonStyle = 'bg-[#C1C2E0]/20 animate-pulse'
 
 export default function Loading() {
   return (

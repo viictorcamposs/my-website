@@ -4,6 +4,8 @@ module.exports = {
   content: [
     '~/mdx-components.tsx',
     './mdx-components.tsx',
+    '~/posts/*.mdx',
+    './posts/*.mdx',
     '~/app/**/*.{js,ts,jsx,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
     '~/app/(pages)/**/*.{js,ts,jsx,tsx}',

@@ -1,18 +1,18 @@
-import Image from 'next/image'
+import NextImage from 'next/image'
 
 import profile from '~/public/static/img/profile.jpg'
 
-const ProfileImage = () => (
-  <Image
+const Image = () => (
+  <NextImage
     width={80}
     height={80}
     src={profile}
     alt="Victor Campos"
     placeholder="blur"
     className={`
-      border-[2px] rounded-full
+      rounded-full
       w-16 h-16 md:w-20 md:h-20
-      border-[#f7f5f9] bg-[#f7f5f9]
+    bg-[#F4F5F9]
     `}
   />
 )
@@ -22,7 +22,7 @@ const Title = () => (
     className={`
       font-heading font-extrabold 
       text-xl min-[375px]:text-2xl md:text-3xl
-      text-[#f7f5f9]
+      text-[#F4F5F9]
     `}
   >
     Victor Campos
@@ -35,7 +35,7 @@ const Subtitle = () => (
       flex items-center gap-2 mt-1
       font-medium font-heading 
       text-sm md:text-lg
-      text-[#c1c2e0]
+      text-[#C1C2E0]
     `}
   >
     Web Developer from Brazil <span>🇧🇷</span>
@@ -49,7 +49,7 @@ export default function Profile() {
         flex items-center gap-5
       `}
     >
-      <ProfileImage />
+      <Image />
 
       <div>
         <Title />

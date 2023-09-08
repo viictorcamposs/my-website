@@ -15,7 +15,7 @@ export default function HeaderSecondary() {
         w-full max-w-[680px] 
         py-3 px-5 rounded-lg
         flex items-center min-[600px]:justify-between
-        bg-[#06080d80] backdrop-blur-md
+        bg-[#00000050] backdrop-blur-md
         overflow-auto
       `}
     >
@@ -27,8 +27,8 @@ export default function HeaderSecondary() {
           alt="Victor Campos"
           placeholder="blur"
           className={`
-            border-[2px] mr-8 rounded-full
-            border-[#f7f5f9] bg-[#f7f5f9]
+            mr-8 rounded-full
+          bg-[#F4F5F9]
             hover:transform hover:scale-110
             transition duration-300
           `}
@@ -38,7 +38,7 @@ export default function HeaderSecondary() {
       <nav
         className={`
           flex items-center gap-8
-          text-sm text-[#c1c2e0]
+          text-sm text-[#C1C2E0]
         `}
       >
         {links.map(link => (

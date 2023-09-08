@@ -1,0 +1,213 @@
+---
+  type: Never
+  title: Como construí meu site com Next.js 13
+  description: Um resumo de como construí meu site, as tecnologias que escolhi e motivos, inspirações, decisões e aprendizados que tive.
+  releaseDate: 2023-6-19
+  github: https://github.com/viictorcamposs
+  image: 
+    url: /static/img/articles/how-i-built-my-site.jpg
+    alt: Planet Earth
+  seo:
+    title: Como construí meu site pessoal com Next.js 13 | Victor Campos
+    description: Um resumo de como construí meu site, as tecnologias que escolhi e motivos, inspirações, decisões e aprendizados que tive.
+    image: https://nothing.yet
+    url: https://victorcampos.io/how-i-built-my-website-with-nextjs-13
+---
+
+[next]: https://nextjs.org/docs 'Next.js 13 Docs'
+[typescript]: https://typescriptland.org 'TypeScript'
+[tailwind]: https://tailwindcss.com/ 'Tailwind CSS'
+[vercel]: https://vercel.com/home 'Vercel'
+[tailwind/intellisense]: https://tailwindcss.com/docs/editor-setup#intelli-sense-for-vs-code
+[contentlayer]: https://contentlayer.dev/ 'Contentlayer'
+[zenorocha]: https://zenorocha.com 'Zeno Rocha'
+[delbaoliveira]: https://delba.dev 'Delva Oliveira'
+[framermotion]: https://framer.com/motion/introduction 'Framer Motion Docs'
+[figma]: https://figma.com 'Figma'
+[mdx/contentlayer]: https://www.contentlayer.dev/docs/sources/files/mdx-d747e46d
+[github/vercel]: https://vercel.com/docs/concepts/deployments/git/vercel-for-github
+
+Desde que comecei a estudar pra trabalhar como desenvolvedor de aplicativos, admiro aqueles que
+conseguem compartilhar seus conhecimentos e tornam mais fácil o caminho pra o crescimento pessoal
+e profissional de outros desenvolvedores.
+
+Depois de quase 3 anos como desenvolvedor web, decidi que chegou o tempo de fazer algo que quis
+fazer desde que comecei meu primeiro emprego: expandir os horizontes da minha carreira e do meu
+crescimento pessoal trabalhando pra uma empresa fora do país. Então, criei esse site pra ser mais
+fácil pra recrutadores acharem meu trabalho, compartilhar o que tenho aprendido e trabalhar em
+habilidades que acho importante pra qualquer pessoa (por exemplo, _comunicar com clareza_).
+
+Não tenho dúvidas que esse site vai me beneficiar, como já tem feito, e eu gostaria de compartilhar
+com você um resumo de como desenvolvi ele - as tecnologias que usei, inspirações pra design,
+decisões que tomei e erros que cometi.
+
+### Tech Stack
+
+#### Next.js
+
+[Next.js][next] é um framework para construir aplicações web usando componentes React.
+
+Eu já tinha usado para criar outros projetos então sabia exatamente a experiência de
+desenvolvimento que ia ter com a ferramenta e sabia que ela me fornece ótimas funcionalidades
+para trabalhar performance e experiência de usuário do meu site.
+
+Essa primeira versão do meu site é uma oportunidade para colocar a mão na massa os novos
+conceitos e funcionalidades que o time da Vercel trouxe pra gente:
+
+- Integração com React server components
+- Melhor performance trazendo requisições de fontes externas pra o servidor
+- Nova estrutura de projeto e sistema de rotas baseado em arquivos
+
+Embora o time do Next.js recomenda não utilizar a nova versão em produção, eu estou usando para
+ver funcionando em primeira mão e pra aprender e aplicar conceitos avançados de front-end.
+
+#### TypeScript
+
+[TypeScript][typescript] é uma linguagem fortemente tipada construída encima do JavaScript e
+basicamente me dá a segurança de saber que meu código está funcionando ao validar ele antes que eu
+precise rodar no browser.
+
+Embora meu código fique mais extenso e leve mais tempo para ser escrito, usar TypeScript me traz
+vários benefícios que justificam muito bem essa "perda de tempo":
+
+- Acelera meu processo de codificação ao identificar erros de digitação e outros erros comuns
+  enquanto estou implementando
+- Traz mais inteligência ao meu ambiente de desenvolvimento ao dar sugestões de código,
+  informações sobre parâmetros e funções, etc.
+- Passei a dar mais valor e procurar organizar melhor o que estou escrevendo, melhorando meu nível
+  de percepção sobre o código
+
+#### Tailwind
+
+[Tailwind][tailwind] é um framework CSS para construção de interfaces usando classes predefinidas.
+Eu já tinha usado algumas vezes e sabia que poderia otimizar meu tempo se ganhasse mais prática.
+
+Também, sua ótima [integração com VS Code][tailwind/intellisense], documentação bem organizada e
+fácil de ler e fácil integração com Next.js ajudaram na hora de escolher Tailwind como ferramenta
+de estilização.
+
+#### MDX
+
+MDX é uma biblioteca JavaScript que permite usar componentes JSX junto com meu conteúdo escrito
+em markdown.
+
+Tenho certeza que não cheguei a usar nem de perto todo o poder da MDX, mas tem sido uma ótima
+experiência de desenvolvimento - fácil de começar a usar com Next.js, ótimo suporte da comunidade
+com guias e exemplos.
+
+Também vale a pena comentar que sua integração com [Contentlayer][contentlayer] fez ainda mais
+fácil usar MDX junto com Next.js 13 e React server components.
+
+#### Framer Motion
+
+[Framer Motion][framermotion] é uma biblioteca de animação pra aplicações web construídas com
+componentes React.
+
+Sinceramente, animação nunca foi meu foco na hora de estudar front-end. É um campo que eu conheço
+praticamente nada e com Framer Motion foi fácil começar a implementar alguma animação no meu site.
+
+A ideia de usar a lib veio do site do [Zeno Rocha][zenorocha], mas há outras razões pra eu ter
+continuado com Framer Motion:
+
+- _**Documentação**_ - simples, organizada e cheia de exemplos de uso
+- _**Developer Experience**_ - simples de trabalhar e ótimas funcionalidades
+
+#### Vercel
+
+[Vercel][vercel] é uma plataforma de colaboração e serviço em nuvem para desenvolvedores front-end.
+
+Além de ser o serviço com o melhor suporte pra usar Next.js, algumas experiências me fizeram
+escolher a Vercel:
+
+- Subir infraestrutura completa de forma simples e rápida
+- Deployment contínuo usando [integração com GitHub][github/vercel]
+- Plano gratuito completo pra projetos pessoais
+
+Usando a Vercel fico livre pra focar em desenvolver o projeto e criar conteúdo e deixar que eles
+lidem com todas as complexidades que vem com hospedagem de site.
+
+### Design
+
+Meu principal foco na hora de pensar no design do site foi _**objetividade**_. Eu queria um site
+simples, minimalista, focado em funcionalidades e que desse espaço pra no futuro serem adicionadas
+novas ideias.
+
+Trabalhar com design não é uma das minhas melhores habilidades. Então, comecei a procurar na
+internet boas referências e criei no [Figma][figma] um protótipo a partir delas.
+
+No final, 2 sites foram usados como principais referências:
+
+- Paleta de cores, animações e design foram inspirados no site do [Zeno Rocha][zenorocha]
+- Organização dos elementos vieram do site da [Delba Oliveira][delbaoliveira]
+
+### Content
+
+Inicialmente, o foco do meu conteúdo está em falar com recrutadores e outros desenvolvedores web.
+Esse lugar é um espaço onde tenho liberdade pra mostrar minhas habilidades técnicas, compartilhar
+conhecimento escrevendo artigos, e tenho também a oportunidade de melhorar minha capacidade de
+aprendizagem.
+
+### Aprendizado
+
+Acho importante falar sobre o principal aprendizado que tive com esse projeto. Deixar salvo aqui
+como referência pra mim mesmo no futuro e quem sabe no processo também ajudar alguém a evitar
+de cometer os mesmos erros.
+
+#### Quem falha em planejar, está planejando pra falhar.
+
+Durante a construção do projeto tive muitos altos e baixos. Sei que vários dos erros cometidos
+podiam ter sido evitados se um planejamento apropriado tivesse sido feito, por exemplo:
+
+**#1 Fazer um curso de testes e usar o projeto de playground pra praticar**
+
+Testes era algo que eu já queria ter aprendido há algum tempo. Embora ter usado o projeto de case
+de estudos tenha me beneficiado em aprender um novo conceito de programação e novas tecnologias,
+ter feito isso enquanto trabalhava no projeto foi uma decisão ruim.
+
+No meio do caminho vieram as dificuldades comuns a quem tá aprendendo algo novo. Pensando no meu
+objetivo com o projeto, o tempo dedicado pra passar por essas dificuldades teria sido melhor
+aplicado trazendo melhores funcionalidades pra experiência do usuário, terminando de construir
+o site e lançando.
+
+No final das contas, precisei apagar grande parte dos testes unitários e parei de criar novos pra
+poder focar em lançar o site e trabalhar minhas prioridades.
+
+**#2 Usar Prismic pra trabalhar conteúdo ao invés de MDX + Contentlayer**
+
+Ter usado Prismic foi também pra aprender uma nova tecnologia ou conceito. É uma ferramenta
+interessante de aprender e facilita bastante o trabalho entre o time de desenvolvimento e o time
+de marketing.
+
+Mas, novamente, quais são as minhas necessidades pensando no projeto? Ter uma boa experiência na
+hora escrever os artigos e melhor performance na hora de carregar eles na tela do usuário.
+
+Um projeto que só tem uma pessoa desenvolvendo e escrevendo? [MDX + Contentlayer][mdx/contentlayer]
+é uma solução mais adequada. Mais simples e mais rápido pra escrever e tem melhor performance ao
+salvar os artigos de forma estática no projeto.
+
+### Roadmap
+
+Não sei como você é, mas enquanto estava construindo esse site novas ideias iam surgindo
+e aumentando a minha vontade de continuar trabalhando e lançar ele com mais features. A verdade é que
+se eu continuasse, nunca ia estar 100% satisfeito com o resultado e ia continuar achando outras
+formas de melhorar. Então, fugindo do risco de nunca lançar, os próximos passos do site
+estão focados em:
+
+#### Experiência do usuário
+
+**#1 Adicionar forma de interação com os artigos**
+
+Mais do que ser uma forma de passar conhecimento, cada artigo é também uma oportunidade pra eu
+poder conhecer e aprender com outras pessoas.
+
+Seguindo por essa linha, acredito que adicionando possibilidades de quem tá lendo poder interagir,
+fazer alguma pergunta, dar um feedback, pode tornar a troca de experiência muito mais enriquecedora.
+
+**#2 Melhorar a experiência de leitura**
+
+No mundo moderno é cada vez mais necessário conseguir filtrar bem o que prende a sua atenção.
+Melhorar meu conteúdo não é só uma obrigação com meu desenvolvimento, mas também com o tempo de
+quem está vindo atrás de conteúdo relevante.
+
+Por isso que um dos próximos passos que desejo focar é criar novos componentes pra melhorar a
+navegação dentro do artigo e tornar a leitura mais fluida, interativa e prazerosa.

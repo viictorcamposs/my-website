@@ -27,11 +27,11 @@ const NavHovered = (props: HTMLMotionProps<'span'>) => (
   <motion.span
     {...props}
     className={`
-      absolute -z-10
+      absolute z-0
       left-0 right-0 
       -top-2.5 -bottom-2.5
       rounded-lg
-      bg-[#1E1D20]
+      bg-[#121212]
     `}
   />
 )
@@ -59,7 +59,7 @@ export default function NavBar() {
                 />
               )}
 
-              {link.identification}
+              <span className="relative z-10">{link.identification}</span>
             </NavContainer>
           </NavLink>
         )

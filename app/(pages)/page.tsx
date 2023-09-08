@@ -1,6 +1,6 @@
 import { compareDesc } from 'date-fns'
-import type { Article } from 'contentlayer/generated'
-import { allArticles } from 'contentlayer/generated'
+import type { Post } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 
 import ListArticles from '../components/ListArticles'
 import Header from '../components/Header'
@@ -11,7 +11,7 @@ const main = `
 `
 
 export default function Home() {
-  const articles: Article[] = allArticles.sort((a, b) =>
+  const posts: Post[] = allPosts.sort((a, b) =>
     compareDesc(new Date(a.releaseDate), new Date(b.releaseDate))
   )
 
@@ -20,7 +20,7 @@ export default function Home() {
       <Header />
 
       <main className={main}>
-        <ListArticles articles={articles} />
+        <ListArticles articles={posts} />
       </main>
     </>
   )

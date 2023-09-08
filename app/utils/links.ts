@@ -1,17 +1,17 @@
 const links = [
-  {
-    identification: 'About',
-    href: '/about',
-    target: '_self'
-  },
+  // {
+  //   identification: 'About',
+  //   href: '/about',
+  //   target: '_self'
+  // },
   {
     identification: 'Articles',
     href: '/articles',
     target: '_self'
   },
   {
-    identification: 'Portfolio',
-    href: '/portfolio',
+    identification: 'Reminder',
+    href: '/reminder',
     target: '_self'
   },
   {
