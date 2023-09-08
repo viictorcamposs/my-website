@@ -3,7 +3,12 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import Link from 'next/link'
 
-import { MDX_HEADING_STYLES, MDX_LINK_STYLES, MDX_LIST_STYLES } from '~/app/lib/constants'
+import {
+  MDX_HEADING_STYLES,
+  MDX_LINK_STYLES,
+  MDX_LIST_STYLES,
+  MDX_HEADING_LINK_STYLES
+} from '~/app/lib/constants'
 
 export const components: any = {
   p: (props: any) => (
@@ -14,11 +19,16 @@ export const components: any = {
   ),
   h3: (props: any) => (
     <h3
-      className={`${MDX_HEADING_STYLES} my-11 pt-8 border-t border-[#C1C2E030] text-xl md:text-2xl`}
+      className={`${MDX_HEADING_STYLES} ${MDX_HEADING_LINK_STYLES} my-11 pt-8 border-t border-[#C1C2E030] text-xl md:text-2xl`}
       {...props}
     />
   ),
-  h4: (props: any) => <h4 className={`${MDX_HEADING_STYLES} my-8 text-lg md:text-xl`} {...props} />,
+  h4: (props: any) => (
+    <h4
+      className={`${MDX_HEADING_STYLES} ${MDX_HEADING_LINK_STYLES} my-8 text-lg md:text-xl`}
+      {...props}
+    />
+  ),
   strong: (props: any) => <strong className="font-medium text-[#F4F5F9]" {...props} />,
   ul: (props: any) => (
     <ul className="my-8 space-y-3 [&>li]:relative [&>li]:pl-7 [&>li>p]:my-0" {...props} />

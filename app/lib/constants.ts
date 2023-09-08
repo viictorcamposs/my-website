@@ -12,7 +12,7 @@ export const MDX_LIST_STYLES = `
   before:content-['']
   before:h-1.5 before:w-1.5 
   before:rounded-full
-  before:bg-[#C1C2E030]
+  before:bg-[#C1C2E050]
 `
 
 export const MDX_LINK_STYLES = `
@@ -25,8 +25,7 @@ export const MDX_HEADING_LINK_STYLES = `
   before:content-['#'] 
   before:absolute 
   before:-ml-[1em] 
-  before:text-[#f4f5f9]/0 hover:before:text-[#f4f5f9]/50 
-  pl-[1em] -ml-[1em]
+  before:text-[#C1C2E000] hover:before:text-[#C1C2E050] 
 `
 
 export const ARTICLE_CONTENT_MENU_ITEM_STYLES = `
