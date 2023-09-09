@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation'
-// import type { Metadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next'
 
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { allPosts } from 'contentlayer/generated'
+
+import { getMetadataProps } from '~/app/lib/metadata'
 
 import { components } from '~/app/components/MdxComponents'
 import Main from '~/app/components/Main'
@@ -24,14 +26,24 @@ export async function generateStaticParams() {
   }))
 }
 
-// export function generateMetadata({ params: { slug } }: IPage): Metadata {
-//   const post = allPosts.find(post => post._raw.flattenedPath === slug)
+export async function generateMetadata(
+  { params: { slug } }: IPage,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const post = allPosts.find(post => post._raw.flattenedPath === slug)
 
-//   return {
-//     title: post?.seo.title,
-//     description: post?.seo.description
-//   }
-// }
+  const previousImages = (await parent).openGraph?.images || []
+
+  const metadata = getMetadataProps({
+    title: post!.title,
+    description: post!.description,
+    image: `/static/img/posts/${post?._raw.flattenedPath}.jpg`,
+    previousImages,
+    keywords: post!.keywords
+  })
+
+  return metadata
+}
 
 function getPost(slug: string) {
   const post = allPosts.find(post => post._raw.flattenedPath === slug)

@@ -1,7 +1,7 @@
 import type { Post } from '~/.contentlayer/generated'
 
 export const getPartialPost = ({
-  url,
+  slug,
   title,
   description,
   translations,
@@ -9,7 +9,7 @@ export const getPartialPost = ({
   releaseDate,
   body
 }: Post) => ({
-  url,
+  slug,
   title,
   description,
   translations: translations ?? null,

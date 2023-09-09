@@ -3,7 +3,11 @@ import { render, screen } from '@testing-library/custom'
 import ActiveLink from './index'
 
 function renderActiveLink(href: string, children: React.ReactNode) {
-  render(<ActiveLink href={href}>{children}</ActiveLink>)
+  render(
+    <ActiveLink target="" href={href}>
+      {children}
+    </ActiveLink>
+  )
 }
 
 jest.mock('next/navigation', () => ({
@@ -21,7 +25,7 @@ describe('ActiveLink', () => {
   })
 
   it('should apply active link styles based on the current pathname and link href attribute', () => {
-    const activElinktyles = 'after:bg-[#F4F5F9]'
+    const activeLinkStyles = 'after:bg-[#e4e4e7]'
     const normalLinkStyles = 'after:bg-transparent'
 
     renderActiveLink('/about', 'About')
@@ -29,10 +33,10 @@ describe('ActiveLink', () => {
 
     const [about, articles] = screen.getAllByRole('link')
 
-    expect(about).toHaveClass(activElinktyles)
+    expect(about).toHaveClass(activeLinkStyles)
     expect(about).not.toHaveClass(normalLinkStyles)
 
     expect(articles).toHaveClass(normalLinkStyles)
-    expect(articles).not.toHaveClass(activElinktyles)
+    expect(articles).not.toHaveClass(activeLinkStyles)
   })
 })

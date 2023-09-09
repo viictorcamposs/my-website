@@ -22,6 +22,18 @@ module.exports = {
         heading: ['var(--font-poppins)'],
         body: ['var(--font-inter)']
       },
+      borderColor: {
+        primary: '#262626' // text-neutral-800
+      },
+      textColor: {
+        primary: '#e4e4e7', // text-zinc-200
+        secondary: '#a1a1aa', // text-zinc-400
+        other: '#52525b' // text-zinc-500
+      },
+      backgroundColor: {
+        primary: '#0a0a0a', // text-neutral-950
+        secondary: '#262626' // text-neutral-800
+      },
       keyframes: {
         titlegradient: {
           to: {

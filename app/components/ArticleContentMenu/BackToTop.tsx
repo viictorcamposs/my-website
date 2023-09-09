@@ -10,11 +10,8 @@ export default function BackToTop() {
       onClick={() => window.scrollTo({ top: 0 })}
       className={`${ARTICLE_CONTENT_MENU_ITEM_STYLES} group relative flex items-center justify-between w-full`}
     >
-      Back to top
-      <CaretDoubleUp
-        size={20}
-        className="text-[#C1C2E050] duration-300 group-hover:text-[#C1C2E080]"
-      />
+      <span className="duration-300 text-other group-hover:text-primary">Back to top</span>
+      <CaretDoubleUp size={20} className="duration-300 text-other group-hover:text-secondary" />
     </button>
   )
 }

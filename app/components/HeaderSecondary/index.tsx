@@ -15,7 +15,7 @@ export default function HeaderSecondary() {
         w-full max-w-[680px] 
         py-3 px-5 rounded-lg
         flex items-center min-[600px]:justify-between
-        bg-[#00000050] backdrop-blur-md
+        bg-primary/20 backdrop-blur-md
         overflow-auto
       `}
     >
@@ -28,19 +28,14 @@ export default function HeaderSecondary() {
           placeholder="blur"
           className={`
             mr-8 rounded-full
-          bg-[#F4F5F9]
+          bg-[#e4e4e7]
             hover:transform hover:scale-110
             transition duration-300
           `}
         />
       </Link>
 
-      <nav
-        className={`
-          flex items-center gap-8
-          text-sm text-[#C1C2E0]
-        `}
-      >
+      <nav className="flex items-center gap-8">
         {links.map(link => (
           <NavLink key={link.identification} href={link.href} target={link.target}>
             {link.identification}

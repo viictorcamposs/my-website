@@ -5,7 +5,7 @@ export default function Bio() {
         my-8
         font-body
         text-sm/6 md:text-base/7
-        text-[#C1C2E0]
+        text-secondary
       `}
     >
       Hey there! Welcome to my space. Here's where I want to share some of the things I'm learning

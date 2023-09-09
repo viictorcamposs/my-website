@@ -15,7 +15,7 @@ function ListArticleAnim(props: HTMLMotionProps<'span'>) {
         -left-5 -right-5 
         top-0 bottom-0
         rounded-lg
-        bg-[#121212]
+        bg-secondary
       `}
     />
   )

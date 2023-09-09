@@ -12,14 +12,14 @@ import {
 
 export const components: any = {
   p: (props: any) => (
-    <p className="font-body font-normal text-sm/6 md:text-base/7 text-[#C1C2E0] my-6" {...props} />
+    <p className="my-6 font-normal font-body text-secondary text-sm/6 md:text-base/7" {...props} />
   ),
   h2: (props: any) => (
     <h2 className={`${MDX_HEADING_STYLES} mt-10 mb-5 text-lg md:text-2xl`} {...props} />
   ),
   h3: (props: any) => (
     <h3
-      className={`${MDX_HEADING_STYLES} ${MDX_HEADING_LINK_STYLES} my-11 pt-8 border-t border-[#C1C2E030] text-xl md:text-2xl`}
+      className={`${MDX_HEADING_STYLES} ${MDX_HEADING_LINK_STYLES} my-11 pt-8 border-t border-primary text-xl md:text-2xl`}
       {...props}
     />
   ),
@@ -29,7 +29,7 @@ export const components: any = {
       {...props}
     />
   ),
-  strong: (props: any) => <strong className="font-medium text-[#F4F5F9]" {...props} />,
+  strong: (props: any) => <strong className="font-medium text-primary" {...props} />,
   ul: (props: any) => (
     <ul className="my-8 space-y-3 [&>li]:relative [&>li]:pl-7 [&>li>p]:my-0" {...props} />
   ),

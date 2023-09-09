@@ -14,24 +14,19 @@ export default function Footer() {
         font-body
       `}
     >
-      <nav
-        className={`
-          flex gap-2 md:gap-4 md:items-center
-          text-[#C1C2E050]
-        `}
-      >
+      <nav className="flex gap-2 md:gap-4 md:items-center text-other">
         {links.map(({ identification, ...link }) => (
           <Link
-            key={identification}
             {...link}
-            className="text-xs md:text-sm duration-300 hover:text-[#C1C2E0]"
+            key={identification}
+            className="text-xs duration-300 md:text-sm hover:text-primary"
           >
             {identification}
           </Link>
         ))}
       </nav>
 
-      <span className="text-xs md:text-sm font-medium text-[#C1C2E050]">Built in 2023</span>
+      <span className="text-xs font-medium md:text-sm text-other ">Built in 2023</span>
     </footer>
   )
 }

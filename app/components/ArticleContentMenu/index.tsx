@@ -13,7 +13,7 @@ export default function ArticleContentMenu({ content }: IProps) {
   return (
     <aside className="absolute top-0 hidden h-full min-w-max left-[calc(100%+60px)] xl:block">
       <div className="sticky space-y-2 top-10">
-        <h5 className="text-sm font-medium pb-3 border-b border-b-[#C1C2E050] text-[#C1C2E050]">
+        <h5 className="pb-3 text-sm font-medium border-b border-primary text-other">
           CONTENT ON THIS PAGE
         </h5>
 
@@ -25,7 +25,7 @@ export default function ArticleContentMenu({ content }: IProps) {
           ))}
         </ul>
 
-        <div className="pt-3 border-t border-t-[#C1C2E050]">
+        <div className="pt-3 border-t border-primary">
           <BackToTop />
         </div>
       </div>

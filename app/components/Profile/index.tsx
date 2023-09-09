@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import NextImage from 'next/image'
 
 import profile from '~/public/static/img/profile.jpg'
@@ -12,7 +13,7 @@ const Image = () => (
     className={`
       rounded-full
       w-16 h-16 md:w-20 md:h-20
-    bg-[#F4F5F9]
+    bg-[#e4e4e7]
     `}
   />
 )
@@ -22,7 +23,7 @@ const Title = () => (
     className={`
       font-heading font-extrabold 
       text-xl min-[375px]:text-2xl md:text-3xl
-      text-[#F4F5F9]
+      text-primary
     `}
   >
     Victor Campos
@@ -35,7 +36,7 @@ const Subtitle = () => (
       flex items-center gap-2 mt-1
       font-medium font-heading 
       text-sm md:text-lg
-      text-[#C1C2E0]
+      text-secondary
     `}
   >
     Web Developer from Brazil <span>🇧🇷</span>

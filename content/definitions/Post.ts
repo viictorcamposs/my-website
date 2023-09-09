@@ -11,7 +11,8 @@ export const Post = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
     releaseDate: { type: 'date', required: true },
-    translations: { type: 'nested', of: Translations, required: false }
+    translations: { type: 'nested', of: Translations, required: false },
+    keywords: { type: 'list', of: { type: 'string' }, required: true }
   },
   computedFields: {
     slug: { type: 'string', resolve: post => post._raw.flattenedPath },
