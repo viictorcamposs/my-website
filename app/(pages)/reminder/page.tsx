@@ -1,5 +1,6 @@
 import Title from '~/app/components/Title'
 import Main from '~/app/components/Main'
+import { QuoteMark } from '~/app/components/icons'
 import HeaderSecondary from '~/app/components/HeaderSecondary'
 
 export default function Page() {
@@ -8,9 +9,13 @@ export default function Page() {
       <HeaderSecondary />
 
       <Main>
-        <Title>Reminder</Title>
+        <div className="relative w-full">
+          <Title>Reminder</Title>
 
-        <div className="mt-10 space-y-4">
+          <QuoteMark className="absolute right-0 top-0 lg:-top-2 max-[768px]:w-10 max-[768px]:h-10" />
+        </div>
+
+        <div className="space-y-4">
           <p className="italic text-sm/6 md:text-base/7 text-secondary">
             You are who you are because of everything that has brought you here. Fate has fashioned
             you into the person you are, and Nature intends that you are right here, right now. You

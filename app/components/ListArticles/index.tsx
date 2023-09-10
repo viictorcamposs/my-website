@@ -36,7 +36,7 @@ export default function ListArticles({ articles: data }: IListArticles) {
   const theresMoreThanOneArticle = articles.length > 1
 
   return (
-    <ul className="flex flex-col mt-5">
+    <ul className="flex flex-col">
       {articles.map((article, idx) => (
         <ListArticleHovered key={article._id} index={idx}>
           <Link href={`/${article.slug}`}>

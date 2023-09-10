@@ -6,7 +6,7 @@ import './globals.css'
 import 'server-only'
 
 export const metadata = {
-  title: 'Victor Campos | Web Developer from Brazil',
+  title: 'Victor Campos',
   description: 'Built with Next.js, Tailwind, MDX and Vercel'
 }
 

@@ -9,11 +9,11 @@ const links = [
     href: '/articles',
     target: '_self'
   },
-  {
-    identification: 'Reminder',
-    href: '/reminder',
-    target: '_self'
-  },
+  // {
+  //   identification: 'Reminder',
+  //   href: '/reminder',
+  //   target: '_self'
+  // },
   {
     identification: 'GitHub',
     href: 'https://github.com/viictorcamposs',
