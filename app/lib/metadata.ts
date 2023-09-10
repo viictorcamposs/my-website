@@ -1,7 +1,7 @@
 import type { ReferrerEnum } from 'next/dist/lib/metadata/types/metadata-types'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export function getMetadataProps({
+export function getArticlePageMetadataProps({
   title,
   description,
   image,

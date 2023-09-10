@@ -1,10 +1,12 @@
 import { notFound } from 'next/navigation'
 import type { Metadata, ResolvingMetadata } from 'next'
 
+import path from 'node:path'
 import { getMDXComponent } from 'next-contentlayer/hooks'
+import fs from 'fs/promises'
 import { allPosts } from 'contentlayer/generated'
 
-import { getMetadataProps } from '~/app/lib/metadata'
+import { getArticlePageMetadataProps } from '~/app/lib/metadata'
 
 import { components } from '~/app/components/MdxComponents'
 import Main from '~/app/components/Main'
@@ -22,7 +24,7 @@ interface IPage {
 
 export async function generateStaticParams() {
   return allPosts.map(post => ({
-    slug: post._raw.flattenedPath
+    slug: post.slug
   }))
 }
 
@@ -34,47 +36,75 @@ export async function generateMetadata(
 
   const previousImages = (await parent).openGraph?.images || []
 
-  const metadata = getMetadataProps({
-    title: post!.title,
-    description: post!.description,
+  // ! read next.js docs to learn how to handle seo and metadata generation issues for the whole project.
+
+  if (!post)
+    return {
+      openGraph: {
+        images: previousImages
+      }
+    }
+
+  const metadata = getArticlePageMetadataProps({
+    title: post.title,
+    description: post.description,
     image: `/static/img/posts/${post?._raw.flattenedPath}.jpg`,
     previousImages,
-    keywords: post!.keywords
+    keywords: post.keywords
   })
 
   return metadata
 }
 
 function getPost(slug: string) {
-  const post = allPosts.find(post => post._raw.flattenedPath === slug)
+  const post = allPosts.find(post => post.slug === slug)
 
   if (!post) notFound()
 
-  const partialPost = getPartialPost(post)
+  return getPartialPost(post)
+}
 
-  return {
-    ...partialPost,
-    imageURL: `/static/img/posts/${post._raw.flattenedPath}.jpg`,
-    imageAlt: `${post.title} | Background Image`
+async function getHeroImage(slug: string, title: string) {
+  const image = {
+    src: `/static/img/posts/${slug}.jpg`,
+    alt: `${title} | Background Image`,
+    base64: `/static/img/posts/${slug}.txt`
+  }
+
+  try {
+    const file = path.join('./public', image.base64)
+    const placeholder = await fs.readFile(file, { encoding: 'base64' })
+
+    return {
+      ...image,
+      placeholder
+    }
+  } catch (error) {
+    return {
+      ...image,
+      placeholder: ''
+    }
   }
 }
 
 export default async function Page({ params: { slug } }: IPage) {
-  const post = getPost(slug)
+  const { title, headings, body } = getPost(slug)
 
-  const MDXContent = getMDXComponent(post.body.code)
+  const { src, alt, base64 } = await getHeroImage(slug, title)
+
+  const MDXContent = getMDXComponent(body.code)
 
   return (
     <>
       <HeaderSecondary />
 
       <Main className="pb-6 px-0 sm:py-6 sm:px-5 md:px-0 md:py-8 sm:mx-auto sm:w-full sm:max-w-[780px] lg:max-w-[960px]">
-        <Hero title={post.title} imageUrl={post.imageURL} imageAlt={post.imageAlt} />
+        <Hero title={title} imgSrc={src} imgAlt={alt} placeholder={base64} />
 
         <article className="relative mx-auto mt-8 md:mt-12 px-6 min-[700px]:px-0 w-full max-w-[680px]">
           <MDXContent components={components} />
 
-          {post.headings && <ArticleContentMenu content={post.headings} />}
+          {headings && <ArticleContentMenu content={headings} />}
         </article>
       </Main>
     </>
