@@ -4,15 +4,15 @@ export const getPartialPost = ({
   slug,
   title,
   description,
-  translations,
   headings,
   releaseDate,
-  body
+  body,
+  hero,
+  image
 }: Post) => ({
   slug,
   title,
   description,
-  translations: translations ?? null,
   body: {
     code: body.code
   },
@@ -22,5 +22,9 @@ export const getPartialPost = ({
       text: string
       slug: string
     }[]) ?? null,
-  releaseDate
+  releaseDate,
+  hero: {
+    ...hero,
+    image
+  }
 })

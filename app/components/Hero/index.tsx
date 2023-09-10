@@ -2,9 +2,18 @@ import Image from 'next/image'
 
 interface IHero {
   title: string
-  imgSrc: string
-  imgAlt: string
-  placeholder: string
+  author: {
+    name: string
+    unsplash: {
+      account: string
+      image: string
+    }
+  }
+  image: {
+    src: string
+    alt: string
+    placeholder: string
+  }
 }
 
 const container = `
@@ -18,31 +27,20 @@ const container = `
   after:bg-black/30
 `
 
-export default function Hero({ title, imgSrc, imgAlt, placeholder }: IHero) {
+export default function Hero({ title, author, image }: IHero) {
   return (
     <div className="relative">
       <div className={container}>
-        {placeholder ? (
-          <Image
-            fill
-            priority
-            src={imgSrc}
-            alt={imgAlt}
-            sizes="100vw"
-            placeholder="blur"
-            style={{ objectFit: 'cover', objectPosition: 'bottom' }}
-            blurDataURL={placeholder}
-          />
-        ) : (
-          <Image
-            fill
-            priority
-            src={imgSrc}
-            alt={imgAlt}
-            sizes="50vw"
-            style={{ objectFit: 'cover', objectPosition: 'bottom' }}
-          />
-        )}
+        <Image
+          fill
+          priority
+          src={image.src}
+          alt={image.alt}
+          sizes="100vw"
+          placeholder="blur"
+          style={{ objectFit: 'cover', objectPosition: 'bottom' }}
+          blurDataURL={image.placeholder}
+        />
 
         <h1 className="relative z-[1] font-bold font-heading text-2xl min-[790px]:text-4xl xl:text-[42px]/tight sm:text-center text-primary">
           {title}
@@ -51,20 +49,19 @@ export default function Hero({ title, imgSrc, imgAlt, placeholder }: IHero) {
 
       <p className="absolute left-0 text-xs font-medium -bottom-6 [&>a]:underline [&>a]:underline-offset-2 text-other">
         Photo by{' '}
-        <a
-          target="_blank"
-          href="https://unsplash.com/@zoltantasi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >
-          Zoltan Tasi
+        <a target="_blank" href={`https://unsplash.com/${author.unsplash.account}`}>
+          {author.name}
         </a>{' '}
         on{' '}
-        <a
-          target="_blank"
-          href="https://unsplash.com/photos/b3PuuRU8IPc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >
+        <a target="_blank" href={`https://unsplash.com/photos/${author.unsplash.image}`}>
           Unsplash
         </a>
       </p>
     </div>
   )
 }
+/**
+ * 
+ * Photo by <a href="https://unsplash.com/@zoltantasi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Zoltan Tasi</a> on <a href="https://unsplash.com/photos/b3PuuRU8IPc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+  
+ */

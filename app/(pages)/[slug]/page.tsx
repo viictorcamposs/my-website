@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata, ResolvingMetadata } from 'next'
 
-import path from 'node:path'
 import { getMDXComponent } from 'next-contentlayer/hooks'
-import fs from 'fs/promises'
 import { allPosts } from 'contentlayer/generated'
 
 import { getArticlePageMetadataProps } from '~/app/lib/metadata'
@@ -64,33 +62,8 @@ function getPost(slug: string) {
   return getPartialPost(post)
 }
 
-async function getHeroImage(slug: string, title: string) {
-  const image = {
-    src: `/static/img/posts/${slug}.jpg`,
-    alt: `${title} | Background Image`,
-    base64: `/static/img/posts/${slug}.txt`
-  }
-
-  try {
-    const file = path.join('./public', image.base64)
-    const placeholder = await fs.readFile(file, { encoding: 'base64' })
-
-    return {
-      ...image,
-      placeholder
-    }
-  } catch (error) {
-    return {
-      ...image,
-      placeholder: ''
-    }
-  }
-}
-
 export default async function Page({ params: { slug } }: IPage) {
-  const { title, headings, body } = getPost(slug)
-
-  const { src, alt, base64 } = await getHeroImage(slug, title)
+  const { title, body, headings, hero } = getPost(slug)
 
   const MDXContent = getMDXComponent(body.code)
 
@@ -99,7 +72,7 @@ export default async function Page({ params: { slug } }: IPage) {
       <HeaderSecondary />
 
       <Main className="pb-6 px-0 sm:py-6 sm:px-5 md:px-0 md:py-8 sm:mx-auto sm:w-full sm:max-w-[780px] lg:max-w-[960px]">
-        <Hero title={title} imgSrc={src} imgAlt={alt} placeholder={base64} />
+        <Hero title={title} author={hero.author} image={hero.image} />
 
         <article className="relative mx-auto mt-8 md:mt-12 px-6 min-[700px]:px-0 w-full max-w-[680px]">
           <MDXContent components={components} />

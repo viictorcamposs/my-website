@@ -1,7 +1,9 @@
+import sharp from 'sharp'
+import path from 'path'
 import GithubSlugger from 'github-slugger'
 import { defineDocumentType } from 'contentlayer/source-files'
 
-import { Translations } from './Translations'
+import { Hero } from './Hero'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -11,8 +13,8 @@ export const Post = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
     releaseDate: { type: 'date', required: true },
-    translations: { type: 'nested', of: Translations, required: false },
-    keywords: { type: 'list', of: { type: 'string' }, required: true }
+    keywords: { type: 'list', of: { type: 'string' }, required: true },
+    hero: { type: 'nested', of: Hero, required: true }
   },
   computedFields: {
     slug: { type: 'string', resolve: post => post._raw.flattenedPath },
@@ -37,6 +39,22 @@ export const Post = defineDocumentType(() => ({
         )
 
         return headings
+      }
+    },
+    image: {
+      type: 'json',
+      resolve: async article => {
+        const imageSource = `/static/img/posts/${article._id.replace('.mdx', '.jpg')}`
+
+        const file = path.join('./public', imageSource)
+
+        const placeholder: Buffer | string = await sharp(file).resize(32, 32).toBuffer()
+
+        return {
+          src: imageSource,
+          alt: `${article.title} | Background Image`,
+          placeholder: `data:image/jpg;base64,${placeholder.toString('base64')}`
+        }
       }
     }
   }
