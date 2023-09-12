@@ -12,34 +12,56 @@ export const size = {
 
 export const contentType = 'image/jpg'
 
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div
+    style={{
+      fontSize: 60,
+      background: 'black',
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'white',
+      position: 'relative'
+    }}
+  >
+    {children}
+  </div>
+)
+
+const ImageResponseFallback = ({ text }: { text: string }) => <Container>{text}</Container>
+
 export default async function Image({ params }: { params: { slug: string } }) {
   const post = allPosts.find(post => post.slug === params.slug)
 
-  if (!post) return {}
+  if (!post) {
+    return new ImageResponse(<ImageResponseFallback text="Victor Campos" />)
+  }
 
-  const response = await fetch(`https://victorcampos.vercel.app/og?title=${post.title}`)
+  let imageRequest: string = ''
+
+  if (process.env.NODE_ENV == 'development') {
+    imageRequest = `http://localhost:3000/og?title=${post.title}`
+  } else {
+    const path = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL
+
+    imageRequest = `https://${path}/og?title=${post.title}`
+  }
+
+  const response = await fetch(imageRequest)
 
   const image = await response.arrayBuffer()
 
   const { title } = post
 
-  if (!image) return {}
+  if (!image) {
+    return new ImageResponse(<ImageResponseFallback text={title} />)
+  }
 
   return new ImageResponse(
     (
-      <div
-        style={{
-          fontSize: 60,
-          background: 'black',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          position: 'relative'
-        }}
-      >
+      <Container>
         <img
           src={image as unknown as string}
           alt={title}
@@ -66,7 +88,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
         />
 
         {title}
-      </div>
+      </Container>
     ),
     {
       ...size

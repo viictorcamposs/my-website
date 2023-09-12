@@ -13,7 +13,7 @@ export async function GET(request: Request) {
 
   const file = path.join('./public', `/static/img/posts/${slug}.jpg`)
 
-  const { buffer } = await sharp(file).resize(1200, 680).toBuffer()
+  const { buffer } = await sharp(file).resize(1200, 630).toBuffer()
 
   return new ImageResponse(
     (
