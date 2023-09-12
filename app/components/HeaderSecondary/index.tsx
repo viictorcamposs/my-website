@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import links from '~/app/utils/links'
 
-import profile from '~/public/static/img/profile.jpg'
+import profile from '~/public/static/img/profile.png'
 
 import NavLink from '../NavLink'
 
@@ -21,16 +21,16 @@ export default function HeaderSecondary() {
     >
       <Link href="/" className="mr-8">
         <Image
-          width={40}
-          height={40}
+          quality={100}
           src={profile}
           alt="Victor Campos"
+          sizes="50vw"
           placeholder="blur"
           className={`
             mr-8 rounded-full
-          bg-[#e4e4e7]
             hover:transform hover:scale-110
             transition duration-300
+            w-10 h-10
           `}
         />
       </Link>

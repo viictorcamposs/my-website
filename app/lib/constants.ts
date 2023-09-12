@@ -42,4 +42,8 @@ export const ARTICLE_CONTENT_MENU_ITEM_STYLES = `
   hover:text-primary
 `
 
-export const TITLE_GRADIENT_STYLES = `text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500`
+export const TITLE_GRADIENT_STYLES = `
+  text-transparent 
+  bg-clip-text bg-gradient-to-r 
+  from-blue-500 to-purple-500
+`

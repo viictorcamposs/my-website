@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
 import NextImage from 'next/image'
 
-import profile from '~/public/static/img/profile.jpg'
+import profile from '~/public/static/img/profile.png'
 
 const Image = () => (
   <NextImage
-    width={80}
-    height={80}
     src={profile}
+    quality={100}
     alt="Victor Campos"
+    sizes="50vw"
     placeholder="blur"
     className={`
       rounded-full
       w-16 h-16 md:w-20 md:h-20
-    bg-[#e4e4e7]
+      object-bottom
     `}
   />
 )

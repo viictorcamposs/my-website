@@ -6,6 +6,7 @@ import './globals.css'
 import 'server-only'
 
 export const metadata = {
+  metadataBase: new URL(`https://victorcampos.vercel.app`),
   title: 'Victor Campos',
   description: 'Built with Next.js, Tailwind, MDX and Vercel'
 }

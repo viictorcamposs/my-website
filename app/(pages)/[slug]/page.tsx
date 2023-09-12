@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation'
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { allPosts } from 'contentlayer/generated'
-
-import { getArticlePageMetadataProps } from '~/app/lib/metadata'
 
 import { components } from '~/app/components/MdxComponents'
 import Main from '~/app/components/Main'
@@ -14,7 +12,7 @@ import ArticleContentMenu from '~/app/components/ArticleContentMenu'
 
 import { getPartialPost } from '~/app/lib/contentlayer'
 
-interface IPage {
+interface IProps {
   params: {
     slug: string
   }
@@ -26,44 +24,27 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata(
-  { params: { slug } }: IPage,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params: { slug } }: IProps): Promise<Metadata> {
   const post = allPosts.find(post => post._raw.flattenedPath === slug)
 
-  const previousImages = (await parent).openGraph?.images || []
+  if (!post) return {}
 
-  // ! read next.js docs to learn how to handle seo and metadata generation issues for the whole project.
-
-  if (!post)
-    return {
-      openGraph: {
-        images: previousImages
-      }
-    }
-
-  const metadata = getArticlePageMetadataProps({
-    title: post.title,
+  return {
+    title: `${post.title} | Victor Campos`,
     description: post.description,
-    image: `/static/img/posts/${post?._raw.flattenedPath}.jpg`,
-    previousImages,
-    keywords: post.keywords
-  })
-
-  return metadata
+    keywords: post.keywords,
+    openGraph: {
+      type: 'article'
+    }
+  }
 }
 
-function getPost(slug: string) {
+export default function Page({ params: { slug } }: IProps) {
   const post = allPosts.find(post => post.slug === slug)
 
   if (!post) notFound()
 
-  return getPartialPost(post)
-}
-
-export default async function Page({ params: { slug } }: IPage) {
-  const { title, body, headings, hero } = getPost(slug)
+  const { title, body, headings, hero } = getPartialPost(post)
 
   const MDXContent = getMDXComponent(body.code)
 
