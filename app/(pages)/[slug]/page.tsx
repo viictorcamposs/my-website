@@ -27,14 +27,19 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params: { slug } }: IProps): Promise<Metadata> {
   const post = allPosts.find(post => post._raw.flattenedPath === slug)
 
-  if (!post) return {}
+  if (!post) {
+    return {
+      title: 'Not Found',
+      description: 'The page you are looking for does not exist.'
+    }
+  }
 
   return {
-    title: `${post.title} | Victor Campos`,
+    title: post.title,
     description: post.description,
     keywords: post.keywords,
-    openGraph: {
-      type: 'article'
+    alternates: {
+      canonical: `/${slug}`
     }
   }
 }

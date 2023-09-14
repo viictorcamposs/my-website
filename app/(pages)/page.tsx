@@ -5,6 +5,10 @@ import { allPosts } from 'contentlayer/generated'
 import ListArticles from '../components/ListArticles'
 import Header from '../components/Header'
 
+export const metadata = {
+  keywords: ['nextjs', 'blog', 'react', 'typescript', 'development', 'tech', 'career']
+}
+
 export default function Home() {
   const posts: Post[] = allPosts.sort((a, b) =>
     compareDesc(new Date(a.releaseDate), new Date(b.releaseDate))

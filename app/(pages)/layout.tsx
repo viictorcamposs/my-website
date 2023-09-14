@@ -6,12 +6,15 @@ import './globals.css'
 import 'server-only'
 
 export const metadata = {
+  metadataBase: new URL('https://victorcampos.vercel.app'),
   title: {
     default: 'Victor Campos',
     template: `%s | Victor Campos`
   },
   description: 'Built with TypeScript, Next.js, Tailwind, MDX, Framer Motion and Vercel.',
-  keywords: ['nextjs', 'blog', 'react', 'typescript', 'development', 'tech', 'career']
+  verification: {
+    google: '' // ? search how to get this verification id from google
+  }
 }
 
 interface IRootLayout {

@@ -3,92 +3,41 @@ import { ImageResponse } from 'next/server'
 
 import { allPosts } from 'contentlayer/generated'
 
-export const runtime = 'edge'
-
 export const size = {
   width: 1200,
   height: 630
 }
 
-export const contentType = 'image/jpg'
+export const alt = 'Blog | Victor Campos'
 
-const Container = ({ children }: { children: React.ReactNode }) => (
-  <div
-    style={{
-      fontSize: 60,
-      background: 'black',
-      width: '100%',
-      height: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'white',
-      position: 'relative'
-    }}
-  >
-    {children}
-  </div>
-)
+export const contentType = 'image/jpeg'
 
-const ImageResponseFallback = ({ text }: { text: string }) => <Container>{text}</Container>
-
-export default async function Image({ params }: { params: { slug: string } }) {
+export default async function og({ params }: { params: { slug: string } }) {
   const post = allPosts.find(post => post.slug === params.slug)
 
-  if (!post) {
-    return new ImageResponse(<ImageResponseFallback text="Victor Campos" />)
-  }
-
-  let imageRequest: string = ''
-
-  if (process.env.NODE_ENV == 'development') {
-    imageRequest = `http://localhost:3000/og?title=${post.title}`
-  } else {
-    const path = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL
-
-    imageRequest = `https://${path}/og?title=${post.title}`
-  }
-
-  const response = await fetch(imageRequest)
-
-  const image = await response.arrayBuffer()
-
-  const { title } = post
-
-  if (!image) {
-    return new ImageResponse(<ImageResponseFallback text={title} />)
-  }
+  const imagePath = `/static/img/posts/${params.slug}.jpg`
 
   return new ImageResponse(
     (
-      <Container>
+      <div tw="w-full h-full flex items-center justify-center relative">
         <img
-          src={image as unknown as string}
-          alt={title}
-          style={{
-            position: 'absolute',
-            objectFit: 'cover',
-            objectPosition: 'bottom',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0
-          }}
+          width={1200}
+          height={630}
+          alt={post?.title}
+          tw="absolute top-0 left-0 right-0 bottom-0"
+          src={`https://victorcampos.vercel.app/${imagePath}`}
+          style={{ objectFit: 'cover' }}
         />
 
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            backgroundColor: '#00000030'
-          }}
-        />
+        <div tw="absolute top-0 left-0 right-0 bottom-0 bg-black/30" />
 
-        {title}
-      </Container>
+        <div tw="flex flex-col items-center">
+          <span tw="relative text-zinc-200 text-4xl pb-8 border-b border-b-white">
+            Victor Campos
+          </span>
+          <span tw="text-zinc-200 text-5xl mt-8">{post?.title}</span>
+        </div>
+      </div>
     ),
     {
       ...size

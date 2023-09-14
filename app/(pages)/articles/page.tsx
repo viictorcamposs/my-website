@@ -10,13 +10,7 @@ import ListArticles from '~/app/components/ListArticles'
 import HeaderSecondary from '~/app/components/HeaderSecondary'
 
 export const metadata: Metadata = {
-  title: 'Victor Campos',
-  description: 'Built with TypeScript, Next.js, Tailwind, Framer Motion and Vercel.',
-  keywords: ['nextjs', 'blog', 'react', 'typescript', 'development', 'tech', 'career']
-  // canonical
-  // robots
-  // og image
-  // twitter image
+  title: 'Articles'
 }
 
 export default function Page() {
