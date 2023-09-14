@@ -1,17 +1,9 @@
-import type { Metadata } from 'next'
-
 import { compareDesc } from 'date-fns'
 import type { Post } from 'contentlayer/generated'
 import { allPosts } from 'contentlayer/generated'
 
 import ListArticles from '../components/ListArticles'
 import Header from '../components/Header'
-
-export const metadata: Metadata = {
-  title: 'Victor Campos',
-  description: 'Built with TypeScript, Next.js, Tailwind, Framer Motion and Vercel.',
-  keywords: ['nextjs', 'blog', 'react', 'typescript', 'development', 'tech', 'career']
-}
 
 export default function Home() {
   const posts: Post[] = allPosts.sort((a, b) =>
