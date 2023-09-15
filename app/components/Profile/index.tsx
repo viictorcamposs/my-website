@@ -6,9 +6,8 @@ import profile from '~/public/static/img/profile.png'
 const Image = () => (
   <NextImage
     src={profile}
-    quality={100}
     alt="Victor Campos"
-    sizes="50vw"
+    sizes="25vw"
     placeholder="blur"
     className={`
       rounded-full

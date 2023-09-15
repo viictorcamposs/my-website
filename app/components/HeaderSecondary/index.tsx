@@ -21,10 +21,9 @@ export default function HeaderSecondary() {
     >
       <Link href="/" className="mr-8">
         <Image
-          quality={100}
           src={profile}
           alt="Victor Campos"
-          sizes="50vw"
+          sizes="25vw"
           placeholder="blur"
           className={`
             mr-8 rounded-full
