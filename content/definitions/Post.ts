@@ -44,7 +44,7 @@ export const Post = defineDocumentType(() => ({
     image: {
       type: 'json',
       resolve: async article => {
-        const imageSource = `/static/img/posts/${article._id.replace('.mdx', '.jpg')}`
+        const imageSource = `/static/img/posts/${article._id.replace('.mdx', '.webp')}`
 
         const file = path.join('./public', imageSource)
 

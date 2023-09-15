@@ -5,7 +5,6 @@ import { getMDXComponent } from 'next-contentlayer/hooks'
 import { allPosts } from 'contentlayer/generated'
 
 import { components } from '~/app/components/MdxComponents'
-import Main from '~/app/components/Main'
 import Hero from '~/app/components/Hero'
 import HeaderSecondary from '~/app/components/HeaderSecondary'
 import ArticleContentMenu from '~/app/components/ArticleContentMenu'
@@ -57,15 +56,15 @@ export default function Page({ params: { slug } }: IProps) {
     <>
       <HeaderSecondary />
 
-      <Main className="pb-6 px-0 sm:py-6 sm:px-5 md:px-0 md:py-8 sm:mx-auto sm:w-full sm:max-w-[780px] lg:max-w-[960px]">
+      <main className="pb-6 pt-[100px] px-0 sm:pb-6 sm:px-5 md:px-0 md:pb-8 xl:pt-0 sm:mx-auto sm:w-full sm:max-w-[780px] lg:max-w-[960px] xl:max-w-full">
         <Hero title={title} author={hero.author} image={hero.image} />
 
-        <article className="relative mx-auto mt-8 md:mt-12 px-6 min-[700px]:px-0 w-full max-w-[680px]">
+        <article className="relative mx-auto mt-12 px-6 min-[700px]:px-0 w-full max-w-[680px]">
           <MDXContent components={components} />
 
           {headings && <ArticleContentMenu content={headings} />}
         </article>
-      </Main>
+      </main>
     </>
   )
 }

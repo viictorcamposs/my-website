@@ -9,6 +9,7 @@ export default function Header() {
         w-full max-w-[680px]
         mx-auto mb-[100px]
         px-5 min-[375px]:px-7 md:px-0
+        pt-[100px]
       `}
     >
       <Profile />

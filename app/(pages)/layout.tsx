@@ -24,7 +24,7 @@ interface IRootLayout {
 export default function RootLayout({ children }: IRootLayout) {
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
-      <body className="flex flex-col py-[100px]">
+      <body className="flex flex-col">
         {children}
 
         <Footer />
