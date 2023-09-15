@@ -39,6 +39,12 @@ export async function generateMetadata({ params: { slug } }: IProps): Promise<Me
     keywords: post.keywords,
     alternates: {
       canonical: `/${slug}`
+    },
+    openGraph: {
+      images: `/og?title=${post.title}`
+    },
+    twitter: {
+      images: `/og?title=${post.title}`
     }
   }
 }

@@ -10,7 +10,13 @@ import ListArticles from '~/app/components/ListArticles'
 import HeaderSecondary from '~/app/components/HeaderSecondary'
 
 export const metadata: Metadata = {
-  title: 'Articles'
+  title: 'Articles',
+  openGraph: {
+    images: '/og?title=Articles'
+  },
+  twitter: {
+    images: '/og?title=Articles'
+  }
 }
 
 export default function Page() {

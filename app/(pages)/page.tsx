@@ -6,7 +6,13 @@ import ListArticles from '../components/ListArticles'
 import Header from '../components/Header'
 
 export const metadata = {
-  keywords: ['nextjs', 'blog', 'react', 'typescript', 'development', 'tech', 'career']
+  keywords: ['nextjs', 'blog', 'react', 'typescript', 'development', 'tech', 'career'],
+  openGraph: {
+    images: '/og?title=Home'
+  },
+  twitter: {
+    images: '/og?title=Home'
+  }
 }
 
 export default function Home() {

@@ -1,62 +1,59 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from 'next/server'
 
-import sharp from 'sharp'
-import path from 'path'
+export const runtime = 'edge'
+
+export const size = {
+  width: 844,
+  height: 440
+}
+
+export const contentType = 'image/png'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
-  const title = searchParams.get('title')
+  const title = searchParams.get('title')!
 
-  const slug = title?.toLowerCase().replaceAll(' ', '-').replaceAll('.', '')
+  const [image, poppins] = await Promise.all([
+    fetch(new URL('../../assets/preview.png', import.meta.url)).then(res => res.arrayBuffer()),
+    fetch(new URL('../../assets/Poppins-Bold.ttf', import.meta.url)).then(res => res.arrayBuffer())
+  ])
 
-  const file = path.join('./public', `/static/img/posts/${slug}.jpg`)
+  let fontSize: string
 
-  const { buffer } = await sharp(file).resize(1200, 630).toBuffer()
+  if (['articles', 'home'].includes(title.toLowerCase())) {
+    fontSize = 'text-4xl'
+  } else {
+    fontSize = 'text-3xl'
+  }
 
   return new ImageResponse(
     (
-      <div
-        style={{
-          position: 'relative',
-          background: 'black',
-          color: 'white',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: 60
-        }}
-      >
-        <img
-          src={buffer as unknown as string}
-          alt={title!}
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            objectFit: 'cover',
-            objectPosition: 'bottom'
-          }}
-        />
+      <div tw="relative flex">
+        <img src={image as unknown as string} width={844} height={440} />
 
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            backgroundColor: '#00000030'
-          }}
-        />
-
-        {title}
+        <div tw="absolute w-full h-full flex items-center justify-center">
+          <span
+            tw={`text-zinc-200 relative top-[68px] ${fontSize}`}
+            style={{ fontFamily: 'Poppins' }}
+          >
+            {title}
+          </span>
+        </div>
       </div>
-    )
+    ),
+    {
+      width: 844,
+      height: 440,
+      fonts: [
+        {
+          name: 'Poppins',
+          data: poppins,
+          style: 'normal'
+        }
+      ]
+    }
   )
 }
