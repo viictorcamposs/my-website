@@ -8,7 +8,8 @@ import {
   ArrowUpRight,
   X,
   ArrowSquareUp,
-  CaretDoubleUp
+  CaretDoubleUp,
+  CaretDoubleDown
 } from '@phosphor-icons/react'
 
 function QuoteMark({ className }: { className: string }) {
@@ -57,6 +58,7 @@ export {
   ArrowUpRight,
   ArrowSquareUp,
   CaretDoubleUp,
+  CaretDoubleDown,
   X,
   QuoteMark
 }

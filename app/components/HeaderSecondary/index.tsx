@@ -13,20 +13,20 @@ export default function HeaderSecondary() {
       className={`
         fixed top-6 left-0 min-[680px]:left-[calc(50%-340px)] z-10
         w-full max-w-[680px] 
-        py-3 px-5 rounded-lg
-        flex items-center min-[600px]:justify-between
+        py-3 px-5 rounded-lg gap-10
+        flex items-center justify-between
         bg-primary/20 backdrop-blur-md
         overflow-auto
       `}
     >
-      <Link href="/" className="mr-8">
+      <Link href="/">
         <Image
           src={profile}
           alt="Victor Campos"
           sizes="25vw"
           placeholder="blur"
           className={`
-            mr-8 rounded-full
+            rounded-full mr-10
             hover:transform hover:scale-110
             transition duration-300
             w-10 h-10

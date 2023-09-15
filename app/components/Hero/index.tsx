@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import { CaretDoubleDown } from '~/app/components/icons'
+
 interface IHero {
   title: string
   author: {
@@ -30,29 +32,32 @@ const container = `
   after:xl:to-70%
 `
 
-export default function Hero({ title, image }: IHero) {
+export default function Hero({ title, author, image }: IHero) {
   return (
-    <div className={container}>
-      <Image
-        fill
-        src={image.src}
-        alt={image.alt}
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 100vw"
-        placeholder="blur"
-        style={{ objectFit: 'cover', objectPosition: 'bottom' }}
-        blurDataURL={image.placeholder}
+    <div className="relative">
+      <div className={container}>
+        <Image
+          fill
+          src={image.src}
+          alt={image.alt}
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 100vw"
+          placeholder="blur"
+          style={{ objectFit: 'cover', objectPosition: 'bottom' }}
+          blurDataURL={image.placeholder}
+        />
+
+        <h1 className="relative z-[1] font-bold font-heading text-2xl md:text-3xl min-[790px]:text-4xl xl:text-[48px]/tight sm:text-center text-primary">
+          {title}
+        </h1>
+      </div>
+
+      <CaretDoubleDown
+        size={24}
+        weight="bold"
+        className="hidden xl:block absolute bottom-4 left-[calc(50%-12px)] animate-bounce text-secondary"
       />
 
-      <h1 className="relative z-[1] font-bold font-heading text-2xl min-[790px]:text-4xl xl:text-[48px]/tight sm:text-center text-primary">
-        {title}
-      </h1>
-    </div>
-  )
-}
-
-{
-  /* 
-      <p className="absolute left-0 text-xs font-medium -bottom-6 [&>a]:underline [&>a]:underline-offset-2 text-other">
+      <p className="absolute right-2 lg:left-2 text-[8px] md:text-[10px] xl:text-xs font-medium -bottom-4 sm:-bottom-6 [&>a]:underline [&>a]:underline-offset-2 text-other">
         Photo by{' '}
         <a target="_blank" href={`https://unsplash.com/${author.unsplash.account}`}>
           {author.name}
@@ -61,9 +66,11 @@ export default function Hero({ title, image }: IHero) {
         <a target="_blank" href={`https://unsplash.com/photos/${author.unsplash.image}`}>
           Unsplash
         </a>
-      </p> 
-*/
+      </p>
+    </div>
+  )
 }
+
 /**
  * 
  * Photo by <a href="https://unsplash.com/@zoltantasi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Zoltan Tasi</a> on <a href="https://unsplash.com/photos/b3PuuRU8IPc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
