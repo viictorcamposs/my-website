@@ -8,10 +8,14 @@ import Header from '../components/Header'
 export const metadata = {
   keywords: ['nextjs', 'blog', 'react', 'typescript', 'development', 'tech', 'career'],
   openGraph: {
-    images: '/og?title=Home'
-  },
-  twitter: {
-    images: '/og?title=Home'
+    images: [
+      {
+        url: '/og?title=Home',
+        width: 844,
+        height: 440,
+        alt: 'Home | Victor Campos'
+      }
+    ]
   }
 }
 

@@ -4,13 +4,6 @@ import { ImageResponse } from 'next/server'
 
 export const runtime = 'edge'
 
-export const size = {
-  width: 844,
-  height: 440
-}
-
-export const contentType = 'image/png'
-
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 

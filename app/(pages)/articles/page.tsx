@@ -12,10 +12,14 @@ import HeaderSecondary from '~/app/components/HeaderSecondary'
 export const metadata: Metadata = {
   title: 'Articles',
   openGraph: {
-    images: '/og?title=Articles'
-  },
-  twitter: {
-    images: '/og?title=Articles'
+    images: [
+      {
+        url: '/og?title=Articles',
+        width: 844,
+        height: 440,
+        alt: 'Articles | Victor Campos'
+      }
+    ]
   }
 }
 

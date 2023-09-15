@@ -41,10 +41,18 @@ export async function generateMetadata({ params: { slug } }: IProps): Promise<Me
       canonical: `/${slug}`
     },
     openGraph: {
-      images: `/og?title=${post.title}`
-    },
-    twitter: {
-      images: `/og?title=${post.title}`
+      url: `/${slug}`,
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      images: [
+        {
+          url: `/og?title=${post.title}`,
+          width: 844,
+          height: 440,
+          alt: post.title
+        }
+      ]
     }
   }
 }
