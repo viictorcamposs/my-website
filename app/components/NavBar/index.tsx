@@ -13,7 +13,7 @@ const NavContainer = (props: HTMLMotionProps<'span'>) => (
     {...props}
     className={`
       relative
-      cursor-pointer px-6 py-0.5
+      cursor-pointer px-0 sm:px-6 py-0.5
       text-sm font-normal font-body text-secondary
       hover:text-primary
       duration-300 transition-all
@@ -27,6 +27,7 @@ const NavHovered = (props: HTMLMotionProps<'span'>) => (
   <motion.span
     {...props}
     className={`
+      hidden lg:block
       absolute z-0
       left-0 right-0 
       -top-2.5 -bottom-2.5
@@ -40,7 +41,7 @@ export default function NavBar() {
   const [hovered, setHovered] = useState('')
 
   return (
-    <nav className="grid grid-cols-3 gap-y-4 sm:flex sm:items-center">
+    <nav className="flex items-center justify-between min-[400px]:justify-normal min-[400px]:gap-8 sm:gap-0">
       {links.map(link => {
         const isHovered = hovered === link.identification
 

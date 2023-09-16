@@ -19,7 +19,7 @@ export default function ArticleContentMenu({ content }: IProps) {
 
         <ul className="space-y-1">
           {content.map(({ heading, text, slug }) => (
-            <li key={slug} className={heading === 3 ? `pl-3` : heading === 4 ? `pl-5` : ``}>
+            <li key={slug} className={heading === 3 ? `pl-3` : heading === 4 ? `pl-6` : ``}>
               <Link slug={slug}>{text}</Link>
             </li>
           ))}
