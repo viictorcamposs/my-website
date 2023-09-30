@@ -1,6 +1,6 @@
-import Profile from '../Profile'
-import NavBar from '../NavBar'
-import Bio from '../Bio'
+import Profile from './Profile'
+import NavBar from './NavBar'
+import Bio from './Bio'
 
 export default function Header() {
   return (

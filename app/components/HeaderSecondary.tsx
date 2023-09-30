@@ -5,7 +5,7 @@ import links from '~/app/utils/links'
 
 import profile from '~/public/static/img/profile.png'
 
-import NavLink from '../NavLink'
+import NavLink from './NavLink'
 
 export default function HeaderSecondary() {
   return (
