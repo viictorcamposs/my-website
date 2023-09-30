@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 import links from '~/app/utils/links'
 
-import NavLink from '../NavLink'
+import NavLink from './NavLink'
 
 const NavContainer = (props: HTMLMotionProps<'span'>) => (
   <motion.span
