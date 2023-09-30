@@ -25,10 +25,10 @@ export default function ListArticles({ articles: data }: IListArticles) {
             <div
               className={
                 !theresMoreThanOneArticle
-                  ? `relative py-8`
+                  ? `relative z-10 py-8`
                   : idx === articles.length - 1
-                  ? `relative py-8`
-                  : `relative py-8 border-b border-primary`
+                  ? `relative z-10 py-8`
+                  : `relative z-10 py-8 border-b border-primary`
               }
             >
               <h3 className="font-heading font-bold text-xl xl:text-2xl text-primary mb-4 sm:max-w-[80%]">
