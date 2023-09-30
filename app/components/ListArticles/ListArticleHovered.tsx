@@ -32,7 +32,7 @@ export default function ListArticleHovered({ index, ...props }: IListArticleHove
   const isHovered = index === hovered
 
   return (
-    <motion.span
+    <motion.li
       {...props}
       onHoverStart={() => setHovered(index)}
       onHoverEnd={() => setHovered('')}
@@ -48,6 +48,6 @@ export default function ListArticleHovered({ index, ...props }: IListArticleHove
       )}
 
       {props.children}
-    </motion.span>
+    </motion.li>
   )
 }
