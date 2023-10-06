@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
-import { getMDXComponent } from 'next-contentlayer/hooks'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import { allPosts } from 'contentlayer/generated'
 
 import { components } from '~/app/components/MdxComponents'
@@ -64,7 +64,7 @@ export default function Page({ params: { slug } }: IProps) {
 
   const { title, body, headings, hero } = getPartialPost(post)
 
-  const MDXContent = getMDXComponent(body.code)
+  const MDXContent = useMDXComponent(body.code)
 
   return (
     <>
