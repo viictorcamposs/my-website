@@ -2,7 +2,7 @@ import Footer from '../components/Footer'
 
 import { poppins, inter } from '../fonts'
 
-import './globals.css'
+import '../styles/globals.css'
 import 'server-only'
 
 export const metadata = {
