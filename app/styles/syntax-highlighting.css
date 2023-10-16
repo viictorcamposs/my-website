@@ -1,0 +1,40 @@
+[data-rehype-pretty-code-fragment] {
+  @apply overflow-hidden rounded-md bg-[#cdc8ff0d];
+}
+
+[data-rehype-pretty-code-fragment] pre {
+  @apply overflow-x-auto py-4 text-sm/6;
+}
+
+[data-rehype-pretty-code-title] {
+  @apply px-3 py-1 text-xs bg-white/10 text-white/60;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}
+
+[data-line-numbers] {
+  counter-reset: line;
+}
+
+[data-line] {
+  @apply border-l-2 border-l-transparent px-4;
+}
+
+[data-line-numbers] [data-line]::before {
+  @apply inline-block text-right mr-4 w-4 text-white/30;
+
+  counter-increment: line;
+  content: counter(line);
+}
+
+[data-highlighted-line] {
+  @apply border-l-blue-500 bg-white/5;
+}
+
+[data-highlighted-chars] {
+  @apply rounded;
+
+  background-color: rgb(82 82 91 / 0.5);
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}

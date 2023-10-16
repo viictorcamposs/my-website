@@ -8,7 +8,7 @@ export const MDX_LIST_STYLES = `
   text-sm/6 md:text-base/7
   text-secondary
   before:absolute 
-  before:left-0 before:top-3.5
+  before:left-0 before:top-3
   before:content-['']
   before:h-1.5 before:w-1.5 
   before:rounded-full
@@ -16,16 +16,9 @@ export const MDX_LIST_STYLES = `
 `
 
 export const MDX_LINK_STYLES = `
-  border-b border-blue-500 
+  border-b border-blue-500/50
   transition-all duration-150
-  text-transparent
-  bg-clip-text
-  bg-gradient-to-r
-  hover:border-transparent
-  hover:text-transparent
-  from-zinc-400 to-zinc-400
-  hover:from-blue-500
-  hover:to-purple-500
+  hover:border-blue-500
 `
 
 export const MDX_HEADING_LINK_STYLES = `

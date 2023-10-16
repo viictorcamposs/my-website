@@ -3,6 +3,8 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import Link from 'next/link'
 
+import {} from '@mdx-js/loader'
+
 import {
   MDX_HEADING_STYLES,
   MDX_LINK_STYLES,
@@ -29,7 +31,7 @@ export const components: any = {
       {...props}
     />
   ),
-  strong: (props: any) => <strong className="font-medium text-primary" {...props} />,
+  strong: (props: any) => <strong className={`font-medium text-primary`} {...props} />,
   ul: (props: any) => (
     <ul className="my-8 space-y-3 [&>li]:relative [&>li]:pl-7 [&>li>p]:my-0" {...props} />
   ),

@@ -4,15 +4,26 @@ import { ImageResponse } from 'next/server'
 
 export const runtime = 'edge'
 
+const getImage = async () => {
+  const response = await fetch(new URL('../../assets/preview.png', import.meta.url))
+
+  const image = await response.arrayBuffer()
+
+  return new TextDecoder().decode(image)
+}
+
+const getFont = async () => {
+  const response = await fetch(new URL('../../assets/Poppins-Bold.ttf', import.meta.url))
+
+  return await response.arrayBuffer()
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
   const title = searchParams.get('title')!
 
-  const [image, poppins] = await Promise.all([
-    fetch(new URL('../../assets/preview.png', import.meta.url)).then(res => res.arrayBuffer()),
-    fetch(new URL('../../assets/Poppins-Bold.ttf', import.meta.url)).then(res => res.arrayBuffer())
-  ])
+  const [image, poppins] = await Promise.all([getImage(), getFont()])
 
   let fontSize: string
 
@@ -25,7 +36,7 @@ export async function GET(request: Request) {
   return new ImageResponse(
     (
       <div tw="relative flex">
-        <img src={image as unknown as string} width={844} height={440} />
+        <img src={image} width={844} height={440} />
 
         <div tw="absolute w-full h-full flex items-center justify-center">
           <span
