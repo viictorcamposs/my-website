@@ -12,7 +12,7 @@ export const MDX_LIST_STYLES = `
   before:content-['']
   before:h-1.5 before:w-1.5 
   before:rounded-full
-  before:bg-secondary
+  before:bg-zinc-400/50
 `
 
 export const MDX_LINK_STYLES = `
