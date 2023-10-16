@@ -1,5 +1,5 @@
 [data-rehype-pretty-code-fragment] {
-  @apply overflow-hidden rounded-md bg-[#cdc8ff0d];
+  @apply overflow-hidden rounded-md my-10 bg-[#cdc8ff0d];
 }
 
 [data-rehype-pretty-code-fragment] pre {
