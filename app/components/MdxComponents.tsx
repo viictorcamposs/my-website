@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import Link from 'next/link'
 
-import {} from '@mdx-js/loader'
+import ArticleNote from '~/app/components/ArticleNote'
 
 import {
   MDX_HEADING_STYLES,
@@ -13,6 +13,7 @@ import {
 } from '~/app/lib/constants'
 
 export const components: any = {
+  ArticleNote,
   p: (props: any) => (
     <p className="my-6 font-normal font-body text-secondary text-sm/6 md:text-base/7" {...props} />
   ),
