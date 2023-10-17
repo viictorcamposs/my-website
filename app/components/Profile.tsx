@@ -38,7 +38,7 @@ const Subtitle = () => (
       text-secondary
     `}
   >
-    Software Developer from Brazil <span>🇧🇷</span>
+    Software Developer · Brazil <span>🇧🇷</span>
   </h2>
 )
 
