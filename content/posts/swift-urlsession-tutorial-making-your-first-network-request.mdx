@@ -17,23 +17,20 @@
         image: Hz1WQbHcXag
 ---
 
-I'm currently learning how to build iOS apps in Swift. A few days ago I [built my first project][myGithubProject]
-using an external API to serve the data for my app. Since this is a pretty basic task to perform when working
-in software development, I decided to write this tutorial article teaching how to make a simple network
-request in Swift using the URLSession object and maybe **help someone in the future** (probably myself).
-
-{/* For this article I'm supposing you have a basic understand in Swift language and API. If you don't */}
-{/* know what an API is, I recommend you to read this article: [What is an API? In English, please.][WhatIsAnAPI] */}
+A few days ago, I was working on my first [project][myGithubProject] that involved fetching data from
+an external API for my app. Since this is a fundamental task in software development, I thought about
+writing this tutorial on how to make a simple network request using the URLSession object and maybe
+**help someone in the future**. So, join me, and let's work together!
 
 ### URLSession
 
-URLSession is an API that Swift provides us for handling network requests, like fetch and return
-data to our app, download files, or upload data and files to remote locations. It's a very powerful tool
-and we can do tons of things with it, but for now we'll keep it simple.
+URLSession is a powerful API provided by Swift for handling network tasks, such as fetching data
+for our app, downloading files, and uploading data and files to remote locations. As you can see,
+we can do a lot of things with it, but don't worry, for now, we'll keep it simple.
 
 Let's use the project I mentioned as an example. We're building an app that'll show the latest
-Bitcoin prices in different currencies. To make it happen, we need to grab the data from the [CoinAPI][CoinAPI]
-and we'll use the URLSession, following four simple steps:
+Bitcoin prices in different currencies. To make it happen, we'll use the URLSession to grab the data
+from the [CoinAPI][CoinAPI] following four simple steps:
 
 - **Step 1:** Create a URL
 - **Step 2:** Create a URLSession
@@ -46,8 +43,9 @@ and we'll use the URLSession, following four simple steps:
 
 #### Step 1: Create a URL
 
-When creating an instance of the URL structure you will see that you can call the same method with
-different parameters. In our case, we'll initialize our URL instance with just the _string_ param.
+The [URL structure][urlStructure] identifies the location of the resource we want to access. When
+creating an instance of this structure, you'll notice that the same method can be called with different
+parameters. In our case, we'll initialize it using only the _string_ param.
 
 ```swift showLineNumbers /URL(string: urlString)/
 let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
@@ -57,8 +55,8 @@ if let url = URL(string: urlString) {
 }
 ```
 
-- Because URL() has an optional type, we use a [optional binding][optionalBinding] with the **if let
-  statement** to safely unwrap and access the value returned from the URL instance
+- Because URL() has an optional type, we use the [optional binding][optionalBinding] concept with
+  the **if let statement** to safely unwrap and access the value returned from the URL instance
 
 #### Step 2: Create a URLSession
 
@@ -75,7 +73,8 @@ if let url = URL(string: urlString) {
 There are three types of URL sessions that we can use:
 
 - [**Default:**][urlDefaultSession] used for basic requests and suitable for most common use cases
-- [**Ephemeral:**][urlEphemeralSession] ideal for situations where you need privacy
+- [**Ephemeral:**][urlEphemeralSession] similar to the default config, but it doesn't store any data.
+  For example, you can use this config when requesting user credentials for your app
 - [**Background:**][urlBackgroundSession] allows you to download or upload data in the background, like
   when you suspend an app on your iOS device
 
@@ -83,16 +82,19 @@ There are three types of URL sessions that we can use:
 
 #### Step 3: Give URLSession a task
 
-Now that we have a session for our network request, we need to give a task for it. There are three
-main types of tasks we can use with URLSession:
+Now that we have our URLSession set up and ready to go, it's time to assign a task to it. URLSession
+supports three key types of tasks:
 
 - **Data tasks:** send and receive data; intended for short, often interactive requests
 - **Download tasks:** for scenarios where you want to download large files, and saved them to the device's storage
 - **Upload tasks:** typically used in scenarios like sending user-generated content or files to a server
 
+These are the most commonly used tasks. We also have WebSocket and Stream tasks, but they're used in
+more advanced scenarios, so for now, I won't talk about them.
+
 {/* Note: Swift provides for us a shared session with a good default configuration for most tasks and suitable */}
 {/* for most common use cases. We could've used it in our case, but for learning purposes I've opted */}
-{/* for creating an instance with a configuration parameters. */}
+{/* for creating an instance with the configuration object. */}
 
 **Implementing a data task for our session:**
 
@@ -134,8 +136,7 @@ And, once we've done starting the task, we're able to continue and handle the re
 
 ### Handling response
 
-When we print the data returned from the _"dataTask()"_ method, we won't be able to see the contents
-of the data.
+When we print the data returned from the _"dataTask()"_ method, we won't be able to see its contents.
 
 ```swift showLineNumbers {10-11}
 let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
@@ -156,13 +157,13 @@ if let url = URL(string: urlString) {
 }
 ```
 
-Although we know the data is in a JSON format (because our API's doc told us), that's not what we get.
-So, what should we do?
+Although we know the data is in JSON format (based on our API's documentation), that's not exactly
+what we got. So, what should we do?
 
 #### Parsing data in JSON format
 
 {/* We need to format this raw data, and then we'll be able to read and use it. */}
-To fix this, we need to parse this data and turn it into an actual Swift object with properties and methods.
+To fix this, we need to parse the data and turn it into an actual Swift object with properties and methods.
 
 **Create a Struct with the expected JSON properties**
 
@@ -173,8 +174,8 @@ struct CoinData: Decodable {
 }
 ```
 
-- We add the _Decodable_ typealias to let Swift know that our Struct can convert itself
-  from an external representation, which means that we'll be able to read our data in JSON format
+- We use the _Decodable_ protocol to let Swift know that our struct can decode itself from an external
+  representation. This means that we can easily read data in JSON format and convert it into our Swift struct
 
 **Parse JSON with the native JSONDecoder**
 
@@ -245,10 +246,13 @@ if let url = URL(string: urlString) {
 
 ### Conclusion
 
-That's it! Hopefully, you did your first network request. Congratulations!!! If you have any questions or
-need clarification, feel free to reach me on Twitter or LinkedIn, and we can chat about it.
-Now, as a challenge, I encourage you to read Apple's documentation and learn more about the subject.
-I provided you with a lot of links from the Doc, so have at it. See you next time and great work! 🙋🏻‍♂️
+And that's it! You've successfully completed your first network request. Congratulations! As a next
+step, I encourage you to read Apple's documentation and learn more about the subject. I've provided
+you with a lot of links, so have at it.
+
+If you have any question about anything in this article, or just want to give me a feedback, please
+feel free to reach out to me on Twitter or Linkedin. Thank you very much for joining me. Great work,
+and see you next time! 🙋🏻‍♂️
 
 [myGithubProject]: https://github.com/viictorcamposs/bytecoin-app
 [WhatIsAnAPI]: https://www.freecodecamp.org/news/what-is-an-api-in-english-please-b880a3214a82/
@@ -259,3 +263,4 @@ I provided you with a lot of links from the Doc, so have at it. See you next tim
 [urlEphemeralSession]: https://developer.apple.com/documentation/foundation/urlsessionconfiguration/1410529-ephemeral
 [urlBackgroundSession]: https://developer.apple.com/documentation/foundation/urlsessionconfiguration/1407496-background
 [swiftClosure]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/
+[urlStructure]: https://developer.apple.com/documentation/foundation/url
