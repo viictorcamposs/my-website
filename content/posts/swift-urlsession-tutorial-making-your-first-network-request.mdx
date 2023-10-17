@@ -20,13 +20,12 @@
 A few days ago, I was working on my first [project][myGithubProject] that involved fetching data from
 an external API for my app. Since this is a fundamental task in software development, I thought about
 writing this tutorial on how to make a simple network request using the URLSession object and maybe
-**help someone in the future**. So, join me, and let's work together!
+**help someone in the future** (probably myself). So, join me, and let's work together!
 
 ### URLSession
 
 URLSession is a powerful API provided by Swift for handling network tasks, such as fetching data
-for our app, downloading files, and uploading data and files to remote locations. As you can see,
-we can do a lot of things with it, but don't worry, for now, we'll keep it simple.
+for our app, downloading files, and uploading data and files to remote locations.
 
 Let's use the project I mentioned as an example. We're building an app that'll show the latest
 Bitcoin prices in different currencies. To make it happen, we'll use the URLSession to grab the data
@@ -139,7 +138,7 @@ And, once we've done starting the task, we're able to continue and handle the re
 
 ### Handling response
 
-When we print the data returned from the _dataTask()_ method, it'll not be possible for us to see
+When we print the data returned from the _dataTask()_ method, it won't be possible for us to see
 its content.
 
 ```swift showLineNumbers {11-12}
@@ -210,9 +209,9 @@ if let url = URL(string: urlString) {
 }
 ```
 
-- the _decode_ method (11) can **throw an error**, so we need to add the _try_ word
-- because we're using the _try_ word, we need to wrap it inside a **do block**
-- then, we add the **catch block** to handle any potential errors properly
+- The _decode_ method (12) can **throw an error**, so we need to add the _try_ word
+- Because we're using the _try_ word, we need to wrap it inside a **do block**
+- Then, we add the **catch block** to handle any potential errors properly
 
 **Access properties from API JSON response**
 
@@ -257,9 +256,8 @@ And that's it! You've successfully completed your first network request. Congrat
 step, I encourage you to read Apple's documentation and learn more about the subject. I've provided
 you with a lot of links, so have at it.
 
-If you have any question about anything in this article, or just want to give me a feedback, please
-feel free to reach out to me on Twitter or Linkedin. Thank you very much for joining me. Great work,
-and see you next time! 🙋🏻‍♂️
+If you have any questions, please feel free to reach out to me on Twitter or Linkedin. Thank you
+very much for joining me. Great work, and see you next time! 🙋🏻‍♂️
 
 [myGithubProject]: https://github.com/viictorcamposs/bytecoin-app
 [WhatIsAnAPI]: https://www.freecodecamp.org/news/what-is-an-api-in-english-please-b880a3214a82/
