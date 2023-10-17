@@ -37,7 +37,10 @@ from the [CoinAPI][CoinAPI] following four simple steps:
 - **Step 3:** Give URLSession a task
 - **Step 4:** Start the task
 
-{/* Note: if they don't have a project to follow along, they can create a new playground in XCode */}
+<ArticleNote important>
+  If you're not currently working on a project, you can create a **playground** blank file in Xcode
+  to follow along with this tutorial. Just make sure you import the _Foundation_ framework.
+</ArticleNote>
 
 ### Setting Up
 
@@ -48,7 +51,8 @@ creating an instance of this structure, you'll notice that the same method can b
 parameters. In our case, we'll initialize it using only the _string_ param.
 
 ```swift showLineNumbers /URL(string: urlString)/
-let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
+let urlString =
+  "https://rest.coinapi.io/v1/exchangerate/BTC/BRL?apikey=YOUR-API-KEY"
 
 if let url = URL(string: urlString) {
 
@@ -62,8 +66,9 @@ if let url = URL(string: urlString) {
 
 In the next step we create and configure a session for our network request.
 
-```swift showLineNumbers {4}
-let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
+```swift showLineNumbers {5}
+let urlString =
+  "https://rest.coinapi.io/v1/exchangerate/BTC/BRL?apikey=YOUR-API-KEY"
 
 if let url = URL(string: urlString) {
   let session = URLSession(configuration: .default)
@@ -86,20 +91,17 @@ Now that we have our URLSession set up and ready to go, it's time to assign a ta
 supports three key types of tasks:
 
 - **Data tasks:** send and receive data; intended for short, often interactive requests
-- **Download tasks:** for scenarios where you want to download large files, and saved them to the device's storage
+- **Download tasks:** for scenarios where you want to download large files, and save them to the device's storage
 - **Upload tasks:** typically used in scenarios like sending user-generated content or files to a server
 
 These are the most commonly used tasks. We also have WebSocket and Stream tasks, but they're used in
 more advanced scenarios, so for now, I won't talk about them.
 
-{/* Note: Swift provides for us a shared session with a good default configuration for most tasks and suitable */}
-{/* for most common use cases. We could've used it in our case, but for learning purposes I've opted */}
-{/* for creating an instance with the configuration object. */}
-
 **Implementing a data task for our session:**
 
-```swift showLineNumbers {6-8}
-let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
+```swift showLineNumbers {7-9}
+let urlString =
+  "https://rest.coinapi.io/v1/exchangerate/BTC/BRL?apikey=YOUR-API-KEY"
 
 if let url = URL(string: urlString) {
   let session = URLSession(configuration: .default)
@@ -110,16 +112,17 @@ if let url = URL(string: urlString) {
 }
 ```
 
-- We use the _"dataTask(with: URL, completionHandler:)"_ method, implementing the _"completionHandler:"_
+- We use the _dataTask(with: URL, completionHandler:)_ method, implementing the _completionHandler:_
   function with a [closure][swiftClosure]
 
 #### Step 4: Start the task
 
 The task we added to our session initially has a suspended state, which means that it's waiting
-for us to start it. We do this by calling its _"resume()"_ method.
+for us to start it. We do this by calling its _resume()_ method.
 
-```swift showLineNumbers {10}
-let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
+```swift showLineNumbers {11}
+let urlString =
+  "https://rest.coinapi.io/v1/exchangerate/BTC/BRL?apikey=YOUR-API-KEY"
 
 if let url = URL(string: urlString) {
   let session = URLSession(configuration: .default)
@@ -136,10 +139,12 @@ And, once we've done starting the task, we're able to continue and handle the re
 
 ### Handling response
 
-When we print the data returned from the _"dataTask()"_ method, we won't be able to see its contents.
+When we print the data returned from the _dataTask()_ method, it'll not be possible for us to see
+its content.
 
-```swift showLineNumbers {10-11}
-let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
+```swift showLineNumbers {11-12}
+let urlString =
+  "https://rest.coinapi.io/v1/exchangerate/BTC/BRL?apikey=YOUR-API-KEY"
 
 if let url = URL(string: urlString) {
   let session = URLSession(configuration: .default)
@@ -179,8 +184,9 @@ struct CoinData: Decodable {
 
 **Parse JSON with the native JSONDecoder**
 
-```swift showLineNumbers {8-17}
-let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
+```swift showLineNumbers {9-18}
+let urlString =
+  "https://rest.coinapi.io/v1/exchangerate/BTC/BRL?apikey=YOUR-API-KEY"
 
 if let url = URL(string: urlString) {
   let session = URLSession(configuration: .default)
@@ -195,7 +201,7 @@ if let url = URL(string: urlString) {
           from: safeData
         )
       } catch {
-
+        print(error)
       }
     }
   }
@@ -213,8 +219,9 @@ if let url = URL(string: urlString) {
 Now, if we try to access the _decodedData_ constant, we'll be able to get the _rate_ and _asset_id_quote_
 properties we extracted from the API JSON response.
 
-```swift showLineNumbers {16-20}
-let urlString = "https://rest.coinapi.io/v1/exchangerate/BTC/BRL"
+```swift showLineNumbers {17-21}
+let urlString =
+  "https://rest.coinapi.io/v1/exchangerate/BTC/BRL?apikey=YOUR-API-KEY"
 
 if let url = URL(string: urlString) {
   let session = URLSession(configuration: .default)
@@ -235,7 +242,7 @@ if let url = URL(string: urlString) {
         //  asset_id_quote: "BRL"
         // )
       } catch {
-
+        print(error)
       }
     }
   }
@@ -264,3 +271,4 @@ and see you next time! 🙋🏻‍♂️
 [urlBackgroundSession]: https://developer.apple.com/documentation/foundation/urlsessionconfiguration/1407496-background
 [swiftClosure]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/
 [urlStructure]: https://developer.apple.com/documentation/foundation/url
+[sharedSession]: https://developer.apple.com/documentation/foundation/urlsession/1409000-shared
