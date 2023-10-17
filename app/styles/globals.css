@@ -19,7 +19,7 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     min-height: 100vh;
 
-    font-familty: var(--font-inter);
+    font-family: var(--font-inter);
   }
 
   h1,
