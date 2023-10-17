@@ -20,7 +20,7 @@ interface IHero {
 
 const container = `
   relative aspect-video xl:w-full xl:h-[100vh]
-  py-4 px-5 sm:px-10 mb-8 md:mb-12 xl:mb-16
+  py-4 px-5 sm:px-10 xl:px-20 mb-8 md:mb-12 xl:mb-16
   flex items-end sm:items-center sm:justify-center
   sm:rounded-lg overflow-hidden
   after:absolute after:bottom-0
