@@ -7,7 +7,8 @@ export const runtime = 'edge'
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
-  const title = searchParams.get('title')!
+  let title = searchParams.get('title')!
+  title = title.replaceAll('40SC04', ':')
 
   const [image, poppins] = await Promise.all([
     fetch(new URL('../../assets/preview.png', import.meta.url)).then(res => res.arrayBuffer()),

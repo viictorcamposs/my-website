@@ -33,6 +33,8 @@ export async function generateMetadata({ params: { slug } }: IProps): Promise<Me
     }
   }
 
+  const title = post.title.replaceAll(':', '40SC04')
+
   return {
     title: post.title,
     description: post.description,
@@ -47,7 +49,7 @@ export async function generateMetadata({ params: { slug } }: IProps): Promise<Me
       type: 'article',
       images: [
         {
-          url: `/og?title=${post.title}`,
+          url: `/og?title=${title}`,
           width: 844,
           height: 440,
           alt: post.title
