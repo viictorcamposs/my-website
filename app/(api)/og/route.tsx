@@ -27,7 +27,7 @@ export async function GET(request: Request) {
       <div tw="relative flex">
         <img src={image as unknown as string} width={844} height={440} />
 
-        <div tw="absolute w-full h-full flex items-center justify-center">
+        <div tw="absolute w-full h-full flex items-center justify-center text-center px-10">
           <span
             tw={`text-zinc-200 relative top-[68px] ${fontSize}`}
             style={{ fontFamily: 'Poppins' }}
