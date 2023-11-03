@@ -17,10 +17,9 @@
         image: louvre-museum-at-paris-france-EitiaUwmD-8
 ---
 
-When we begin to study Swift, we come across structures and classes, and at first, it might be a
-little hard to understand them because they are very similar to one another and they can do pretty
-much the same thing. But if you head to Apple's documentation, is recommended to prefer using
-structures instead of classes. Why is that?
+As a beginner in Swift, structures and classes might be a little hard to understand because they are
+very similar to one another and they can do pretty much the same thing. But if you head to Apple's
+documentation, is recommended to prefer using structures instead of classes. Why is that?
 
 In this article I'd like to answer this question, explain what I've learned are the main
 differences between classes and structures and how to choose which one to use.
@@ -33,13 +32,12 @@ differences between classes and structures and how to choose which one to use.
 
 ### Overview
 
-In Swift, both classes and structs are like a blueprint for creating objects or types. Whenever you
-want to define a new type of something, we use classes or structures to do it. Let's put this into
-code by creating a developer type.
+In Swift, classes and structs are like a blueprint for creating objects or types. As I've said,
+they are very similar, and both of them can define properties to store value and methods to provide
+functionality.
 
-As I've said, and I know I'm being repetitive about this, they are very similar. So both of them can
-define properties to store value and methods to provide functionality. They have a lot more in common,
-but let's stick with the basics here.
+[They have a lot more in common][classandstructures], but let's stick with the basics here and put
+this into code by creating a developer type.
 
 ```swift showLineNumbers
 class Developer {
@@ -56,7 +54,7 @@ struct Developer {
 ```
 
 - Whenever you create a class or structure, you're defining a new Swift type. As every Swift type,
-  we use _UpperCamelCase_ names to match Swift standards.
+  we use _UpperCamelCase_ naming to match Swift standards.
 
 **Creating new instances**
 
@@ -160,8 +158,8 @@ print(myTemplate.numberOfSlides) // 6
 
 #### Inheritance
 
-Inheritance is a fundamental behavior that differentiates classes from structures. Basically,
-a class can _inherit_ methods and properties from another class.
+[Inheritance][inheritance] is a fundamental behavior that differentiates classes from structures.
+Basically, a class can _inherit_ methods and properties from another class.
 
 Let's create a class called _Developer_ and add some properties and methods for it.
 
@@ -182,7 +180,7 @@ Then, we will create a class called _TechLead_. This class will have everything 
 _Developer_ has by inheriting from it, and we can check this by accessing a method or property
 from the _Developer_ class.
 
-```swift showLineNumbers
+```swift showLineNumbers /Developer/ {3-4}
 class TechLead: Developer {}
 
 TechLead().introduce()
@@ -191,9 +189,10 @@ TechLead().introduce()
 
 - In this case, TechLead is a _subclass_ of the _superclass_ Developer.
 
-Not only a subclass can inherit from the superclass, but can also override its properties and methods.
+Not only a subclass can inherit from the superclass, but also provide its own custom implementation
+for the inherited methods and properties. This is known as _overriding_.
 
-```swift showLineNumbers
+```swift showLineNumbers {10-13}
 class Developer {
 	var skills = ["Write code"]
 
@@ -217,25 +216,47 @@ TechLead().introduce()
 // "Also, I lead a team of developers."
 ```
 
+In this case, we've used the existing superclass implementation as part of our override. But we
+could've totally changed the behavior of the method by removing _super.introduce()_ from our
+function.
+
+```swift showLineNumbers {10-11}
+class TechLead: Developer {
+	override func introduce() {
+		print("I'm a Tech Leader and I manage a team of developers")
+	}
+}
+
+Developer().introduce()
+// "I'm a software engineer and I can write code."
+
+TechLead().introduce()
+// "I'm a Tech Leader and I manage a team of developers"
+```
+
 ### Which one to use
 
-As I've mentioned, Apple's documentation tells us to prefer using structures, rather than classes.
-In Swift, structures include many features that are limited to classes in other languages. On top
-of that, structs are simpler to use, they're faster, we have less memory leaks, etc.
+As I've mentioned, [Apple's documentation recommends using structures over classes][structsbydefault].
+Now, on top of the fact that structs include many features limited to classes in other languages,
+they're also simpler to use, faster, and result in less memory leaks.
 
-So if you have doubt in which one to use, go with struct by default and change to class if you
-realize you need the features that only classes provide you, like inheritance.
+So, whenever you have doubt about which one to use, go with struct and consider switching to a
+class if you realize that you need features only classes can provide, like inheritance.
 
 ### Conclusion
 
 Michael Jordan onde said: _"Once you've got the fundamentals down, you've got a solid foundation
-to build on."_ That's the purpose of this article, help you work the fundamentals and start building
-the foundation for coding great applications.
+to build on."_ That's the purpose of this article: to help you work the fundamentals and start
+building the foundation for coding great applications.
 
 But let's be honest here, this is far from being enough. As seen in the last section,
-there's a lot more for you (for me as well) to study and understand about structures and classes
-in Swift. Why there's less memory leaks using structs? Why are they faster?
+there's a lot more for you (and for me as well) to explore and understand about structures and
+classes in Swift. Why do structs result in fewer memory leaks? Why are they faster?
 
-These are questions that by design weren't covered in here but they're great next steps for us to
-follow. So I will do my part from here and I trully hope that you do yours from there.
+These are questions that, by design, weren't covered in here but they're great next steps for us to
+explore. So I'll do my part from here and I truly hope that you'll do yours from there.
 Great work, and see you next time! 🙋🏻‍♂️
+
+[inheritance]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/inheritance
+[classandstructures]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures/#Comparing-Structures-and-Classes
+[structsbydefault]: https://developer.apple.com/documentation/swift/choosing-between-structures-and-classes#Choose-Structures-by-Default
