@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import type { Post } from 'contentlayer/generated'
 
-import ListArticleHovered from './ListArticleHovered'
+import ArticleHovered from '../ArticleHovered'
 
 interface IListArticles {
   articles: Post[]
@@ -20,7 +20,7 @@ export default function ListArticles({ articles: data }: IListArticles) {
   return (
     <ul className="flex flex-col">
       {articles.map((article, idx) => (
-        <ListArticleHovered key={article._id} index={idx}>
+        <ArticleHovered key={article._id} index={idx}>
           <Link href={`/${article.slug}`}>
             <div
               className={
@@ -44,7 +44,7 @@ export default function ListArticles({ articles: data }: IListArticles) {
               </span>
             </div>
           </Link>
-        </ListArticleHovered>
+        </ArticleHovered>
       ))}
     </ul>
   )

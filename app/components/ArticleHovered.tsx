@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import type { HTMLMotionProps } from 'framer-motion'
 
-function ListArticleAnim(props: HTMLMotionProps<'span'>) {
+function ArticleAnim(props: HTMLMotionProps<'span'>) {
   return (
     <motion.span
       {...props}
@@ -21,12 +21,12 @@ function ListArticleAnim(props: HTMLMotionProps<'span'>) {
   )
 }
 
-interface IListArticleHovered extends HTMLMotionProps<'span'> {
+interface IArticleHovered extends HTMLMotionProps<'span'> {
   index: number
   children: React.ReactNode
 }
 
-export default function ListArticleHovered({ index, ...props }: IListArticleHovered) {
+export default function ArticleHovered({ index, ...props }: IArticleHovered) {
   const [hovered, setHovered] = useState<number | string>('')
 
   const isHovered = index === hovered
@@ -36,10 +36,10 @@ export default function ListArticleHovered({ index, ...props }: IListArticleHove
       {...props}
       onHoverStart={() => setHovered(index)}
       onHoverEnd={() => setHovered('')}
-      className="relative"
+      className="relative list-none"
     >
       {isHovered && (
-        <ListArticleAnim
+        <ArticleAnim
           layoutId="listArticle"
           initial={{ opacity: 0.7 }}
           animate={{ opacity: 1 }}
