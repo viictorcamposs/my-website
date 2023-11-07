@@ -2,7 +2,7 @@
   type: Post
   title: 'Swift for Beginners: Structures vs Classes'
   description: Fundamental differences between structures and classes. Learn when to use each, and key concepts for building efficient Swift applications.
-  releaseDate: '2023-11-2'
+  releaseDate: '2023-11-6'
   keywords: 
     - Swift
     - Mobile
@@ -18,11 +18,9 @@
 ---
 
 As a beginner in Swift, structures and classes might be a little hard to understand because they are
-very similar to one another and they can do pretty much the same thing. But if you head to Apple's
-documentation, is recommended to prefer using structures instead of classes. Why is that?
-
-In this article I'd like to answer this question, explain what I've learned are the main
-differences between classes and structures and how to choose which one to use.
+very similar to one another and they can do pretty much the same thing. In this article I'd like
+to give you a brief explanation of what I've learned are the main differences between classes and
+structures and how to choose which one to use.
 
 {/* <ArticleNote> */}
 {/* If you're just a beginner in Swift and not in programming in general, you may already know what */}
@@ -236,8 +234,8 @@ TechLead().introduce()
 
 ### Which one to use
 
-As I've mentioned, [Apple's documentation recommends using structures over classes][structsbydefault].
-Now, on top of the fact that structs include many features limited to classes in other languages,
+If you check Swift doc, [Apple recommends using structures over classes][structsbydefault].
+On top of the fact that structs include many features limited to classes in other languages,
 they're also simpler to use, faster, and result in less memory leaks.
 
 So, whenever you have doubt about which one to use, go with struct and consider switching to a
@@ -245,13 +243,13 @@ class if you realize that you need features only classes can provide, like inher
 
 ### Conclusion
 
-Michael Jordan onde said: _"Once you've got the fundamentals down, you've got a solid foundation
-to build on."_ That's the purpose of this article: to help you work the fundamentals and start
-building the foundation for coding great applications.
+Michael Jordan onde said: _"Get the fundamentals down and the level of everything you do will rise."
+_ That's the purpose of this article: to help you work the fundamentals and start building the
+foundation for coding great applications.
 
-But let's be honest here, this is far from being enough. As seen in the last section,
-there's a lot more for you (and for me as well) to explore and understand about structures and
-classes in Swift. Why do structs result in fewer memory leaks? Why are they faster?
+But this is far away from being enough. As seen in the last section, there's a lot more for you
+(and for me as well) to explore and understand about structures and classes in Swift. Why do
+structs result in fewer memory leaks? Why are they faster?
 
 These are questions that, by design, weren't covered in here but they're great next steps for us to
 explore. So I'll do my part from here and I truly hope that you'll do yours from there.
